@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom"; 
-import * as SessionApiUtil from "./util/session_api_util";
+import * as SessionActions from "./actions/session_actions";
 import configureStore from "./store/store";
 
 document.addEventListener("DOMContentLoaded", () => { 
@@ -8,9 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const store = configureStore(); 
 
     // testing
-    window.login = SessionApiUtil.login;
-    window.signup = SessionApiUtil.signup; 
-    window.logout = SessionApiUtil.logout;
+    window.login = SessionActions.login;
+    window.signup = SessionActions.signup; 
+    window.logout = SessionActions.logout;
     window.getState = store.getState;
     window.dispatch = store.dispatch;
     // end of testing
