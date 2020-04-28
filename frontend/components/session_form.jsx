@@ -1,5 +1,5 @@
 import React from "react"; 
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 class SessionForm extends React.Component { 
     constructor(props) { 
@@ -40,28 +40,54 @@ class SessionForm extends React.Component {
         }
 
         return (
-            <form onSubmit={e => this.handleSubmit(e)}>
+            <div className="user-auth-background">
 
-                {(this.props.errors) ? this.props.errors.map((error, i)=> <p key={i}>{error}</p>) : <></>}
+                <div className="user-auth">
+                    <Link className="user-auth-exit" to="/"><h1>X</h1></Link>
 
-                <h1>{title}</h1>
+                    <div className="user-auth-text">
+                        <h3>SMEARGLE'S HEART</h3>
+                        <h1>JOIN THE LARGEST CREATIVE BRAIN IN THE REGION</h1>
+                        <p>Whether you want to buy or sell creativity, become a better imaginator, or enjoy the imaginations – you can do it all here.</p>
+                    </div>
 
-                <Link to={link}>{linkText}</Link>
-                <br />
-                <label>Username 
-                    <input type="text" value={this.state.username} onChange={this.updateField("username")} />
-                </label>  
 
-                <label>Email
-                    <input type="text" value={this.state.email} onChange={this.updateField("email")} />
-                </label>   
+                    <form onSubmit={e => this.handleSubmit(e)} className="user-auth-form">
 
-                <label>Password
-                    <input type="password" value={this.state.password} onChange={this.updateField("password")} />
-                </label>        
+                        {(this.props.errors) ? this.props.errors.map((error, i)=> <p key={i}>{error}</p>) : <></>}
 
-                <input type="submit" value={title} />        
-            </form>
+                        <div>
+                            <h1>{title}</h1>
+                            <Link to={link}>{linkText}</Link>
+                        </div>
+
+                        <div>
+                            {/* <label>Username  */}
+                                <input type="text" value={this.state.username} onChange={this.updateField("username")} placeholder=" Username" />
+                            {/* </label>   */}
+
+                            <br />
+
+                            {(this.props.formType === "signup") ? (
+                                    // <label>Email
+                                        <input type="text" value={this.state.email} onChange={this.updateField("email")} placeholder=" Email" />
+                                    // </label> 
+                                ) : <></>
+                            }
+
+                            <br />
+
+                            {/* <label>Password */}
+                                <input type="password" value={this.state.password} onChange={this.updateField("password")} placeholder="Password" />
+                            {/* </label>         */}
+                        </div>
+
+                        {/* <input type="submit" value={title} className="user-auth-button" />         */}
+                        <button className="user-auth-button">{title.toUpperCase()}</button> 
+                    </form>
+
+                </div>
+            </div>
         )
     }
 }
