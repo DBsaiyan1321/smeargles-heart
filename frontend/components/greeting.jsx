@@ -4,20 +4,25 @@ import { Link } from "react-router-dom";
 
 const Greeting = props => {
     return (
-        (props.currentUser) ? (
-            <div> 
-                <h1>Smeargle's Heart</h1>
-                <h2>Welcome {props.currentUser.username}</h2>
-                <button onClick={() => props.logout()}>Logout</button>
+        <div className="main-nav-bar"> 
+            <div className="main-nav-bar-top-left">
+                <img src="/assets/Smeargle-Head.png" alt="logo" className="main-nav-bar-logo" />
+                <h1>SMEARGLE'S HEART</h1>
             </div>
-        ) : (
-            <div> 
-                <h1>Smeargle's Heart</h1>
-                <Link to="/login">Login</Link>
-                <br />
-                <Link to="/signup">Sign Up</Link>
-            </div>
-        )
+            <div className="right-vertical-bar"></div>
+            {(props.currentUser) ? (
+                <div className="main-nav-bar-content">
+                    <h2 className="main-nav-bar-element">Welcome {props.currentUser.username}</h2>
+                    <button className="main-nav-bar-element" onClick={() => props.logout()}>LOGOUT</button>
+                </div>
+            ) : (
+                <div className="main-nav-bar-content">
+                    <Link to="/login" className="main-nav-bar-element">LOG IN</Link>
+                    <br />
+                    <Link to="/signup" className="main-nav-bar-element right-vertical-bar">SIGN UP</Link>
+                </div>
+            )}
+        </div>
     );
 };
 

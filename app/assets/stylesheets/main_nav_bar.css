@@ -1,0 +1,54 @@
+.main-nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 54px;
+    font-family: 'Baloo Tamma 2', Arial, Helvetica, sans-serif;
+    padding: 10px;
+    box-shadow: 0px 1px 10px rgba(255, 0, 0, 0.5);
+}
+
+.main-nav-bar h1 {
+    width: 100px;
+    font-size: 17px;
+    line-height: 13px;
+    /* font-family: 'Fredoka One', cursive; */
+    font-family: 'Concert One', cursive;
+    font-weight: bold;
+    height: inherit;
+}
+
+.main-nav-bar-logo {
+    width: 40px;
+    height: 40px;
+}
+
+.main-nav-bar-content { 
+    display: flex;
+    width: 84%;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+    height: inherit;
+}
+
+.main-nav-bar-element {
+    padding: 0px 15px;
+    font-size: 15px;
+    font-weight: bolder;
+    text-decoration: none;
+    color: #606070;
+    border: none;
+    font-family: inherit;
+}
+
+.right-vertical-bar {
+    border-right: 1px solid rgb(180, 180, 180);
+    height: 26px;
+}
+
+.main-nav-bar-top-left { 
+    display: flex;
+    width: 16%;
+    align-items: center;
+}
