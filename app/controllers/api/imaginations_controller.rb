@@ -1,15 +1,27 @@
 class Api::ImaginationsController < ApplicationController
 
-    def index 
-        @imaginations = Imagination.all 
+    def index # Good
+        if (params[:user_id]) 
+            @imaginations = User.find(params[:user_id]).imaginations 
+        else  
+            @imaginations = Imagination.all 
+        end
 
         render "api/imaginations/index"
     end 
 
-    def show
+    def show # Good
+        user = User.find_by(id: params[:user_id])
+        @imagination = Imagination.find(params[:id])
+
+        if (user.id == @imagination.artist_id) && @imagination
+            render "api/imaginations/show"
+        else  
+            render json: ["User or imagination does not exist"], status: 404
+        end 
     end
 
-    def create 
+    def create # Good
         @imagination = Imagination.new(imagination_params)
 
         if @imagination.save
@@ -19,7 +31,7 @@ class Api::ImaginationsController < ApplicationController
         end 
     end 
 
-    def update
+    def update # Needs fixing
         @imagination = Imagination.find(params[:id])
 
         if @imagination && @imagination.update(imagination_params)
@@ -29,13 +41,13 @@ class Api::ImaginationsController < ApplicationController
         end 
     end 
 
-    def delete
+    def delete # Didn't test yet
         @imagination = Imagination.find(params[:id])
 
         if @imagination && @imagination.delete
             render "api/imaginations/index"
         else  
-            render json: ["Imagination not found"], status: 422
+            render json: ["Imagination not found"], status: 404
         end 
     end  
 

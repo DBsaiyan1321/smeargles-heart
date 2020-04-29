@@ -11,4 +11,10 @@
 #
 class Imagination < ApplicationRecord
     validates :title, :description, :artist_id, presence: true
+
+    belongs_to :user,
+        primary_key: :id, 
+        foreign_key: :artist_id, 
+        class_name: :User 
+        
 end
