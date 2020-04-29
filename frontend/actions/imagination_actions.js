@@ -23,13 +23,13 @@ const removeImagination = imaginationId => ({
 export const fetchImaginations = () => dispatch => {
     return ImaginationAPIUtil.fetchImaginations()
         .then(imaginations => dispatch(receiveImaginations(imaginations)))
-        .fail(errors => dispatch(receiveErrors(errors)))
+        // .fail(errors => dispatch(receiveErrors(errors)))
 };
 
 export const fetchImagination = imaginationId => dispatch => {
     return ImaginationAPIUtil.fetchImagination(imaginationId)
         .then(imagination => dispatch(receiveImagination(imagination)))
-        .fail(errors => dispatch(receiveErrors(errors)))
+        // .fail(errors => dispatch(receiveErrors(errors)))
 };
 
 export const createImagination = imagination => dispatch => {
@@ -47,5 +47,5 @@ export const updateImagination = imagination => dispatch => {
 export const deleteImagination = imaginationId => dispatch => {
     return ImaginationAPIUtil.deleteImagination(imaginationId)
         .then(() => dispatch(removeImagination(imaginationId)))
-        .fail(errors => dispatch(receiveErrors(errors)))
+        // .fail(errors => dispatch(receiveErrors(errors)))
 };

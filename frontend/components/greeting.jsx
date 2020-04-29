@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ImaginationIndexContainer from "./imaginations/imagination_index_container";
 
 
 const Greeting = props => {
@@ -32,6 +33,7 @@ const Greeting = props => {
                     </div>
                 </div>
             )}
+            <ImaginationIndexContainer />
         </div>
     );
 };
