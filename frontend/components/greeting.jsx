@@ -10,6 +10,7 @@ const Greeting = props => {
                 <h1>SMEARGLE'S HEART</h1>
             </div>
             <div className="vertical-bar"></div>
+
             {(props.currentUser) ? (
                 <div className="main-nav-bar-content">
                     <h2 className="main-nav-bar-element">Welcome {props.currentUser.username}</h2>
@@ -17,10 +18,18 @@ const Greeting = props => {
                 </div>
             ) : (
                 <div className="main-nav-bar-content">
-                    <Link to="/login" className="main-nav-bar-element">LOG IN</Link>
+                    {/* <div className="main-nav-bar-content"> */}
+                    <Link to="/signup" className="main-nav-bar-element">JOIN</Link>
                     <br />
-                    <Link to="/signup" className="main-nav-bar-element">SIGN UP</Link>
+                    <Link to="/login" className="main-nav-bar-element">LOG IN</Link>
                     <div className="vertical-bar"></div>
+                    {/* </div> */}
+                    <div className="bottom-bar">
+                        <p>Join the most creative mind you will ever witness.</p>
+                        <Link to="/login" className="bottom-bar-element bb-l">LOG IN</Link>
+                        <br />
+                        <Link to="/signup" className="bottom-bar-element bb-s">JOIN</Link>
+                    </div>
                 </div>
             )}
         </div>

@@ -31,7 +31,7 @@ class SessionForm extends React.Component {
         this.setState({ username: "Demo_User", password: "demouser" })
     }
 
-    componentWillUnmount() { // Am I allowed to do this? I'm pretty much changing props directly, which I know is not good.
+    componentWillUnmount() { 
         this.props.clearErrors()
     }
 
@@ -55,6 +55,7 @@ class SessionForm extends React.Component {
                 <div className="user-auth">
                     <Link className="user-auth-exit" to="/"><h1>X</h1></Link>
 
+
                     <div className="user-auth-text">
                         {/* <Link to="/"> */}
                             <div className="top-text">
@@ -65,6 +66,7 @@ class SessionForm extends React.Component {
                         <h1>JOIN THE LARGEST CREATIVE BRAIN IN THE REGION</h1>
                         <p>Whether you want to buy or sell creativity, become a better imaginator, or enjoy the imaginations – you can do it all here.</p>
                     </div>
+                    
 
 
                     <form onSubmit={e => this.handleSubmit(e)} className="user-auth-form">
@@ -97,6 +99,8 @@ class SessionForm extends React.Component {
                             <br /> 
                         </div> 
                     ) : <></>}
+
+
 
                         <div className="buttons">
                             <button className="user-auth-button submit">{title.toUpperCase()}</button> 

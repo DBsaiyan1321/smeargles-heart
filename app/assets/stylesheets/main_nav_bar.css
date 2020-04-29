@@ -63,3 +63,42 @@
     height: 26px;
 }
 
+/******************************************************************************/
+
+.bottom-bar { 
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    background-color: rgb(0, 90, 207);
+    display: flex;
+    left: 0px;
+    height: 56px;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.bottom-bar p { 
+    margin: 0px 40px 0px 0px;
+    color: white;
+}
+
+.bottom-bar-element { 
+    text-decoration: none;
+    margin: 0px 5px;
+    border: 1px solid white;
+    padding: 5px 25px;
+}
+
+.bottom-bar-element:visited { 
+    text-decoration: none;
+}
+
+.bb-l { 
+    color: white;
+}
+
+.bb-s { 
+    color: black;
+    background-color: rgb(253, 240, 55);
+}
