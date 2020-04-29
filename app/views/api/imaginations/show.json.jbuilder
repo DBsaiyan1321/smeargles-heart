@@ -1,0 +1,1 @@
+json.extract! @imagination, :id, :title, :description, :artist_id
