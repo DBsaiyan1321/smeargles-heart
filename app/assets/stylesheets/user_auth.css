@@ -1,3 +1,17 @@
+.user-auth-background { 
+    width: 100%;
+    height: 100vh;
+    /* background: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 85)); */
+    background: linear-gradient(rgb(80, 73, 11), rgb(0, 0, 85));
+    display: flex;
+    justify-content: center;
+    /* background-image: url(window.eeveeURL); */
+    background-size: 100%;
+    align-items: center;
+}
+
+/******************************************************************************/
+
 .user-auth { 
     position: relative;
     display: flex;
@@ -5,6 +19,67 @@
     height: 688px;
     font-family: 'Baloo Tamma 2', Arial, Helvetica, sans-serif;
 }
+
+.user-auth-exit {
+    position: absolute;
+    right: 13px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    font-family: inherit;
+}
+
+.user-auth-exit:visited { 
+    color: black;
+    font-family: inherit;
+}
+
+/******************************************************************************/
+
+.user-auth-text { 
+    width: 49%;
+    /* width: 380px; */
+    height: 688px; 
+    background: radial-gradient(rgb(0, 29, 73), rgb(75, 0, 75));
+    color: white;
+    padding: 40px 75px 40px 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: 'Baloo Tamma 2', Arial, Helvetica, sans-serif;
+}
+
+.top-text { 
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+}
+
+.top-text h3 {
+    width: 100px;
+    font-size: 25px;
+    line-height: 21px;
+    /* font-family: 'Fredoka One', cursive; */
+    font-family: 'Concert One', cursive;
+    font-weight: bold;
+    height: inherit;
+}
+
+.user-auth-text h1 { 
+    font-size: 50px; 
+    line-height: 50px;
+}
+
+.user-auth-text p {
+    font-size: 13px;
+    font-weight: 100;
+}
+
+/******************************************************************************/
 
 .user-auth-form { 
     display: flex;
@@ -18,15 +93,28 @@
     font-family: 'Baloo Tamma 2', Arial, Helvetica, sans-serif;
 }
 
-.user-auth-form div input { 
+/******************************************************************************/
+
+.user-auth-title-container h1 { 
+    height: 40px; 
+}
+
+.user-auth-link { 
+    text-decoration: none;
+    color: #0289FF;
+}
+
+/******************************************************************************/
+
+.user-auth-input-container input { 
     border: none;
     border-bottom: 1px solid rebeccapurple;
     width: 100%;
     height: 30px;
 }
 
-.user-auth-form div input,
-.user-auth-form div input::-webkit-input-placeholder {
+.user-auth-input-container input,
+.user-auth-input-container input::-webkit-input-placeholder {
     font-size: 20px;
     line-height: 3;
     font-family: inherit;
@@ -39,49 +127,7 @@ button:focus {
     outline: none;
 }
 
-.user-auth-text { 
-    width: 49%;
-    /* width: 380px; */
-    height: 688px; 
-    background: radial-gradient(rgb(0, 29, 73), rgb(75, 0, 75));
-    color: white;
-    padding: 40px 75px 40px 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-family: 'Baloo Tamma 2', Arial, Helvetica, sans-serif;
-}
-
-.user-auth-text h1 { 
-    font-size: 50px; 
-    line-height: 50px;
-}
-
-.user-auth-text p {
-    font-size: 13px;
-    font-weight: 100;
-}
-
-.user-auth-background { 
-    width: 100%;
-    height: 100vh;
-    /* background: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 85)); */
-    background: linear-gradient(rgb(80, 73, 11), rgb(0, 0, 85));
-    display: flex;
-    justify-content: center;
-    /* background-image: url(window.eeveeURL); */
-    background-size: 100%;
-    align-items: center;
-}
-
-.user-auth-exit {
-    position: absolute;
-    right: 13px;
-    cursor: pointer;
-    text-decoration: none;
-    color: black;
-    font-family: inherit;
-}
+/******************************************************************************/
 
 .user-auth-errors-container { 
     left: 480px;
@@ -94,20 +140,7 @@ button:focus {
     bottom: 164px;
 }
 
-.user-auth-exit:visited { 
-    color: black;
-    font-family: inherit;
-}
-
-.user-auth-button { 
-    width: 33%;
-    height: 100%;
-    border: none;
-    font-family: inherit;
-    font-size: 14px; 
-    font-weight: 900;
-    cursor: pointer;
-}
+/******************************************************************************/
 
 .buttons { 
     height: 12%;
@@ -116,8 +149,14 @@ button:focus {
     justify-content: space-between;
 }
 
-.demo {
-    background: linear-gradient(0.25turn, #fc7fe7, 10%, #ebf8e1, 55%,  rgb(147, 80, 255));
+.user-auth-button { 
+    width: 33%;
+    height: 100%;
+    border: none;
+    font-family: inherit;
+    font-size: 12px; 
+    font-weight: 900;
+    cursor: pointer;
 }
 
 .submit { 
@@ -126,31 +165,7 @@ button:focus {
                 linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
 }
 
-.user-auth-title-container h1 { 
-    height: 40px; 
+.demo {
+    background: linear-gradient(0.25turn, #fc7fe7, 10%, #ebf8e1, 55%,  rgb(147, 80, 255));
 }
 
-.user-auth-link { 
-    text-decoration: none;
-    color: #0289FF;
-}
-
-.logo {
-    width: 60px;
-    height: 60px;
-}
-
-.top-text { 
-    display: flex;
-    align-items: center;
-}
-
-.top-text h3 {
-    width: 100px;
-    font-size: 25px;
-    line-height: 21px;
-    /* font-family: 'Fredoka One', cursive; */
-    font-family: 'Concert One', cursive;
-    font-weight: bold;
-    height: inherit;
-}

@@ -12,7 +12,7 @@ class SessionForm extends React.Component {
 
         this.demo = this.demo.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this);
-        // this.componentWillUnmount = this.componentWillUnmount(this);
+        this.componentWillUnmount = this.componentWillUnmount(this);
     }
 
     handleSubmit(e) {
@@ -31,9 +31,9 @@ class SessionForm extends React.Component {
         this.setState({ username: "Demo_User", password: "demouser" })
     }
 
-    // componentWillUnmount() { // Am I allowed to do this? I'm pretty much changing props directly, which I know is not good.
-    //     this.props.errors = { session: [] }
-    // }
+    componentWillUnmount() { // Am I allowed to do this? I'm pretty much changing props directly, which I know is not good.
+        this.props.clearErrors()
+    }
 
     render() { 
         let title; 
@@ -58,7 +58,7 @@ class SessionForm extends React.Component {
                     <div className="user-auth-text">
                         {/* <Link to="/"> */}
                             <div className="top-text">
-                            <img src={window.smeargleURL} alt="logo" className="logo" />
+                                <img src={window.smeargleURL} alt="logo" className="logo" />
                                 <h3>SMEARGLE'S HEART</h3>
                             </div>
                         {/* </Link> */}
@@ -75,21 +75,21 @@ class SessionForm extends React.Component {
                         </div>
 
                         <div className="user-auth-input-container">
-                                <input type="text" value={this.state.username} onChange={this.updateField("username")} placeholder=" Username" />
+                            <input type="text" value={this.state.username} onChange={this.updateField("username")} placeholder=" Username" />
                             <br />
 
                             {(this.props.formType === "signup") ? (
-                                    <div>
-                                        <br />
-                                        <input type="text" value={this.state.email} onChange={this.updateField("email")} placeholder=" Email" />
-                                        <br />
-                                    </div>
+                                <div>
+                                    <br />
+                                    <input type="text" value={this.state.email} onChange={this.updateField("email")} placeholder=" Email" />
+                                    <br />
+                                </div>
                                 ) : <></>
                             }
 
                             <br />
 
-                                <input type="password" value={this.state.password} onChange={this.updateField("password")} placeholder="Password" />
+                            <input type="password" value={this.state.password} onChange={this.updateField("password")} placeholder="Password" />
                         </div>
                         {(this.props.errors) ? (
                         <div className="user-auth-errors-container"> 

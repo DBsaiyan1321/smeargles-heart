@@ -9,7 +9,7 @@ const Greeting = props => {
                 <img src={window.smeargleURL} alt="logo" className="main-nav-bar-logo" />
                 <h1>SMEARGLE'S HEART</h1>
             </div>
-            <div className="right-vertical-bar"></div>
+            <div className="vertical-bar"></div>
             {(props.currentUser) ? (
                 <div className="main-nav-bar-content">
                     <h2 className="main-nav-bar-element">Welcome {props.currentUser.username}</h2>
@@ -19,7 +19,8 @@ const Greeting = props => {
                 <div className="main-nav-bar-content">
                     <Link to="/login" className="main-nav-bar-element">LOG IN</Link>
                     <br />
-                    <Link to="/signup" className="main-nav-bar-element right-vertical-bar">SIGN UP</Link>
+                    <Link to="/signup" className="main-nav-bar-element">SIGN UP</Link>
+                    <div className="vertical-bar"></div>
                 </div>
             )}
         </div>
