@@ -1,23 +1,18 @@
 class Api::ImaginationsController < ApplicationController
 
     def index # Good
-        if (params[:user_id]) 
-            @imaginations = User.find(params[:user_id]).imaginations 
-        else  
-            @imaginations = Imagination.all 
-        end
+        @imaginations = Imagination.all 
 
         render "api/imaginations/index"
     end 
 
-    def show # Good
-        user = User.find_by(id: params[:user_id])
+    def show # I always get a 404 and my json doesn't render
         @imagination = Imagination.find(params[:id])
 
-        if (user.id == @imagination.artist_id) && @imagination
+        if @imagination
             render "api/imaginations/show"
         else  
-            render json: ["User or imagination does not exist"], status: 404
+            render json: ["Imagination does not exist"], status: 422
         end 
     end
 
@@ -31,7 +26,7 @@ class Api::ImaginationsController < ApplicationController
         end 
     end 
 
-    def update # Needs fixing
+    def update # # Same error as show when the post doesn't exist. 
         @imagination = Imagination.find(params[:id])
 
         if @imagination && @imagination.update(imagination_params)
@@ -41,11 +36,11 @@ class Api::ImaginationsController < ApplicationController
         end 
     end 
 
-    def delete # Didn't test yet
+    def destroy # Same error as show when the post doesn't exist. Its because the url doesn't exist I guess.
         @imagination = Imagination.find(params[:id])
 
         if @imagination && @imagination.delete
-            render "api/imaginations/index"
+            render json: {}
         else  
             render json: ["Imagination not found"], status: 404
         end 

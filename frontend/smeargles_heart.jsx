@@ -4,6 +4,8 @@ import * as SessionActions from "./actions/session_actions";
 import configureStore from "./store/store";
 import Root from "./components/root";
 
+import * as ImaginationAPIUtil from "./util/imagination_api_util";
+
 document.addEventListener("DOMContentLoaded", () => { 
     let store;
     if (window.currentUser) { 
@@ -29,6 +31,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // window.logout = SessionActions.logout;
     window.getState = store.getState;
     window.dispatch = store.dispatch;
+
+    window.fetchImaginations = ImaginationAPIUtil.fetchImaginations
+    window.fetchImagination = ImaginationAPIUtil.fetchImagination 
+    window.createImagination = ImaginationAPIUtil.createImagination
+    window.updateImagination = ImaginationAPIUtil.updateImagination
+    window.deleteImagination = ImaginationAPIUtil.deleteImagination
     // end of testing
 
     ReactDOM.render(<Root store={store} />, root)
