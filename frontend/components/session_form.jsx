@@ -10,7 +10,9 @@ class SessionForm extends React.Component {
             password: ""
         };
 
+        this.demo = this.demo.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this);
+        // this.componentWillUnmount = this.componentWillUnmount(this);
     }
 
     handleSubmit(e) {
@@ -24,6 +26,14 @@ class SessionForm extends React.Component {
             this.setState({ [field]: e.target.value });
         }
     }
+
+    demo() { 
+        this.setState({ username: "Demo_User", password: "demouser" })
+    }
+
+    // componentWillUnmount() { // Am I allowed to do this? I'm pretty much changing props directly, which I know is not good.
+    //     this.props.errors = { session: [] }
+    // }
 
     render() { 
         let title; 
@@ -44,13 +54,14 @@ class SessionForm extends React.Component {
 
                 <div className="user-auth">
                     <Link className="user-auth-exit" to="/"><h1>X</h1></Link>
-                    {(this.props.errors) ? this.props.errors.map((error, i) => <p key={i} className="user-auth-errors">{error}</p>) : <></>}
 
                     <div className="user-auth-text">
-                        <div className="top-text">
-                            <img src="/assets/Smeargle-Head.png/" alt="logo" className="logo" />
-                            <h3>SMEARGLE'S HEART</h3>
-                        </div>
+                        {/* <Link to="/"> */}
+                            <div className="top-text">
+                            <img src={window.smeargleURL} alt="logo" className="logo" />
+                                <h3>SMEARGLE'S HEART</h3>
+                            </div>
+                        {/* </Link> */}
                         <h1>JOIN THE LARGEST CREATIVE BRAIN IN THE REGION</h1>
                         <p>Whether you want to buy or sell creativity, become a better imaginator, or enjoy the imaginations – you can do it all here.</p>
                     </div>
@@ -60,7 +71,7 @@ class SessionForm extends React.Component {
 
                         <div className="user-auth-title-container">
                             <h1>{title}</h1>
-                            <Link to={link}>{linkText}</Link>
+                            <Link to={link} className="user-auth-link">{linkText}</Link>
                         </div>
 
                         <div className="user-auth-input-container">
@@ -80,8 +91,20 @@ class SessionForm extends React.Component {
 
                                 <input type="password" value={this.state.password} onChange={this.updateField("password")} placeholder="Password" />
                         </div>
+                        {(this.props.errors) ? (
+                        <div className="user-auth-errors-container"> 
+                            {this.props.errors.map((error, i) => <p key={i}>{error}</p>)}
+                            <br /> 
+                        </div> 
+                    ) : <></>}
 
-                        <button className="user-auth-button">{title.toUpperCase()}</button> 
+                        <div className="buttons">
+                            <button className="user-auth-button submit">{title.toUpperCase()}</button> 
+                            { (this.props.formType === "login") ? 
+                                <button className="user-auth-button demo" onClick={() => this.demo()}>DEMO USER</button> :
+                                <></>
+                            }
+                        </div>
                     </form>
 
                 </div>

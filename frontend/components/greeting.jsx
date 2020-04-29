@@ -6,7 +6,7 @@ const Greeting = props => {
     return (
         <div className="main-nav-bar"> 
             <div className="main-nav-bar-top-left">
-                <img src="/assets/Smeargle-Head.png" alt="logo" className="main-nav-bar-logo" />
+                <img src={window.smeargleURL} alt="logo" className="main-nav-bar-logo" />
                 <h1>SMEARGLE'S HEART</h1>
             </div>
             <div className="right-vertical-bar"></div>
