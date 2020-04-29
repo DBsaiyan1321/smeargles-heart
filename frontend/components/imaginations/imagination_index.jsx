@@ -8,11 +8,13 @@ class ImaginationIndex extends React.Component {
 
     render() { 
         return (
-            <ul>
-                {this.props.imaginations.map(imagination => {
-                    return <ImaginationIndexItem imagination={imagination} key={imagination.id} />
-                })}
-            </ul>
+            <div className="container"> 
+                <ul className="imaginations-index">
+                    {this.props.imaginations.map(imagination => {
+                        return <ImaginationIndexItem imagination={imagination} key={imagination.id} />
+                    })}
+                </ul>
+            </div>
         )
     }
 }

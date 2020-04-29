@@ -1,0 +1,24 @@
+.container { 
+    display: flex;
+    justify-content: center;
+    /* background-color: rgb(245, 245, 245); */
+    height: 100vh;
+    width: 100vw;
+}
+
+.imaginations-index { 
+    display: flex;
+    flex-wrap: wrap;
+    width: 95%;
+    min-width: 700px;
+    height: fit-content;
+    margin-top: 25px;
+}
+
+.imagination-index-item { 
+    background-color: rgb(173, 167, 255);
+    list-style: none;
+    margin: 5px;
+    height: 250px;
+    width: 300px;
+}
