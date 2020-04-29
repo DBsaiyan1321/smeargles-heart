@@ -4,7 +4,7 @@ import * as SessionActions from "./actions/session_actions";
 import configureStore from "./store/store";
 import Root from "./components/root";
 
-import * as ImaginationAPIUtil from "./util/imagination_api_util";
+import * as imaginationActions from "./actions/imagination_actions";
 
 document.addEventListener("DOMContentLoaded", () => { 
     let store;
@@ -32,11 +32,11 @@ document.addEventListener("DOMContentLoaded", () => {
     window.getState = store.getState;
     window.dispatch = store.dispatch;
 
-    window.fetchImaginations = ImaginationAPIUtil.fetchImaginations
-    window.fetchImagination = ImaginationAPIUtil.fetchImagination 
-    window.createImagination = ImaginationAPIUtil.createImagination
-    window.updateImagination = ImaginationAPIUtil.updateImagination
-    window.deleteImagination = ImaginationAPIUtil.deleteImagination
+    window.fetchImaginations = imaginationActions.fetchImaginations
+    window.fetchImagination = imaginationActions.fetchImagination 
+    window.createImagination = imaginationActions.createImagination
+    window.updateImagination = imaginationActions.updateImagination
+    window.deleteImagination = imaginationActions.deleteImagination
     // end of testing
 
     ReactDOM.render(<Root store={store} />, root)
