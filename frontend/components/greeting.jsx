@@ -17,6 +17,8 @@ const Greeting = props => {
                     <div className="main-nav-bar-content">
                         <h2 className="main-nav-bar-element">Welcome {props.currentUser.username}</h2>
                         <button className="main-nav-bar-element" onClick={() => props.logout()}>LOGOUT</button>
+                        <div className="vertical-bar"></div>
+                        <Link to="/new" className="main-nav-bar-element">SUBMIT</Link>
                     </div>
                 ) : (
                     <div className="main-nav-bar-content">
@@ -25,6 +27,7 @@ const Greeting = props => {
                         <br />
                         <Link to="/login" className="main-nav-bar-element">LOG IN</Link>
                         <div className="vertical-bar"></div>
+                        <Link to="/new" className="main-nav-bar-element">SUBMIT</Link>
                         {/* </div> */}
                         <div className="bottom-bar">
                             <p>Join the most creative mind you will ever witness.</p>
