@@ -106,15 +106,17 @@
 
 /******************************************************************************/
 
-.user-auth-input-container input { 
+.input { 
     border: none;
-    border-bottom: 1px solid rebeccapurple;
+    border-bottom: 1px solid #606070;;
     width: 100%;
     height: 30px;
+    transition-property: border-bottom;
+    transition-duration: 0.5s;
 }
 
-.user-auth-input-container input,
-.user-auth-input-container input::-webkit-input-placeholder {
+.input,
+.input::-webkit-input-placeholder {
     font-size: 20px;
     line-height: 3;
     font-family: inherit;
@@ -125,6 +127,10 @@ input:focus,
 textarea:focus,
 button:focus {
     outline: none;
+}
+
+.input:focus { 
+    border-bottom: 1px solid #4d4dff;
 }
 
 /******************************************************************************/

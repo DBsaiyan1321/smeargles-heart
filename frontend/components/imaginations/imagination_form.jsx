@@ -1,11 +1,11 @@
 import React from "react"; 
-import GreetingContainer from "../greeting_container";
+import MainNavBar from "../main_nav_bar"
 
 class ImaginationForm extends React.Component { 
     render() { 
         return ( 
             <div>
-                {/* <GreetingContainer /> */}
+                <MainNavBar currentUser={this.props.currentUser} logout={this.props.logout} />
                 <p>Imagination Form goes here</p>
             </div>
         )

@@ -54,6 +54,7 @@
 
 .main-nav-bar-element:hover { 
     cursor: pointer;
+    color: #000000;
 }
 
 /******************************************************************************/
@@ -69,7 +70,7 @@
     position: fixed;
     bottom: 0px;
     width: 100%;
-    background-color: rgb(0, 90, 207);
+    background-color: rgb(0, 0, 0);
     display: flex;
     left: 0px;
     height: 56px;
@@ -81,13 +82,18 @@
 .bottom-bar p { 
     margin: 0px 40px 0px 0px;
     color: white;
+    font-family: 'Baloo Tamma 2', Arial, Helvetica, sans-serif;
+    height: fit-content;
 }
 
 .bottom-bar-element { 
     text-decoration: none;
     margin: 0px 5px;
-    border: 1px solid white;
-    padding: 5px 25px;
+    padding: 7px 25px;
+    height: 40px;
+    width: 120px;
+    font-family: 'Baloo Tamma 2', Arial, Helvetica, sans-serif;
+    text-align: center;
 }
 
 .bottom-bar-element:visited { 
@@ -96,9 +102,15 @@
 
 .bb-l { 
     color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.bb-l:hover { 
+    border: 1px solid rgba(255, 255, 255, 1.0);
 }
 
 .bb-s { 
     color: black;
-    background-color: rgb(253, 240, 55);
+    background:#4d4dff;
 }
+

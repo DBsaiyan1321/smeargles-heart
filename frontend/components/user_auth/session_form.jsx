@@ -77,13 +77,13 @@ class SessionForm extends React.Component {
                         </div>
 
                         <div className="user-auth-input-container">
-                            <input type="text" value={this.state.username} onChange={this.updateField("username")} placeholder=" Username" />
+                            <input className="input" type="text" value={this.state.username} onChange={this.updateField("username")} placeholder=" Username" />
                             <br />
 
                             {(this.props.formType === "signup") ? (
                                 <div>
                                     <br />
-                                    <input type="text" value={this.state.email} onChange={this.updateField("email")} placeholder=" Email" />
+                                    <input className="input" type="text" value={this.state.email} onChange={this.updateField("email")} placeholder=" Email" />
                                     <br />
                                 </div>
                                 ) : <></>
@@ -91,7 +91,7 @@ class SessionForm extends React.Component {
 
                             <br />
 
-                            <input type="password" value={this.state.password} onChange={this.updateField("password")} placeholder="Password" />
+                            <input className="input" type="password" value={this.state.password} onChange={this.updateField("password")} placeholder="Password" />
                         </div>
                         {(this.props.errors) ? (
                         <div className="user-auth-errors-container"> 
