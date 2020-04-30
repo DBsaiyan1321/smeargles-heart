@@ -16,7 +16,9 @@ export const createImagination = imagination => {
     return $.ajax({
         method: "POST", 
         url: "/api/imaginations",
-        data: { imagination }
+        data: imagination,
+        contentType: false,
+        processData: false
     })
 }
 

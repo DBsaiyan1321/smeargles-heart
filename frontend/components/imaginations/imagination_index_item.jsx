@@ -6,6 +6,7 @@ const ImaginationIndexItem = props => {
             <div>
                 <h1>{props.imagination.title}</h1>
                 <p>{props.imagination.description}</p>
+                <img src={props.imagination.image} alt="broke" />
             </div>
         </li>
     )

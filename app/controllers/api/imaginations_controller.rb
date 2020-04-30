@@ -49,6 +49,6 @@ class Api::ImaginationsController < ApplicationController
     private 
 
     def imagination_params 
-        params.require(:imagination).permit(:title, :description, :artist_id)
+        params.require(:imagination).permit(:title, :description, :artist_id, :image)
     end 
 end
