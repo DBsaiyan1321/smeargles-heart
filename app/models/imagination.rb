@@ -16,5 +16,7 @@ class Imagination < ApplicationRecord
         primary_key: :id, 
         foreign_key: :artist_id, 
         class_name: :User 
+
+    has_one_attached :image
         
 end

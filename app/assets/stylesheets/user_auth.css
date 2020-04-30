@@ -108,21 +108,40 @@
 }
 
 /******************************************************************************/
+.box { 
+    margin: 40px 0px;
+    position: relative;
+}
+
+.label { 
+    position: absolute;
+    pointer-events: none;
+    top: 4px; 
+    transition-duration: 0.3s;
+    font-size: 20px;
+    color: #7a7a8d
+}
+
+.input:hover ~ .label { 
+    color: black;
+}
+
+.input:focus ~ .label { 
+    top: -17px;
+    font-size: 14px;
+    color: #7a7a8d
+}
+
+/******************************************************************************/
 
 .input { 
     border: none;
-    border-bottom: 1px solid #606070;;
+    border-bottom: 1px solid #606070;
     width: 100%;
     height: 30px;
     transition-property: border-bottom;
     transition-duration: 0.3s;
-}
-
-.input,
-.input::-webkit-input-placeholder {
-    font-size: 20px;
-    line-height: 3;
-    font-family: inherit;
+    font-size: 14px;
 }
 
 input:focus,

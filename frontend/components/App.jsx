@@ -6,19 +6,19 @@ import { Route, Switch } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import CreateImaginationContainer from "./imaginations/create_imagination_container";
 import EditImaginationContainer from "./imaginations/edit_imagination_container";
+import ShowImaginationContainer from "./imaginations/show_imagination_container";
 
 const App = () => {
     return (
-        <div>
-           <Switch>
-                <Route exact path="/" component={GreetingContainer} />
-                <AuthRoute path="/signup" component={SignupFormContainer} />
-                <AuthRoute path="/login" component={LoginFormContainer} />
-                <ProtectedRoute path="/new" component={CreateImaginationContainer} />
-                <ProtectedRoute path="/edit" component={EditImaginationContainer} />
-                <Route path="*" component={GreetingContainer}/>
-            </Switch>
-        </div>
+        <Switch>
+            <Route exact path="/imaginations/:imaginationId" component={ShowImaginationContainer} />
+            <AuthRoute path="/signup" component={SignupFormContainer} />
+            <AuthRoute path="/login" component={LoginFormContainer} />
+            <ProtectedRoute path="/new" component={CreateImaginationContainer} />
+            <ProtectedRoute path="/edit" component={EditImaginationContainer} />
+            <Route exact path="/" component={GreetingContainer} />
+            <Route path="*" component={GreetingContainer}/>
+        </Switch>
     )
 }; 
 

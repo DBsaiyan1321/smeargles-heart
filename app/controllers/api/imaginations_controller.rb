@@ -8,7 +8,7 @@ class Api::ImaginationsController < ApplicationController
 
     def show # I always get a 404 and my json doesn't render
         @imagination = Imagination.find(params[:id])
-
+        # debugger
         if @imagination
             render "api/imaginations/show"
         else  
