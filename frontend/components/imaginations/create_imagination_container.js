@@ -4,7 +4,7 @@ import { logout } from "../../actions/session_actions";
 import { createImagination } from "../../actions/imagination_actions";
 
 const mapStateToProps = state => ({
-    imagination: { title: "", description: "", artist_id: state.session.id, imageFile: null }, 
+    imagination: { title: "", description: "", artist_id: state.session.id, imageFile: null, imageUrl: null }, 
     currentUser: state.entities.users[state.session.id]
 });
 

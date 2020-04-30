@@ -7,6 +7,8 @@ class ImaginationIndex extends React.Component {
     }
 
     render() { 
+        if (!this.props.imaginations) return null 
+
         return (
             <div className="container"> 
                 <ul className="imaginations-index">

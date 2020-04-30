@@ -1,4 +1,5 @@
 import React from "react"; 
+import MainNavBar from "../main_nav_bar";
 
 class ImaginationShow extends React.Component { 
     componentDidMount() { 
@@ -10,7 +11,10 @@ class ImaginationShow extends React.Component {
         if (!this.props.imagination) return null 
         // debugger
         return ( 
-            (this.props.imagination.image) ? <img src={this.props.imagination.image} alt="broke" /> : <></>
+            <div>
+                <MainNavBar currentUser={this.props.currentUser} logout={this.props.logout} />
+                {(this.props.imagination.image) ? <img src={this.props.imagination.image} alt="broke" /> : <></>}
+            </div>
         )
     }
 }

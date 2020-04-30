@@ -30,15 +30,25 @@ class ImaginationForm extends React.Component {
     }
 
     handleFile(e) { 
-        this.setState( { imageFile: e.currentTarget.files[0] })
+        const file = e.currentTarget.files[0]
+        const fileReader = new FileReader()
+        fileReader.onloadend = () => {
+            this.setState({ imageFile: file, imageUrl: fileReader.result })
+        }
+        if (file) { 
+            fileReader.readAsDataURL(file)
+        } 
     }
 
     render() { 
+        const preview = (this.state.imageUrl) ? <img src={this.state.imageUrl} /> : null
+
         return ( 
             <div>
                 <MainNavBar currentUser={this.props.currentUser} logout={this.props.logout} />
 
                 <form onSubmit={e => this.formSubmission(e)} className="form">
+                    {preview}
                     <input type="file" onChange={this.handleFile} />
                     <input type="text" onChange={this.updateField("title")} value={this.state.title} />
                     <textarea onChange={this.updateField("description")} value={this.state.description} />
