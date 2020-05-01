@@ -11,6 +11,7 @@ import ShowImaginationContainer from "./imaginations/show_imagination_container"
 const App = () => {
     return (
         <Switch>
+            <Route exact path="/imaginations/:imaginationId/edit" component={EditImaginationContainer} />
             <Route exact path="/imaginations/:imaginationId" component={ShowImaginationContainer} />
             <AuthRoute path="/signup" component={SignupFormContainer} />
             <AuthRoute path="/login" component={LoginFormContainer} />

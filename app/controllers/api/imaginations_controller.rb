@@ -27,8 +27,9 @@ class Api::ImaginationsController < ApplicationController
     end 
 
     def update # # Same error as show when the post doesn't exist. 
-        @imagination = Imagination.find(params[:id])
-
+        # debugger
+        @imagination = Imagination.find(params[:imagination][:id])
+        
         if @imagination && @imagination.update(imagination_params)
             render "api/imaginations/show"
         else  

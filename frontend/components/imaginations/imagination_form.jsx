@@ -20,12 +20,16 @@ class ImaginationForm extends React.Component {
     formSubmission(e) { 
         e.preventDefault();
         const formData = new FormData();
+        if (this.props.formType === "Edit") { 
+            formData.append('imagination[id]', this.props.imagination.id)
+        }
         formData.append('imagination[title]', this.state.title);
         formData.append('imagination[description]', this.state.description);
         formData.append('imagination[artist_id]', this.state.artist_id); 
         if (this.state.imageFile) {
             formData.append('imagination[image]', this.state.imageFile);
         } 
+        debugger
         this.props.action(formData);
     }
 

@@ -1,0 +1,14 @@
+.image-panel { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 80vh;
+    background-color: rgb(240, 240, 240);
+    z-index: -1;
+}
+
+.shown-image { 
+    height: 40vh;
+    box-shadow: black;
+}

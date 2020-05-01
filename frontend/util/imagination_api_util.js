@@ -16,7 +16,7 @@ export const createImagination = imagination => {
     return $.ajax({
         method: "POST", 
         url: "/api/imaginations",
-        data: imagination,
+        data: imagination, // The component makes the object through form data, which is why I don't have to nest it in curly braces.
         contentType: false,
         processData: false
     })
@@ -26,7 +26,9 @@ export const updateImagination = imagination => {
     return $.ajax({
         method: "PATCH", 
         url: `/api/imaginations/${imagination.id}`, 
-        data: { imagination }
+        data: imagination, // Same here. 
+        processData: false,
+        contentType: false
     })
 }
 

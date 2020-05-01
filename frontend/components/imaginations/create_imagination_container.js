@@ -5,7 +5,8 @@ import { createImagination } from "../../actions/imagination_actions";
 
 const mapStateToProps = state => ({
     imagination: { title: "", description: "", artist_id: state.session.id, imageFile: null, imageUrl: null }, 
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id], 
+    formType: "Create"
 });
 
 const mapDispatchToProps = dispatch => ({

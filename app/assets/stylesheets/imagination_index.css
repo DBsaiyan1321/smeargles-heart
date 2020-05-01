@@ -13,6 +13,7 @@
     min-width: 700px;
     height: fit-content;
     margin-top: 25px;
+    justify-content: center;
 }
 
 .imagination-index-item { 
@@ -20,12 +21,8 @@
     list-style: none;
     margin: 5px;
     height: 250px;
-    width: 300px;
-}
-
-.imagination-index-item div {
-    height: 100%; 
-    width: auto;
+    /* width: 300px; */
+    width: fit-content;
 }
 
 .imagination-index-item img {
