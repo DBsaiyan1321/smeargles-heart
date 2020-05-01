@@ -8,7 +8,10 @@ const ImaginationsReducer = (oldState = {}, action) => {
         case RECEIVE_IMAGINATION: 
             return { [action.imagination.id]: action.imagination }
         case REMOVE_IMAGINATION: 
-            return Object.assign({}, oldState, { [action.imaginationId]: undefined })
+            // return Object.assign({}, oldState, { [action.imaginationId]: undefined })
+            let newState = Object.assign({}, oldState) 
+            delete newState[action.imaginationId]
+            return newState;
         default:
             return oldState;
     }
