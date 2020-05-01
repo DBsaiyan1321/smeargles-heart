@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { fetchImagination } from "../../actions/imagination_actions";
 import ImaginationShow from "./imagination_show"; 
-import { logout } from "../../actions/imagination_actions";
+import { logout } from "../../actions/session_actions";
 
 const mapStateToProps = (state, ownProps) => ({
     currentUser: state.entities.users[state.session.id], 

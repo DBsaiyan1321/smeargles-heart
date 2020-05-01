@@ -31,6 +31,7 @@ class ImaginationForm extends React.Component {
 
     handleFile(e) { 
         const file = e.currentTarget.files[0]
+        console.log(file)
         const fileReader = new FileReader()
         fileReader.onloadend = () => {
             this.setState({ imageFile: file, imageUrl: fileReader.result })

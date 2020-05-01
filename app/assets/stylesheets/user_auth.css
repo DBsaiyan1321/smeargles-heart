@@ -126,7 +126,8 @@
     color: black;
 }
 
-.input:focus ~ .label { 
+.input:focus ~ .label,
+.input:valid ~ .label { 
     top: -17px;
     font-size: 14px;
     color: #7a7a8d

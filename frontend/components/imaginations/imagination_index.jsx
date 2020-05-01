@@ -3,13 +3,13 @@ import ImaginationIndexItem from "./imagination_index_item";
 
 class ImaginationIndex extends React.Component { 
     componentDidMount() { 
-        this.props.fetchImaginations()
+        this.props.fetchImaginations() // Causes a re-render
     }
 
     render() { 
-        if (!this.props.imaginations) return null 
+        if (!this.props.imaginations) return null // First render
 
-        return (
+        return ( // 2nd render
             <div className="container"> 
                 <ul className="imaginations-index">
                     {this.props.imaginations.map(imagination => {
@@ -20,5 +20,7 @@ class ImaginationIndex extends React.Component {
         )
     }
 }
+
+// Order: constructor, render, componentDidMount
 
 export default ImaginationIndex;

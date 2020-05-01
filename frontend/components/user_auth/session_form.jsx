@@ -78,7 +78,7 @@ class SessionForm extends React.Component {
 
                         <div className="user-auth-input-container">
                             <div className="box">
-                                <input className="input" type="text" value={this.state.username} onChange={this.updateField("username")} />
+                                <input className="input" type="text" value={this.state.username} onChange={this.updateField("username")} required />
                                 <label className="label"> Username</label>
                             </div>
                             {/* <br /> */}
@@ -86,7 +86,7 @@ class SessionForm extends React.Component {
                             {(this.props.formType === "signup") ? (
                                 <div className="box">
                                     {/* <br /> */}
-                                    <input className="input" type="text" value={this.state.email} onChange={this.updateField("email")} />
+                                    <input className="input" type="text" value={this.state.email} onChange={this.updateField("email")} required />
                                     <label className="label"> Email</label>
                                     {/* <br /> */}
                                 </div>
@@ -95,7 +95,7 @@ class SessionForm extends React.Component {
 
                             {/* <br /> */}
                             <div className="box">
-                                <input className="input" type="password" value={this.state.password} onChange={this.updateField("password")} />
+                                <input className="input" type="password" value={this.state.password} onChange={this.updateField("password")} required />
                                 <label className="label"> Password</label>
                             </div>
                         </div>
