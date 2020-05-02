@@ -56,11 +56,17 @@
     color: #606070;
     border: none;
     font-family: inherit;
+    letter-spacing: 1px;
 }
 
 .main-nav-bar-element:hover { 
     cursor: pointer;
     color: #000000;
+}
+
+.home { 
+    /* justify-self: flex-start; */
+    flex: 1;
 }
 
 .main-nav-submit { 
@@ -113,6 +119,7 @@
     font-family: 'Hind', Arial, Helvetica, sans-serif;
     text-align: center;
     font-size: 12px;
+    letter-spacing: 1px;
 }
 
 .bottom-bar-element:visited { 

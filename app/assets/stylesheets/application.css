@@ -32,7 +32,9 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
     box-sizing: border-box;
 }
 
-
+html { 
+    min-width: 950px;
+}
 
 
 

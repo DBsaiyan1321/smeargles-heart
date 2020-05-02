@@ -52,12 +52,23 @@ class ImaginationForm extends React.Component {
             <div>
                 <MainNavBar currentUser={this.props.currentUser} logout={this.props.logout} />
 
-                <form onSubmit={e => this.formSubmission(e)} className="form">
-                    {preview}
-                    <input type="file" onChange={this.handleFile} />
-                    <input type="text" onChange={this.updateField("title")} value={this.state.title} />
-                    <textarea onChange={this.updateField("description")} value={this.state.description} />
-                    <input type="submit" value="Imagination" />
+                <form onSubmit={e => this.formSubmission(e)} className="imagination-form">
+                    <div className="imagination-form-main">
+                        <input type="submit" value={`${this.props.formType} Imagination`} className="submit-imagination-button" />
+                        {/* <div className="left-imagination-form"> */}
+                            <div className="file-container">
+                                <div className="preview">{preview}</div>
+                                <input type="file" onChange={this.handleFile} className="file-button" />
+                            </div>
+                        {/* </div> */}
+        
+                        <div className="inputs-for-imaginations">
+                            <input type="text" onChange={this.updateField("title")} value={this.state.title} className="title-box" placeholder="Give Your Imagination a Title" />
+                            <div className="imagination-form-horizontal-bar"></div>
+                            <textarea onChange={this.updateField("description")} value={this.state.description} className="description-box" placeholder="Describe Your Imagination in Words That Will Comprehended By All." />
+                        </div>
+                        
+                    </div>
                 </form>
             </div>
         )
