@@ -4,7 +4,7 @@
     /* background-color: rgb(245, 245, 245); */
     background-color: rgb(240, 240, 240);
     height: 100%;
-    width: 100vw;
+    width: 100%;
 }
 
 .imaginations-index { 
@@ -35,14 +35,42 @@
 .hover-overlay { 
     height: inherit;
     width: 100%;
-    background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.753));
     position: absolute;
     top: 0px;
-    display: none;
+    display: flex; 
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    color: white;
     pointer-events: none;
-    /* transition  */
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.753));
+    transition-duration: opacity 1s linear;
+    /* background: transparent; */
+    opacity: 0;
 }
 
 .imagination-index-item:hover .hover-overlay { 
-    display: block;
+    /* display: flex; 
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    color: white; */
+    /* background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.753)); */
+    opacity: 1;
+}
+
+.index-item-title { /* Figure out how to do the gradient thing */
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 20px;
+    font-family: 'Hind', Arial, Helvetica, sans-serif;
+}
+
+.index-item-username { 
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 16px;
+    margin-top: 15px;
 }

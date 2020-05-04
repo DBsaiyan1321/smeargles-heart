@@ -32,7 +32,7 @@ class ImaginationForm extends React.Component {
         // debugger
         this.props.action(formData);
         // debugger
-        // this.props.history.push(`/imaginations/${this.props.imagination.id}`)
+        this.props.history.push(`/imaginations/${this.props.imagination.id}`) // Works with edit but not create. It always says undefined. I think it's because I don't pass in an imagination through the props.
     }
 
     handleFile(e) { 
@@ -48,7 +48,13 @@ class ImaginationForm extends React.Component {
     }
 
     render() { 
-        const preview = (this.state.imageFile) ? <img src={this.state.imageUrl} /> : null
+        // debugger
+        let preview
+        if (this.props.formType === "Create") { 
+            preview = (this.state.imageFile && this.props.formType === "Create") ? <img src={this.state.imageUrl} /> : null
+        } else {
+            preview = (this.state.image && this.props.formType === "Edit") ? <img src={this.state.image} /> : null
+        }
         // debugger
         return ( 
             <div>

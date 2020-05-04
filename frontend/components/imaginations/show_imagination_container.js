@@ -1,4 +1,4 @@
-import { connect, withRouter } from "react-redux";
+import { connect } from "react-redux";
 import { fetchImagination } from "../../actions/imagination_actions";
 import ImaginationShow from "./imagination_show"; 
 import { logout } from "../../actions/session_actions";

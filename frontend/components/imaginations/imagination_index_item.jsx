@@ -9,7 +9,8 @@ const ImaginationIndexItem = props => {
                 <img src={props.imagination.image} alt="broke" />
             </Link>
             <div className="hover-overlay">
-                <h1>{props.imagination.title}</h1>
+                <h1 className="index-item-title">{props.imagination.title}</h1>
+                <p className="index-item-username">*Username*</p>
             </div>
         </li>
     )
