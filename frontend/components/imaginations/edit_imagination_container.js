@@ -19,7 +19,8 @@ class Edit extends React.Component {
 const mapStateToProps = (state, ownProps) => ({
     currentUser: state.entities.users[state.session.id],
     imagination: state.entities.imaginations[ownProps.match.params.imaginationId],
-    formType: "Edit"
+    formType: "Edit",
+    errors: state.errors.session
 });
 
 const mapDispatchToProps = dispatch => ({

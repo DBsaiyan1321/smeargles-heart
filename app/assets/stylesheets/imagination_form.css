@@ -10,6 +10,8 @@
     padding: 50px 0px;
 }
 
+/******************************************************************************/
+
 .imagination-form-main { 
     width: 80%;
     min-width: 720px;
@@ -20,35 +22,11 @@
     position: relative;
     align-items: center;
 }
-/* 
-.left-imagination-form { 
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-} */
 
-.file-container { 
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-color: rgb(240, 240, 240);
-    height: 100%;
-    border-radius: 20px;
-}
-
-.preview img { 
-    width: 80%
-    /* height: 50vh; */
-}
-
-.file-button { 
-    
-}
+/******************************************************************************/
 
 .submit-imagination-button { 
+    font-family: 'Baloo Tamma 2', Arial, Helvetica, sans-serif;
     width: 15%;
     height: 40px;
     border: none;
@@ -58,7 +36,57 @@
     right: 20px;
     top: 15px;
     color: white;
+    font-size: 25px;
 }
+
+.faded-out { 
+    background-color: #4d4dff38;
+    pointer-events: none;
+}
+
+/******************************************************************************/
+
+.file-container { 
+    width: 50%;
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; */
+    background-color: rgb(240, 240, 240);
+    height: 100%;
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.spotted-border-file { 
+    border: 3px dashed rgb(220, 220, 220);
+    border-radius: 20px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.preview { 
+    text-align: center;
+    max-height: 100%;
+}
+
+.preview img { 
+    max-width: 100%;
+    max-height: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.file-button { 
+    border: none;
+}
+
+/******************************************************************************/
 
 .inputs-for-imaginations { 
     display: flex;
@@ -70,16 +98,20 @@
     height: 90%;
 }
 
-.imagination-form-horizontal-bar { 
-    border: 1px solid blue;
-    margin: 5px 0px;
-}
-
 .title-box { 
     border: none;
     background-color: transparent;
     height: fit-content;
-    font-size: 20px;
+    width: 100%;
+    font-size: 32px;
+    resize: none;
+    /* white-space: pre-wrap; */
+    overflow: auto;
+}
+
+.imagination-form-horizontal-bar { 
+    border: 1px solid #4d4dff;
+    margin: 15px 0px;
 }
 
 .description-box {
@@ -87,4 +119,8 @@
     background-color: transparent;
     min-height: 200px;
     resize: none;
+    font-size: 16px;
+    height: 100%;
 }   
+
+/* vertical-align */

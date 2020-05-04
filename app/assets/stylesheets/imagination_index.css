@@ -2,7 +2,8 @@
     display: flex;
     justify-content: center;
     /* background-color: rgb(245, 245, 245); */
-    height: 100vh;
+    background-color: rgb(240, 240, 240);
+    height: 100%;
     width: 100vw;
 }
 
@@ -17,15 +18,31 @@
 }
 
 .imagination-index-item { 
-    background-color: rgb(173, 167, 255);
+    /* background-color: rgb(173, 167, 255); */
     list-style: none;
     margin: 5px;
-    height: 250px;
+    height: 300px;
     /* width: 300px; */
     width: fit-content;
+    position: relative;
 }
 
 .imagination-index-item img {
     height: 100%; 
     width: auto;
+}
+
+.hover-overlay { 
+    height: inherit;
+    width: 100%;
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.753));
+    position: absolute;
+    top: 0px;
+    display: none;
+    pointer-events: none;
+    /* transition  */
+}
+
+.imagination-index-item:hover .hover-overlay { 
+    display: block;
 }

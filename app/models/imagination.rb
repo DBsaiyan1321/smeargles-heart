@@ -11,7 +11,7 @@
 #
 class Imagination < ApplicationRecord
     validates :title, :description, :artist_id, presence: true
-    validate :ensure_image # Comment this line out when you seed.
+    # validate :ensure_image # Comment this line out when you seed.
 
     belongs_to :user,
         primary_key: :id, 

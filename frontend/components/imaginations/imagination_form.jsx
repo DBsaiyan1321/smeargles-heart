@@ -29,8 +29,10 @@ class ImaginationForm extends React.Component {
         if (this.state.imageFile) {
             formData.append('imagination[image]', this.state.imageFile);
         } 
-        debugger
+        // debugger
         this.props.action(formData);
+        // debugger
+        // this.props.history.push(`/imaginations/${this.props.imagination.id}`)
     }
 
     handleFile(e) { 
@@ -46,24 +48,33 @@ class ImaginationForm extends React.Component {
     }
 
     render() { 
-        const preview = (this.state.imageUrl) ? <img src={this.state.imageUrl} /> : null
-
+        const preview = (this.state.imageFile) ? <img src={this.state.imageUrl} /> : null
+        // debugger
         return ( 
             <div>
                 <MainNavBar currentUser={this.props.currentUser} logout={this.props.logout} />
 
                 <form onSubmit={e => this.formSubmission(e)} className="imagination-form">
+
                     <div className="imagination-form-main">
-                        <input type="submit" value={`${this.props.formType} Imagination`} className="submit-imagination-button" />
+                        {(this.state.title && this.state.description && (this.state.image || this.state.imageFile)) 
+                        ? <input type="submit" value={`${this.props.formType}`} className="submit-imagination-button" />
+                        : <input type="submit" value={`${this.props.formType}`} className="submit-imagination-button faded-out" /> }
+
+                        {/* <input type="submit" value={`${this.props.formType} Imagination`} className="submit-imagination-button" /> */}
                         {/* <div className="left-imagination-form"> */}
-                            <div className="file-container">
+
+                        <div className="file-container">
+                            <div className="spotted-border-file">
                                 <div className="preview">{preview}</div>
                                 <input type="file" onChange={this.handleFile} className="file-button" />
                             </div>
+                        </div>
+                            
                         {/* </div> */}
         
                         <div className="inputs-for-imaginations">
-                            <input type="text" onChange={this.updateField("title")} value={this.state.title} className="title-box" placeholder="Give Your Imagination a Title" />
+                            <textarea onChange={this.updateField("title")} value={this.state.title} className="title-box" rows="1" placeholder="Give Your Imagination a Title" />
                             <div className="imagination-form-horizontal-bar"></div>
                             <textarea onChange={this.updateField("description")} value={this.state.description} className="description-box" placeholder="Describe Your Imagination in Words That Will Comprehended By All." />
                         </div>

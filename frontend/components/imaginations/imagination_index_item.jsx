@@ -6,10 +6,11 @@ const ImaginationIndexItem = props => {
         <li className="imagination-index-item">
 
             <Link to={`/imaginations/${props.imagination.id}`}>
-                {/* <h1>{props.imagination.title}</h1>
-                <p>{props.imagination.description}</p> */}
                 <img src={props.imagination.image} alt="broke" />
             </Link>
+            <div className="hover-overlay">
+                <h1>{props.imagination.title}</h1>
+            </div>
         </li>
     )
 }
