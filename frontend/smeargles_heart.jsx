@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom"; 
-import * as SessionActions from "./actions/session_actions";
 import configureStore from "./store/store";
 import Root from "./components/root";
 
-import * as imaginationActions from "./actions/imagination_actions";
+import * as LikeAPIUtil from "./actions/like_actions"; 
+import * as CommentAPIUtil from "./actions/comment_actions";
 
 document.addEventListener("DOMContentLoaded", () => { 
     let store;
@@ -26,17 +26,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root")
 
     // testing
-    window.login = SessionActions.login;
-    // window.signup = SessionActions.signup; 
-    // window.logout = SessionActions.logout;
     window.getState = store.getState;
     window.dispatch = store.dispatch;
 
-    window.fetchImaginations = imaginationActions.fetchImaginations
-    window.fetchImagination = imaginationActions.fetchImagination 
-    window.createImagination = imaginationActions.createImagination
-    window.updateImagination = imaginationActions.updateImagination
-    window.deleteImagination = imaginationActions.deleteImagination
+    window.fetchLikes = LikeAPIUtil.fetchLikes;
+    window.createLike = LikeAPIUtil.createLike;
+    window.deleteLike = LikeAPIUtil.deleteLike;
+
+    window.fetchComments = CommentAPIUtil.fetchComments;
+    window.createComment = CommentAPIUtil.createComment;
+    window.updateComment = CommentAPIUtil.updateComment;
+    window.deleteComment = CommentAPIUtil.deleteComment;
     // end of testing
 
     ReactDOM.render(<Root store={store} />, root)
