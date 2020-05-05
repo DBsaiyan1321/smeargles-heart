@@ -23,7 +23,7 @@ flintee = User.create!(username: 'flynn-tee', email: "flintee@yahoo.com", passwo
 lucian = User.create!(username: 'manipulator', email: "lucian@yahoo.com", password: "lucian")
 cynthia = User.create!(username: 'CHAMPION', email: "cynthia@hotmail.com", password: "cynthia")
 
-first_imagination = Imagination.create!(title: "First Imagination of Bulbasuar", description: "I fought long and hard to get this picture up, with the assistance of Mike", artist_id: 1 )
+first_imagination = Imagination.create!(title: "First Imagination of Bulbasuar", description: "I fought long and hard to get this picture up, with the assistance of Mike.", artist_id: 1 )
 file1 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart/bulbasuar.png")
 first_imagination.image.attach(io: file1, filename: 'bulbasuar.png')
 
@@ -39,19 +39,19 @@ fourth_imagination = Imagination.create!(title: "Pokeball Sketch", description: 
 file4 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart/drawing.jpg")
 fourth_imagination.image.attach(io: file4, filename: 'drawing.jpg')
 
-fifth_imagination = Imagination.create!(title: "Pokeball Sketch", description: "I messed up on a pokeball sketch, which led to this. I hope you like it :D", artist_id: 5)
+fifth_imagination = Imagination.create!(title: "Articuno Wallpaper", description: "If you like ice and you like Pokemon, then this is what you need!", artist_id: 5)
 file5 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart/arctic-uno.jpg")
 fifth_imagination.image.attach(io: file5, filename: 'arctic-uno.jpg')
 
-sixth_imagination = Imagination.create!(title: "Pokeball Sketch", description: "I messed up on a pokeball sketch, which led to this. I hope you like it :D", artist_id: 6)
+sixth_imagination = Imagination.create!(title: "ANIME GURL", description: "I was bored and felt like drawing a fantasy-like anime girl.", artist_id: 6)
 file6 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart/anime-girl.png")
 sixth_imagination.image.attach(io: file6, filename: 'anime-girl.png')
 
-seventh_imagination = Imagination.create!(title: "Pokeball Sketch", description: "I messed up on a pokeball sketch, which led to this. I hope you like it :D", artist_id: 7)
+seventh_imagination = Imagination.create!(title: "Buzz Buzz", description: "I was thinking about how much I don't like bees, so I decided to draw a cute one hahaha", artist_id: 7)
 file7 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart/bee.png")
 seventh_imagination.image.attach(io: file7, filename: 'bee.png')
 
-eight_imagination = Imagination.create!(title: "Pokeball Sketch", description: "I messed up on a pokeball sketch, which led to this. I hope you like it :D", artist_id: 8)
+eight_imagination = Imagination.create!(title: "PREPARE TO FIGHT!!!", description: "Black and yellow are cool colors, and this guy looks cool.", artist_id: 8)
 file8 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart/black-and-yellow.png")
 eight_imagination.image.attach(io: file8, filename: 'black-and-yellow.png')
 

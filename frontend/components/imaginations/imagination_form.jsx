@@ -9,6 +9,7 @@ class ImaginationForm extends React.Component {
         this.updateField = this.updateField.bind(this)
         this.formSubmission = this.formSubmission.bind(this)
         this.handleFile = this.handleFile.bind(this)
+        this.goImagination = this.goImagination.bind(this)
     }
 
     updateField(field) { 
@@ -29,11 +30,25 @@ class ImaginationForm extends React.Component {
         if (this.state.imageFile) {
             formData.append('imagination[image]', this.state.imageFile);
         } 
+    /**************************************************************************/
         // debugger
-        this.props.action(formData);
+        this.props.action(formData)
+            .then(res => {
+                // debugger
+                this.goImagination(res)
+            })
         // debugger
-        this.props.history.push(`/imaginations/${this.props.imagination.id}`) // Works with edit but not create. It always says undefined. I think it's because I don't pass in an imagination through the props.
+        // if (this.props.formType === "Edit") {
+        //     this.props.history.push(`/imaginations/${this.props.imagination.id}`) // Works with edit but not create. It always says undefined. I think it's because I don't pass in an imagination through the props.
+        // }
+        // console.log("ran");
     }
+
+    goImagination(res) { 
+        // debugger
+        this.props.history.push(`/imaginations/${res.imagination.id}`)
+    }
+/**************************************************************************/
 
     handleFile(e) { 
         const file = e.currentTarget.files[0]
@@ -60,7 +75,7 @@ class ImaginationForm extends React.Component {
             <div>
                 <MainNavBar currentUser={this.props.currentUser} logout={this.props.logout} />
 
-                <form onSubmit={e => this.formSubmission(e)} className="imagination-form">
+                <form onSubmit={this.formSubmission} className="imagination-form">
 
                     <div className="imagination-form-main">
                         {(this.state.title && this.state.description && (this.state.image || this.state.imageFile)) 

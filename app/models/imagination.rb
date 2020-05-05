@@ -10,8 +10,8 @@
 #  updated_at  :datetime         not null
 #
 class Imagination < ApplicationRecord
-    validates :title, :description, :artist_id, presence: true
-    # validate :ensure_image # Comment this line out when you seed.
+    validates :title, :artist_id, presence: true
+    validate :ensure_image # Comment this line out when you seed.
 
     belongs_to :user,
         primary_key: :id, 

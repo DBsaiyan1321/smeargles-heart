@@ -19,9 +19,19 @@ class ImaginationShow extends React.Component {
         this.props.fetchImagination(this.props.match.params.imaginationId)
     }
 
-    deletePost() { 
+    /**************************************************************************/
+
+    componentDidUpdate(prevProps) { // Craziness!
+        if (this.props.match.params.imaginationId !== prevProps.match.params.imaginationId) { 
+            this.props.fetchImagination(this.props.match.params.imaginationId)
+        }
+    }
+
+    /**************************************************************************/
+
+    deletePost() { // I think deleteImagination is asynchronous, which is why I have to make the next action asynchronous so it will execute after the Imagination is deleted.
         this.props.deleteImagination(this.props.imagination.id) 
-        this.props.history.push("/") // This is the way to redirect the user to another page. 
+            .then(() => this.props.history.push("/")) // This is the way to redirect the user to another page. 
     } 
 
     // pressArrow(direction) { 
@@ -41,7 +51,7 @@ class ImaginationShow extends React.Component {
                 {/* {(this.props.imagination.image) ? ( */}
                 <div className="show-container">
                     <div className="image-panel"> 
-                    <Link to={`/imaginations/${this.props.imagination.id - 1}`} className="show-arrows" ><IoIosArrowBack /></Link> {/* <div className="show-arrows" onClick{() => this.pressArrow(-1)}><IoIosArrowBack /></div> */}
+                        <Link to={`/imaginations/${this.props.imagination.id - 1}`} className="show-arrows" ><IoIosArrowBack /></Link> {/* <div className="show-arrows" onClick{() => this.pressArrow(-1)}><IoIosArrowBack /></div> */}
                         <img src={this.props.imagination.image} alt="broke" className="shown-image" /> 
                         <Link to={`/imaginations/${this.props.imagination.id + 1}`} className="show-arrows" ><IoIosArrowForward /></Link>
                     </div>
