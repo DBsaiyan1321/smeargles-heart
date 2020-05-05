@@ -16,6 +16,11 @@ class User < ApplicationRecord # SPIRE
     validates :password, length: { minimum: 6, allow_nil: true } 
     before_validation :ensure_session_token 
 
+    has_many :imaginations,
+        primary_key: :id, 
+        foreign_key: :artist_id, 
+        class_name: :Imagination
+
     attr_reader :password
 
     def self.find_by_credentials(username, password) 

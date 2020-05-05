@@ -1,5 +1,5 @@
 import React from "react"; 
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class SessionForm extends React.Component { 
     constructor(props) { 
@@ -77,21 +77,27 @@ class SessionForm extends React.Component {
                         </div>
 
                         <div className="user-auth-input-container">
-                            <input type="text" value={this.state.username} onChange={this.updateField("username")} placeholder=" Username" />
-                            <br />
+                            <div className="box">
+                                <input className="input" type="text" value={this.state.username} onChange={this.updateField("username")} required />
+                                <label className="label"> Username</label>
+                            </div>
+                            {/* <br /> */}
 
                             {(this.props.formType === "signup") ? (
-                                <div>
-                                    <br />
-                                    <input type="text" value={this.state.email} onChange={this.updateField("email")} placeholder=" Email" />
-                                    <br />
+                                <div className="box">
+                                    {/* <br /> */}
+                                    <input className="input" type="text" value={this.state.email} onChange={this.updateField("email")} required />
+                                    <label className="label"> Email</label>
+                                    {/* <br /> */}
                                 </div>
                                 ) : <></>
                             }
 
-                            <br />
-
-                            <input type="password" value={this.state.password} onChange={this.updateField("password")} placeholder="Password" />
+                            {/* <br /> */}
+                            <div className="box">
+                                <input className="input" type="password" value={this.state.password} onChange={this.updateField("password")} required />
+                                <label className="label"> Password</label>
+                            </div>
                         </div>
                         {(this.props.errors) ? (
                         <div className="user-auth-errors-container"> 

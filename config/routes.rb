@@ -4,11 +4,10 @@ Rails.application.routes.draw do
   root to: "static_pages#root"
 
   namespace :api, defaults: {format: :json} do 
-    resources :users, only: [:create] do 
-      resources :imaginations, only: [:index, :create, :edit, :destroy, :show]
-    end 
+    resources :users, only: [:create] 
+    
     resource :session, only: [:create, :destroy]
 
-    resources :imaginations, only: [:index] # I have to figure out how to only get imaginations of a certain user. I forgot how
+    resources :imaginations, only: [:index, :create, :update, :destroy, :show] # I have to figure out how to only get imaginations of a certain user. I forgot how
   end 
 end

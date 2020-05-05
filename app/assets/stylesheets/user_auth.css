@@ -2,11 +2,15 @@
     width: 100%;
     height: 100vh;
     /* background: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 85)); */
-    background: linear-gradient(rgb(80, 73, 11), rgb(0, 0, 85));
+    /* background: linear-gradient(rgb(80, 73, 11), rgb(0, 0, 85)); */
     display: flex;
     justify-content: center;
-    /* background-image: url(window.eeveeURL); */
-    background-size: 100%;
+
+    background-image: url(https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/wavy-color-lines.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    
     align-items: center;
 }
 
@@ -23,6 +27,7 @@
 .user-auth-exit {
     position: absolute;
     right: 13px;
+    font-size: 30px;
     cursor: pointer;
     text-decoration: none;
     color: black;
@@ -70,8 +75,9 @@
 }
 
 .user-auth-text h1 { 
-    font-size: 50px; 
-    line-height: 50px;
+    font-size: 45px; 
+    line-height: 55px;
+    font-family: 'Hind', Arial, Helvetica, sans-serif;
 }
 
 .user-auth-text p {
@@ -97,6 +103,7 @@
 
 .user-auth-title-container h1 { 
     height: 40px; 
+    font-size: 36px;
 }
 
 .user-auth-link { 
@@ -105,19 +112,41 @@
 }
 
 /******************************************************************************/
-
-.user-auth-input-container input { 
-    border: none;
-    border-bottom: 1px solid rebeccapurple;
-    width: 100%;
-    height: 30px;
+.box { 
+    margin: 40px 0px;
+    position: relative;
 }
 
-.user-auth-input-container input,
-.user-auth-input-container input::-webkit-input-placeholder {
+.label { 
+    position: absolute;
+    pointer-events: none;
+    top: 4px; 
+    transition-duration: 0.3s;
     font-size: 20px;
-    line-height: 3;
-    font-family: inherit;
+    color: #7a7a8d
+}
+
+.input:hover ~ .label { 
+    color: black;
+}
+
+.input:focus ~ .label,
+.input:valid ~ .label { 
+    top: -17px;
+    font-size: 14px;
+    color: #7a7a8d
+}
+
+/******************************************************************************/
+
+.input { 
+    border: none;
+    border-bottom: 1px solid #606070;
+    width: 100%;
+    height: 30px;
+    transition-property: border-bottom;
+    transition-duration: 0.3s;
+    font-size: 14px;
 }
 
 input:focus,
@@ -125,6 +154,10 @@ input:focus,
 textarea:focus,
 button:focus {
     outline: none;
+}
+
+.input:focus { 
+    border-bottom: 1px solid #4d4dff;
 }
 
 /******************************************************************************/
@@ -153,19 +186,22 @@ button:focus {
     width: 33%;
     height: 100%;
     border: none;
-    font-family: inherit;
+    font-family: 'Hind', Arial, Helvetica, sans-serif;
     font-size: 12px; 
     font-weight: 900;
     cursor: pointer;
+    letter-spacing: 1px;
 }
 
 .submit { 
     background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                 linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                 linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+    /* background: #4d4dff; */
 }
 
 .demo {
     background: linear-gradient(0.25turn, #fc7fe7, 10%, #ebf8e1, 55%,  rgb(147, 80, 255));
+    /* background: #4d4dff; */
 }
 

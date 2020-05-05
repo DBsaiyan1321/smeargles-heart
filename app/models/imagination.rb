@@ -10,5 +10,20 @@
 #  updated_at  :datetime         not null
 #
 class Imagination < ApplicationRecord
-    validates :title, :description, :artist_id, presence: true
+    validates :title, :artist_id, presence: true
+    validate :ensure_image # Comment this line out when you seed.
+
+    belongs_to :user,
+        primary_key: :id, 
+        foreign_key: :artist_id, 
+        class_name: :User 
+
+    has_one_attached :image
+
+    def ensure_image 
+        unless self.image.attached?
+            errors[:image] << "Must be attached"
+        end
+    end
+        
 end
