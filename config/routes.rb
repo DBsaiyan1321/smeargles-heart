@@ -6,8 +6,11 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do 
     resources :users, only: [:create] 
     
-    resource :session, only: [:create, :destroy]
+    resource :session, only: [:create, :destroy] 
 
-    resources :imaginations, only: [:index, :create, :update, :destroy, :show] # I have to figure out how to only get imaginations of a certain user. I forgot how
+    resources :imaginations, only: [:index, :create, :update, :destroy, :show] do
+      resources :likes, only: [:index, :create, :destroy] 
+      resources :comments, only: [:index, :create, :update, :destroy]
+    end 
   end 
 end

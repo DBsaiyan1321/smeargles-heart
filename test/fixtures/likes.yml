@@ -1,13 +1,12 @@
 # == Schema Information
 #
-# Table name: imaginations
+# Table name: likes
 #
-#  id          :bigint           not null, primary key
-#  title       :string           not null
-#  description :text
-#  artist_id   :integer          not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id             :bigint           not null, primary key
+#  user_id        :integer          not null
+#  imagination_id :integer          not null
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
 #
 
 # This model initially had no columns defined. If you add columns to the

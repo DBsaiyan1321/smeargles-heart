@@ -107,31 +107,31 @@ twentyone_imagination = Imagination.create!(title: "I AM HERE!!!", description: 
 file21 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart/hero.png")
 twentyone_imagination.image.attach(io: file21, filename: 'hero.png')
 
-twentytwo_imagination = Imagination.create!(title: "Pokeball Sketch", description: "I messed up on a pokeball sketch, which led to this. I hope you like it :D", artist_id: 8)
+twentytwo_imagination = Imagination.create!(title: "Realistic Pokeball", description: nil, artist_id: 8)
 file22 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart/hi-def-pokeball.jpg")
 twentytwo_imagination.image.attach(io: file22, filename: 'hi-def-pokeball.jpg')
 
-twentythree_imagination = Imagination.create!(title: "Pokeball Sketch", description: "I messed up on a pokeball sketch, which led to this. I hope you like it :D", artist_id: 9)
+twentythree_imagination = Imagination.create!(title: "Bunnee", description: "A battle is commencing and Bunnee must get there fast!", artist_id: 9)
 file23 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart/rabit.png")
 twentythree_imagination.image.attach(io: file23, filename: 'rabit.png')
 
-twentyfourth_imagination = Imagination.create!(title: "Pokeball Sketch", description: "I messed up on a pokeball sketch, which led to this. I hope you like it :D", artist_id: 10)
+twentyfourth_imagination = Imagination.create!(title: "I love you", description: nil, artist_id: 10)
 file24 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart/hijab.png")
 twentyfourth_imagination.image.attach(io: file24, filename: 'hijab.png')
 
-twentyfifth_imagination = Imagination.create!(title: "Pokeball Sketch", description: "I messed up on a pokeball sketch, which led to this. I hope you like it :D", artist_id: 11)
+twentyfifth_imagination = Imagination.create!(title: "Kat-kashi Hatake", description: "Kakashi with a cat, and colorful.", artist_id: 11)
 file25 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart/kakashi.jpg")
 twentyfifth_imagination.image.attach(io: file25, filename: 'kakashi.jpg')
 
-twentysixth_imagination = Imagination.create!(title: "Pokeball Sketch", description: "I messed up on a pokeball sketch, which led to this. I hope you like it :D", artist_id: 12)
+twentysixth_imagination = Imagination.create!(title: "Last Supper", description: "Such an iconic picture.", artist_id: 12)
 file26 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart/last-supper.png")
 twentysixth_imagination.image.attach(io: file26, filename: 'last-supper.png')
 
-twentyseventh_imagination = Imagination.create!(title: "Pokeball Sketch", description: "I messed up on a pokeball sketch, which led to this. I hope you like it :D", artist_id: 13)
+twentyseventh_imagination = Imagination.create!(title: "Lilac in the Summer", description: "Whenever I go hiking, I always bring my good camera. It was such a beautiful day, and I love these flowers. I thought that I would share a little bit of my hiking experience with you all by posting this picture", artist_id: 13)
 file27 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart/lilac.jpg")
 twentyseventh_imagination.image.attach(io: file27, filename: 'lilac.jpg')
 
-twentyeight_imagination = Imagination.create!(title: "Pokeball Sketch", description: "I messed up on a pokeball sketch, which led to this. I hope you like it :D", artist_id: 14)
+twentyeight_imagination = Imagination.create!(title: "Moltres Background", description: "My least favorite of the three legendary birds, Moltres.", artist_id: 14)
 file28 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart/moltres.jpg")
 twentyeight_imagination.image.attach(io: file28, filename: 'moltres.jpg')
 
