@@ -55,7 +55,7 @@ eight_imagination = Imagination.create!(title: "PREPARE TO FIGHT!!!", descriptio
 file8 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart/black-and-yellow.png")
 eight_imagination.image.attach(io: file8, filename: 'black-and-yellow.png')
 
-ninth_imagination = Imagination.create!(title: "Pokeball Sketch", description: "I messed up on a pokeball sketch, which led to this. I hope you like it :D", artist_id: 9)
+ninth_imagination = Imagination.create!(title: "Pokeball Sketch", description: nil, artist_id: 9)
 file9 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart/black-pikachu.jpg")
 ninth_imagination.image.attach(io: file9, filename: 'black-pikachu.jpg')
 

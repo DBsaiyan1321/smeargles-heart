@@ -30,25 +30,17 @@ class ImaginationForm extends React.Component {
         if (this.state.imageFile) {
             formData.append('imagination[image]', this.state.imageFile);
         } 
-    /**************************************************************************/
-        // debugger
+    /**************************************************************************/    
         this.props.action(formData)
             .then(res => {
-                // debugger
                 this.goImagination(res)
             })
-        // debugger
-        // if (this.props.formType === "Edit") {
-        //     this.props.history.push(`/imaginations/${this.props.imagination.id}`) // Works with edit but not create. It always says undefined. I think it's because I don't pass in an imagination through the props.
-        // }
-        // console.log("ran");
     }
 
     goImagination(res) { 
-        // debugger
         this.props.history.push(`/imaginations/${res.imagination.id}`)
     }
-/**************************************************************************/
+    /**************************************************************************/
 
     handleFile(e) { 
         const file = e.currentTarget.files[0]
@@ -63,14 +55,13 @@ class ImaginationForm extends React.Component {
     }
 
     render() { 
-        // debugger
         let preview
         if (this.props.formType === "Create") { 
             preview = (this.state.imageFile && this.props.formType === "Create") ? <img src={this.state.imageUrl} /> : null
         } else {
             preview = (this.state.image && this.props.formType === "Edit") ? <img src={this.state.image} /> : null
         }
-        // debugger
+       
         return ( 
             <div>
                 <MainNavBar currentUser={this.props.currentUser} logout={this.props.logout} />
@@ -78,12 +69,9 @@ class ImaginationForm extends React.Component {
                 <form onSubmit={this.formSubmission} className="imagination-form">
 
                     <div className="imagination-form-main">
-                        {(this.state.title && this.state.description && (this.state.image || this.state.imageFile)) 
+                        {(this.state.title && (this.state.image || this.state.imageFile)) 
                         ? <input type="submit" value={`${this.props.formType}`} className="submit-imagination-button" />
                         : <input type="submit" value={`${this.props.formType}`} className="submit-imagination-button faded-out" /> }
-
-                        {/* <input type="submit" value={`${this.props.formType} Imagination`} className="submit-imagination-button" /> */}
-                        {/* <div className="left-imagination-form"> */}
 
                         <div className="file-container">
                             <div className="spotted-border-file">

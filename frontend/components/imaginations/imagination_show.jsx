@@ -9,13 +9,11 @@ class ImaginationShow extends React.Component {
 
     constructor(props) {
         super(props)
-
+        
         this.deletePost = this.deletePost.bind(this);
-        // this.pressArrow = this.pressArrow.bind(this);
     }
 
     componentDidMount() { 
-        // debugger
         this.props.fetchImagination(this.props.match.params.imaginationId)
     }
 
@@ -27,20 +25,12 @@ class ImaginationShow extends React.Component {
         }
     }
 
-    /**************************************************************************/
-
-    deletePost() { // I think deleteImagination is asynchronous, which is why I have to make the next action asynchronous so it will execute after the Imagination is deleted.
+    deletePost() { 
         this.props.deleteImagination(this.props.imagination.id) 
             .then(() => this.props.history.push("/")) // This is the way to redirect the user to another page. 
     } 
 
-    // pressArrow(direction) { 
-    //     if (direction === -1) { 
-    //         this.props.history.push(`/imaginations/${this.props.imagination.id - 1}`)
-    //     } else { 
-    //         this.props.history.push(`/imaginations/${this.props.imagination.id + 1}`)        
-    //     }
-    // }
+    /**************************************************************************/
 
     render() { 
         if (!this.props.imagination) return null 
