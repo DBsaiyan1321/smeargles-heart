@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { RiPencilLine } from "react-icons/ri";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import LikeContainer from "../likes/like_container";
 
 class ImaginationShow extends React.Component { 
 
@@ -15,6 +16,7 @@ class ImaginationShow extends React.Component {
 
     componentDidMount() { 
         this.props.fetchImagination(this.props.match.params.imaginationId)
+        this.props.fetchLikes(this.props.match.params.imaginationId)
     }
 
     /**************************************************************************/
@@ -49,10 +51,13 @@ class ImaginationShow extends React.Component {
                     <div className="bottom-half-of-show">
                         {(this.props.currentUser && (this.props.currentUser.id === this.props.imagination.artist_id))
                         ? <div className="user-owned-post">
-                            <button onClick={() => this.deletePost()} className="user-owned-post-buttons"><FaRegTrashAlt /></button>
-                            <Link to={this.props.match.url + "/edit"} className="user-owned-post-buttons"><RiPencilLine /></Link>
+                            <LikeContainer currentUser={this.props.currentUser} imagination={this.props.imagination} />
+                            <div>
+                                <button onClick={() => this.deletePost()} className="user-owned-post-buttons"><FaRegTrashAlt /></button>
+                                <Link to={this.props.match.url + "/edit"} className="user-owned-post-buttons"><RiPencilLine /></Link>
                             </div>
-                        : <></>}
+                          </div>
+                        : <LikeContainer currentUser={this.props.currentUser} imagination={this.props.imagination} />}
                         <h1 className="show-title">{this.props.imagination.title}</h1>
                         <h2 className="show-username">By *Username Here*</h2>
                         <p className="show-description">{this.props.imagination.description}</p>

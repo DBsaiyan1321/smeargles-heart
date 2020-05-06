@@ -4,9 +4,10 @@ const LikesReducer = (oldState = {}, action) => {
     Object.freeze(oldState)
     switch (action.type) {
         case RECEIVE_LIKES:
-            return Object.assign({}, oldState, action.likes)
+            // return Object.assign({}, oldState, action.likes)
+            return action.likes
         case RECEIVE_LIKE:
-            return Object.assign({}, oldState, action.like)
+            return Object.assign({}, oldState, { [action.like.id]: action.like })
         case REMOVE_LIKE:
             let newState = Object.assign({}, oldState)
             delete newState[action.likeId]
