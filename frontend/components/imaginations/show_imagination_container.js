@@ -8,6 +8,7 @@ import { fetchLikes } from "../../actions/like_actions";
 const mapStateToProps = (state, ownProps) => ({
     currentUser: state.entities.users[state.session.id], 
     imagination: state.entities.imaginations[ownProps.match.params.imaginationId]
+    // imaginationLikes: Object.values(state.entities.likes)
 });
 
 const mapDispatchToProps = dispatch => ({

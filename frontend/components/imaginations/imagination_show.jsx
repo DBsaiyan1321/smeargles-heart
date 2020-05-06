@@ -7,7 +7,6 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import LikeContainer from "../likes/like_container";
 
 class ImaginationShow extends React.Component { 
-
     constructor(props) {
         super(props)
         
@@ -24,6 +23,7 @@ class ImaginationShow extends React.Component {
     componentDidUpdate(prevProps) { // Craziness!
         if (this.props.match.params.imaginationId !== prevProps.match.params.imaginationId) { 
             this.props.fetchImagination(this.props.match.params.imaginationId)
+            this.props.fetchLikes(this.props.match.params.imaginationId)
         }
     }
 
@@ -40,8 +40,9 @@ class ImaginationShow extends React.Component {
         return ( 
             <div>
                 <MainNavBar currentUser={this.props.currentUser} logout={this.props.logout} />
-                {/* {(this.props.imagination.image) ? ( */}
+
                 <div className="show-container">
+
                     <div className="image-panel"> 
                         <Link to={`/imaginations/${this.props.imagination.id - 1}`} className="show-arrows" ><IoIosArrowBack /></Link> {/* <div className="show-arrows" onClick{() => this.pressArrow(-1)}><IoIosArrowBack /></div> */}
                         <img src={this.props.imagination.image} alt="broke" className="shown-image" /> 
@@ -49,6 +50,7 @@ class ImaginationShow extends React.Component {
                     </div>
                     
                     <div className="bottom-half-of-show">
+                        
                         {(this.props.currentUser && (this.props.currentUser.id === this.props.imagination.artist_id))
                         ? <div className="user-owned-post">
                             <LikeContainer currentUser={this.props.currentUser} imagination={this.props.imagination} />
@@ -58,12 +60,13 @@ class ImaginationShow extends React.Component {
                             </div>
                           </div>
                         : <LikeContainer currentUser={this.props.currentUser} imagination={this.props.imagination} />}
+
                         <h1 className="show-title">{this.props.imagination.title}</h1>
                         <h2 className="show-username">By *Username Here*</h2>
                         <p className="show-description">{this.props.imagination.description}</p>
+
                     </div>
                 </div>
-                {/* ) : <></>} */}
             </div>
         )
     }
