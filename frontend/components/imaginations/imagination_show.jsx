@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { RiPencilLine } from "react-icons/ri";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import LikeContainer from "../likes/like_container";
+// import LikeContainer from "../likes/like_container";
+import LikeButton from "../likes/like_button";
 
 class ImaginationShow extends React.Component { 
     constructor(props) {
@@ -14,8 +15,9 @@ class ImaginationShow extends React.Component {
     }
 
     componentDidMount() { 
-        this.props.fetchImagination(this.props.match.params.imaginationId)
-        this.props.fetchLikes(this.props.match.params.imaginationId)
+        this.props.fetchLikes(this.props.match.params.imaginationId) // Why does this order matter? 
+            .then(() => this.props.fetchImagination(this.props.match.params.imaginationId))
+        // this.props.fetchLikes(this.props.match.params.imaginationId)
     }
 
     /**************************************************************************/
@@ -34,9 +36,13 @@ class ImaginationShow extends React.Component {
 
     /**************************************************************************/
 
+    componentWillUnmount() { 
+        // debugger
+    }
+
     render() { 
         if (!this.props.imagination) return null 
-       
+        // debugger
         return ( 
             <div>
                 <MainNavBar currentUser={this.props.currentUser} logout={this.props.logout} />
@@ -50,16 +56,18 @@ class ImaginationShow extends React.Component {
                     </div>
                     
                     <div className="bottom-half-of-show">
-                        
+
                         {(this.props.currentUser && (this.props.currentUser.id === this.props.imagination.artist_id))
                         ? <div className="user-owned-post">
-                            <LikeContainer currentUser={this.props.currentUser} imagination={this.props.imagination} />
+                            <LikeButton {...this.props} />
+                            {/* <LikeButton currentUser={this.props.currentUser} imagination={this.props.imagination} /> */}
                             <div>
                                 <button onClick={() => this.deletePost()} className="user-owned-post-buttons"><FaRegTrashAlt /></button>
                                 <Link to={this.props.match.url + "/edit"} className="user-owned-post-buttons"><RiPencilLine /></Link>
                             </div>
                           </div>
-                        : <LikeContainer currentUser={this.props.currentUser} imagination={this.props.imagination} />}
+                        : <LikeButton {...this.props} />}
+                        {/* <LikeButton currentUser={this.props.currentUser} imagination={this.props.imagination} />} */}
 
                         <h1 className="show-title">{this.props.imagination.title}</h1>
                         <h2 className="show-username">By *Username Here*</h2>
