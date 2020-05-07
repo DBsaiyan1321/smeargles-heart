@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ImaginationIndexItem = props => {
+    // debugger 
     return (
         <li className="imagination-index-item">
 
@@ -10,7 +11,8 @@ const ImaginationIndexItem = props => {
             </Link>
             <div className="hover-overlay">
                 <h1 className="index-item-title">{props.imagination.title}</h1>
-                <p className="index-item-username">*Username*</p>
+                <p className="index-item-username">*Username Here*</p>
+                 {/* artist={this.props.users[imagination.artist_id - 1]}  */}
             </div>
         </li>
     )

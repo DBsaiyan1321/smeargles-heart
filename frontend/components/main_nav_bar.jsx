@@ -18,8 +18,8 @@ const MainNavBar = props => {
                     <div className="username-tab">
                         <h2 className="main-nav-bar-element username-nav">{props.currentUser.username}</h2>
                         <ul className="username-dropdown">
-                            <li className="dropdown-item dropdown-item-username">{props.currentUser.username}</li>
-                            <li className="dropdown-item" onClick={() => props.logout()}>LOGOUT</li>
+                            {/* <li className="dropdown-item dropdown-item-username">{props.currentUser.username}</li> Add this when you make the profile feature */}
+                            <li className="dropdown-item" onClick={() => props.logout()}>Log Out</li>
                         </ul>
                     </div>
                 </div>

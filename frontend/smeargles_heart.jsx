@@ -3,8 +3,7 @@ import ReactDOM from "react-dom";
 import configureStore from "./store/store";
 import Root from "./components/root";
 
-import * as LikeAPIUtil from "./actions/like_actions"; 
-import * as CommentAPIUtil from "./actions/comment_actions";
+import * as UserAPIUtil from "./util/user_api_util";
 
 document.addEventListener("DOMContentLoaded", () => { 
     let store;
@@ -29,14 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
     window.getState = store.getState;
     window.dispatch = store.dispatch;
 
-    window.fetchLikes = LikeAPIUtil.fetchLikes;
-    window.createLike = LikeAPIUtil.createLike;
-    window.deleteLike = LikeAPIUtil.deleteLike;
-
-    window.fetchComments = CommentAPIUtil.fetchComments;
-    window.createComment = CommentAPIUtil.createComment;
-    window.updateComment = CommentAPIUtil.updateComment;
-    window.deleteComment = CommentAPIUtil.deleteComment;
+    window.fetchUsers = UserAPIUtil.fetchUsers;
+    window.fetchUser = UserAPIUtil.fetchUser;
     // end of testing
 
     ReactDOM.render(<Root store={store} />, root)

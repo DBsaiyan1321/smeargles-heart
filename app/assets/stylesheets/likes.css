@@ -16,4 +16,5 @@
     letter-spacing: 1px;
     font-size: 14px;
     margin-left: 11px;
+    height: 20px; /* Hacky way that I don't like. I try fit-content, but it doesn't work how I want it to */
 }

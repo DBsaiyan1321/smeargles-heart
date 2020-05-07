@@ -67,11 +67,13 @@
 .show-title { 
     margin: 15px;
     font-family: 'Hind', Arial, Helvetica, sans-serif;
+    font-size: 26px;
 }
 
 .show-description { 
     margin: 15px;
     font-family: 'Baloo Tamma 2', Arial, Helvetica, sans-serif;
+    font-size: 16px;
 }
 
 .show-username { 

@@ -32,6 +32,12 @@ class LikeButton extends React.Component {
         }
     }
 
+    componentDidUpdate(prevProps) { 
+        if (this.props.liked !== prevProps.liked) { 
+            this.setState( { liked: this.props.liked })
+        }
+    }
+
     likeOrUnlike(e) { // Right now, this only causes a re-render of the like_container, not the show itself. This is causing a lot of bugs. 
 
         // let like; 

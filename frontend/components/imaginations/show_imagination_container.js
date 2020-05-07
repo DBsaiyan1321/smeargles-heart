@@ -40,6 +40,7 @@ const mapStateToProps = (state, ownProps) => {
         liked: bool, 
         existingLikeId,
         likeCount
+        // user: state.entities.users[imagination.artist_id]
     }
 }
 // const mapStateToProps = (state, ownProps) => {

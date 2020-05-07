@@ -17,6 +17,7 @@ class ImaginationShow extends React.Component {
     componentDidMount() { 
         this.props.fetchLikes(this.props.match.params.imaginationId) // Why does this order matter? 
             .then(() => this.props.fetchImagination(this.props.match.params.imaginationId))
+            // .then(() => this.props.fetchUser(this.props.imagination.artist_id))
         // this.props.fetchLikes(this.props.match.params.imaginationId)
     }
 
@@ -24,8 +25,10 @@ class ImaginationShow extends React.Component {
 
     componentDidUpdate(prevProps) { // Craziness!
         if (this.props.match.params.imaginationId !== prevProps.match.params.imaginationId) { 
-            this.props.fetchImagination(this.props.match.params.imaginationId)
             this.props.fetchLikes(this.props.match.params.imaginationId)
+                .then(() => this.props.fetchImagination(this.props.match.params.imaginationId))
+                // .then(() => this.props.fetchUser(this.props.imagination.artist_id))
+            // this.props.fetchLikes(this.props.match.params.imaginationId)
         }
     }
 
@@ -72,7 +75,7 @@ class ImaginationShow extends React.Component {
                         {/* <LikeButton currentUser={this.props.currentUser} imagination={this.props.imagination} />} */}
 
                         <h1 className="show-title">{this.props.imagination.title}</h1>
-                        <h2 className="show-username">By *Username Here*</h2>
+                        <h2 className="show-username">*Username Here*</h2>
                         <p className="show-description">{this.props.imagination.description}</p>
 
                     </div>
