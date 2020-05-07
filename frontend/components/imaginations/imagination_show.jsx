@@ -66,7 +66,9 @@ class ImaginationShow extends React.Component {
                                 <Link to={this.props.match.url + "/edit"} className="user-owned-post-buttons"><RiPencilLine /></Link>
                             </div>
                           </div>
-                        : <LikeButton {...this.props} />}
+                        : <div className="unowned-post">
+                            <LikeButton {...this.props} />
+                          </div>}
                         {/* <LikeButton currentUser={this.props.currentUser} imagination={this.props.imagination} />} */}
 
                         <h1 className="show-title">{this.props.imagination.title}</h1>

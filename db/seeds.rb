@@ -23,6 +23,7 @@ big_bertha = User.create!(username: 'earthquake', email: "big_bertha@yahoo.com",
 flintee = User.create!(username: 'flynn-tee', email: "flintee@yahoo.com", password: "flintee")
 lucian = User.create!(username: 'manipulator', email: "lucian@yahoo.com", password: "lucian")
 cynthia = User.create!(username: 'CHAMPION', email: "cynthia@hotmail.com", password: "cynthia")
+girly_friend = User.create!(username: 'girly_friend', email: "girly_friend@hotmail.com", password: "girly_friend")
 
 # Imaginations
 first_imagination = Imagination.create!(title: "First Imagination of Bulbasuar", description: "I fought long and hard to get this picture up, with the assistance of Mike.", artist_id: 1 )
@@ -229,6 +230,14 @@ fiftytwo_imagination = Imagination.create!(title: "Witch", description: "Witches
 file52 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart/witch.png")
 fiftytwo_imagination.image.attach(io: file52, filename: 'witch.png')
 
+fiftysecond_imagination = Imagination.create!(title: "Daily Drug", description: "A very beautiful girl is in love with coffee hahaha :D", artist_id: 15)
+file53 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart/megans-coffee.jpg")
+fiftysecond_imagination.image.attach(io: file53, filename: 'megans-coffee.jpg')
+
+fiftythird_imagination = Imagination.create!(title: "Summer Time", description: "Brights up my life like it's summer time all the time <3", artist_id: 15)
+file54 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart/megans-flowers.jpg")
+fiftythird_imagination.image.attach(io: file54, filename: 'megans-flowers.jpg')
+
 
 # Likes 
 like1 = Like.create!(user_id: 1, imagination_id: 1)
@@ -431,6 +440,36 @@ like197 = Like.create!(user_id: 14, imagination_id: 44)
 like198 = Like.create!(user_id: 14, imagination_id: 45)
 like199 = Like.create!(user_id: 14, imagination_id: 46)
 like200 = Like.create!(user_id: 14, imagination_id: 47)
+
+like201 = Like.create!(user_id: 1, imagination_id: 52)
+like202 = Like.create!(user_id: 2, imagination_id: 52)
+like203 = Like.create!(user_id: 3, imagination_id: 52)
+like204 = Like.create!(user_id: 4, imagination_id: 52)
+like205 = Like.create!(user_id: 5, imagination_id: 52)
+like206 = Like.create!(user_id: 6, imagination_id: 52)
+like207 = Like.create!(user_id: 7, imagination_id: 52)
+like208 = Like.create!(user_id: 8, imagination_id: 52)
+like209 = Like.create!(user_id: 9, imagination_id: 52)
+like210 = Like.create!(user_id: 10, imagination_id: 52)
+like211 = Like.create!(user_id: 11, imagination_id: 52)
+like212 = Like.create!(user_id: 12, imagination_id: 52)
+like213 = Like.create!(user_id: 13, imagination_id: 52)
+like214 = Like.create!(user_id: 14, imagination_id: 52)
+like215 = Like.create!(user_id: 1, imagination_id: 53)
+like216 = Like.create!(user_id: 2, imagination_id: 53)
+like217 = Like.create!(user_id: 3, imagination_id: 53)
+like218 = Like.create!(user_id: 4, imagination_id: 53)
+like219 = Like.create!(user_id: 5, imagination_id: 53)
+like220 = Like.create!(user_id: 6, imagination_id: 53)
+like221 = Like.create!(user_id: 7, imagination_id: 53)
+like222 = Like.create!(user_id: 8, imagination_id: 53)
+like223 = Like.create!(user_id: 9, imagination_id: 53)
+like224 = Like.create!(user_id: 10, imagination_id: 53)
+like225 = Like.create!(user_id: 11, imagination_id: 53)
+like226 = Like.create!(user_id: 12, imagination_id: 53)
+like227 = Like.create!(user_id: 13, imagination_id: 53)
+like228 = Like.create!(user_id: 14, imagination_id: 53)
+
 
 # Comments
 # comment1

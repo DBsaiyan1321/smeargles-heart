@@ -3,6 +3,12 @@ import { fetchLikes, createLike, deleteLike } from "../../actions/like_actions";
 import LikeButton from "./like_button";
 import { withRouter } from "react-router-dom";
 
+
+
+// Didn't end up using this. 
+
+
+
 const mapStateToProps = (state, ownProps) => {
     // debugger
     // let bool; 

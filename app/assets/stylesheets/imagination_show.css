@@ -39,7 +39,7 @@
 
 .user-owned-post { 
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     padding: 15px;
 }
@@ -55,6 +55,13 @@
 
 .user-owned-post-buttons:hover { 
     color: #4d4dff9f;
+}
+
+.unowned-post { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
 }
 
 .show-title { 

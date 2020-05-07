@@ -3,6 +3,9 @@ import ImaginationIndexItem from "./imagination_index_item";
 
 class ImaginationIndex extends React.Component { 
     componentDidMount() { 
+        // for(let i = this.props.imaginations.length; i >= 0; i--) { 
+        //     this.props.fetchLikes(this.props.imaginations[i])
+        // }
         this.props.fetchImaginations() // Causes a re-render
     }
 
