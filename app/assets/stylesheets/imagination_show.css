@@ -6,7 +6,7 @@
 
 .image-panel { 
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* space-between whenever I figure out the arrows */
     align-items: center;
     width: 100%;
     height: 70vh;
@@ -34,7 +34,7 @@
 }
 
 .bottom-half-of-show { 
-    width: 80%;
+    width: 75%;
 }
 
 .user-owned-post { 
@@ -64,10 +64,30 @@
     padding: 15px;
 }
 
+.title-container { 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .show-title { 
-    margin: 15px;
+    margin: 15px 15px 0px 15px;
     font-family: 'Hind', Arial, Helvetica, sans-serif;
     font-size: 26px;
+}
+
+.like-count {
+    color: #A0A0A8;
+    font-family: 'Baloo Tamma 2', Arial, Helvetica, sans-serif;
+    display: inline-flex;
+    align-items: center;
+    width: 4%; 
+    justify-content: space-between;
+    margin-right: 32px;
+}
+
+.like-count p { 
+    height: 25px;
 }
 
 .show-description { 
@@ -76,6 +96,23 @@
     font-size: 16px;
 }
 
+.author { 
+    display: flex;
+    padding-left: 15px;
+    align-items: center;
+}
+
+.by { 
+    display: flex;
+    font-family: 'Baloo Tamma 2', Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #A0A0A8;
+    align-items: center;
+    padding-top: 2px;
+}
+
 .show-username { 
-    margin: 0px 15px;
+    margin: 0px 5px;
+    font-family: 'Hind', Arial, Helvetica, sans-serif;
+    font-size: 16px;
 }

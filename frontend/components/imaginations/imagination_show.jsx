@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { RiPencilLine } from "react-icons/ri";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-// import LikeContainer from "../likes/like_container";
 import LikeButton from "../likes/like_button";
+import { AiFillStar } from "react-icons/ai";
 
 class ImaginationShow extends React.Component { 
     constructor(props) {
@@ -17,8 +17,6 @@ class ImaginationShow extends React.Component {
     componentDidMount() { 
         this.props.fetchLikes(this.props.match.params.imaginationId) // Why does this order matter? 
             .then(() => this.props.fetchImagination(this.props.match.params.imaginationId))
-            // .then(() => this.props.fetchUser(this.props.imagination.artist_id))
-        // this.props.fetchLikes(this.props.match.params.imaginationId)
     }
 
     /**************************************************************************/
@@ -27,8 +25,6 @@ class ImaginationShow extends React.Component {
         if (this.props.match.params.imaginationId !== prevProps.match.params.imaginationId) { 
             this.props.fetchLikes(this.props.match.params.imaginationId)
                 .then(() => this.props.fetchImagination(this.props.match.params.imaginationId))
-                // .then(() => this.props.fetchUser(this.props.imagination.artist_id))
-            // this.props.fetchLikes(this.props.match.params.imaginationId)
         }
     }
 
@@ -45,7 +41,7 @@ class ImaginationShow extends React.Component {
 
     render() { 
         if (!this.props.imagination) return null 
-        // debugger
+        // The arrows don't work as expected. Maybe when I fetch the imagination, I will fetch the one before and after it as well. So I would fetch three imaginations at a time.
         return ( 
             <div>
                 <MainNavBar currentUser={this.props.currentUser} logout={this.props.logout} />
@@ -53,9 +49,9 @@ class ImaginationShow extends React.Component {
                 <div className="show-container">
 
                     <div className="image-panel"> 
-                        <Link to={`/imaginations/${this.props.imagination.id - 1}`} className="show-arrows" ><IoIosArrowBack /></Link> {/* <div className="show-arrows" onClick{() => this.pressArrow(-1)}><IoIosArrowBack /></div> */}
+                        {/* <Link to={`/imaginations/${this.props.imagination.id - 1}`} className="show-arrows" ><IoIosArrowBack /></Link>  */}
                         <img src={this.props.imagination.image} alt="broke" className="shown-image" /> 
-                        <Link to={`/imaginations/${this.props.imagination.id + 1}`} className="show-arrows" ><IoIosArrowForward /></Link>
+                        {/* <Link to={`/imaginations/${this.props.imagination.id + 1}`} className="show-arrows" ><IoIosArrowForward /></Link> */}
                     </div>
                     
                     <div className="bottom-half-of-show">
@@ -63,7 +59,6 @@ class ImaginationShow extends React.Component {
                         {(this.props.currentUser && (this.props.currentUser.id === this.props.imagination.artist_id))
                         ? <div className="user-owned-post">
                             <LikeButton {...this.props} />
-                            {/* <LikeButton currentUser={this.props.currentUser} imagination={this.props.imagination} /> */}
                             <div>
                                 <button onClick={() => this.deletePost()} className="user-owned-post-buttons"><FaRegTrashAlt /></button>
                                 <Link to={this.props.match.url + "/edit"} className="user-owned-post-buttons"><RiPencilLine /></Link>
@@ -72,10 +67,15 @@ class ImaginationShow extends React.Component {
                         : <div className="unowned-post">
                             <LikeButton {...this.props} />
                           </div>}
-                        {/* <LikeButton currentUser={this.props.currentUser} imagination={this.props.imagination} />} */}
 
-                        <h1 className="show-title">{this.props.imagination.title}</h1>
-                        <h2 className="show-username">*Username Here*</h2>
+                        <div className="title-container">
+                            <h1 className="show-title">{this.props.imagination.title}</h1>
+                            <div className="like-count"><AiFillStar /><p>{this.props.likeCount}</p></div>
+                        </div>
+                        <div className="author">
+                            <span className="by">BY</span>
+                            <span className="show-username">{this.props.imagination.username}</span>
+                        </div>
                         <p className="show-description">{this.props.imagination.description}</p>
 
                     </div>

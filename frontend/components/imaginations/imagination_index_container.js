@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     fetchImaginations: () => dispatch(fetchImaginations()),
     // fetchLikes: imaginationId => dispatch(fetchLikes(imaginationId)),
-    fetchUsers: () => dispatch(fetchUsers())
+    // fetchUsers: () => dispatch(fetchUsers())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ImaginationIndex);

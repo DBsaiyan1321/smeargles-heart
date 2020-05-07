@@ -5,7 +5,7 @@ const MainNavBar = props => {
     return ( 
         <div className="main-nav-bar">
             <div className="main-nav-bar-top-left home"> {/* Instead of this div, maybe make it a link and see if that works */}
-                <Link to="/" className="home"><img src={window.smeargleURL} alt="logo" className="main-nav-bar-logo" /></Link>
+                <Link to="/" className="home"><img src="https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargle-Head.png" alt="logo" className="main-nav-bar-logo" /></Link>
                 <Link to="/" className="home"><h1>SMEARGLE'S HEART</h1></Link>
             </div>
             <div className="vertical-bar"></div>

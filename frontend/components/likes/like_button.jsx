@@ -8,13 +8,13 @@ class LikeButton extends React.Component {
         this.state = { likeId: props.existingLikeId, liked: props.liked } // not this.props because I am in the constructor function
 
         this.likeOrUnlike = this.likeOrUnlike.bind(this)
+        this.componentCleanup = this.componentCleanup.bind(this)
     }
 
-    // componentDidMount() { 
-    //     this.props.fetchLikes(this.props.imagination.id)
-    // }
-
-    componentWillUnmount() { 
+    /**************************************************************************/
+    // Got this from stackoverflow, and I like using Vanilla JS for the DOM because it gives me more skills
+    
+    componentCleanup() { 
         if (this.props.currentUser) {
             let like;
             if (!this.state.likeId) {
@@ -23,39 +23,33 @@ class LikeButton extends React.Component {
                 like = { id: this.state.likeId, imagination_id: this.props.imagination.id, user_id: this.props.currentUser.id }
             )
 
-        // debugger
+            // debugger
             if (Boolean(this.state.liked && this.props.currentUser && !this.state.likeId)) {
                 this.props.createLike(like)
             } else if (Boolean(!this.state.liked && this.props.currentUser && this.state.likeId)) {
                 this.props.deleteLike(like)
-            } 
+            }
         }
     }
 
-    componentDidUpdate(prevProps) { 
+    componentDidMount() { 
+        window.addEventListener('beforeunload', this.componentCleanup);
+    }
+
+    componentWillUnmount() { 
+        this.componentCleanup();
+        window.removeEventListener('beforeunload', this.componentCleanup);
+    }
+
+    /**************************************************************************/
+
+    componentDidUpdate(prevProps) { // Mike's help
         if (this.props.liked !== prevProps.liked) { 
             this.setState( { liked: this.props.liked })
         }
     }
 
-    likeOrUnlike(e) { // Right now, this only causes a re-render of the like_container, not the show itself. This is causing a lot of bugs. 
-
-        // let like; 
-        // if (!this.state.likeId) { 
-        //     like = { imagination_id: this.props.imagination.id, user_id: this.props.currentUser.id }
-        // } else ( 
-        //     like = { id: this.state.likeId, imagination_id: this.props.imagination.id, user_id: this.props.currentUser.id  }
-        // )
-
-        // // debugger
-
-        // if (this.state.liked && this.props.currentUser) { 
-        //     this.props.deleteLike(like)
-        // } else if (!this.state.liked && this.props.currentUser) { 
-        //     this.props.createLike(like)
-        // } else { 
-        //     this.props.history.push("/signup")
-        // }
+    likeOrUnlike(e) {
         if (!this.props.currentUser) { 
             this.props.history.push("/signup")
         }
@@ -68,14 +62,13 @@ class LikeButton extends React.Component {
         return (
             (this.state.liked) 
             ? <div className="like-div" onClick={e => this.likeOrUnlike(e)}> 
-                    <div className="like-button"><AiFillStar /></div> {/* {this.props.likeCount} */}
+                    <div className="like-button"><AiFillStar /></div> 
                 <h1 className="like-text">LIKED</h1>
               </div>
             : <div className="like-div" onClick={e => this.likeOrUnlike(e)}>
                 <div className="like-button"><AiOutlineStar /></div> 
                 <h1 className="like-text">LIKE THIS IMAGINATION</h1>
               </div>
-            // null
         )
     }
 };

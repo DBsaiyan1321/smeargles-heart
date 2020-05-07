@@ -4,7 +4,7 @@ import ImaginationIndexItem from "./imagination_index_item";
 class ImaginationIndex extends React.Component { 
     componentDidMount() { 
         // debugger
-        this.props.fetchUsers()
+        // this.props.fetchUsers()
         this.props.fetchImaginations() // Causes a re-render
         // debugger
         // if (this.props.imaginations.length > 0) { 
@@ -21,7 +21,7 @@ class ImaginationIndex extends React.Component {
             <div className="container"> 
                 <ul className="imaginations-index">
                     {this.props.imaginations.map(imagination => {
-                        return <ImaginationIndexItem imagination={imagination} key={imagination.id}/>
+                        return <ImaginationIndexItem imagination={imagination} key={imagination.id} artist={imagination.username} />
                         // artist = { this.props.users[imagination.artist_id - 1] } 
                         // Really hacky way of getting the artist. Is there any other way?
                     })}

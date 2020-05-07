@@ -11,8 +11,7 @@ const ImaginationIndexItem = props => {
             </Link>
             <div className="hover-overlay">
                 <h1 className="index-item-title">{props.imagination.title}</h1>
-                <p className="index-item-username">*Username Here*</p>
-                 {/* artist={this.props.users[imagination.artist_id - 1]}  */}
+                <p className="index-item-username">{props.imagination.username}</p>
             </div>
         </li>
     )
