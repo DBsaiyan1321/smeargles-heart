@@ -56,8 +56,12 @@ class ImaginationForm extends React.Component {
 
     render() { 
         let preview
-        if (this.props.formType === "Create") { 
+        
+        // The original didn't have the else if, so it would change the image preview if I selected another file on the edit form.
+        if (this.props.formType === "Create") {
             preview = (this.state.imageFile && this.props.formType === "Create") ? <img src={this.state.imageUrl} /> : null
+        } else if (this.state.imageUrl && this.props.formType === "Edit") { 
+            preview = <img src={this.state.imageUrl} />
         } else {
             preview = (this.state.image && this.props.formType === "Edit") ? <img src={this.state.image} /> : null
         }

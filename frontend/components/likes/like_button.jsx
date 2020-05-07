@@ -13,7 +13,7 @@ class LikeButton extends React.Component {
 
     /**************************************************************************/
     // Got this from stackoverflow, and I like using Vanilla JS for the DOM because it gives me more skills
-    
+
     componentCleanup() { 
         if (this.props.currentUser) {
             let like;
@@ -45,7 +45,7 @@ class LikeButton extends React.Component {
 
     componentDidUpdate(prevProps) { // Mike's help
         if (this.props.liked !== prevProps.liked) { 
-            this.setState( { liked: this.props.liked })
+            this.setState( { likeId: this.props.existingLikeId, liked: this.props.liked })
         }
     }
 
