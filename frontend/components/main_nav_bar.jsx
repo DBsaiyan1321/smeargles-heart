@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom";
+import { AiOutlineGithub, AiFillLinkedin } from "react-icons/ai";
 
 const MainNavBar = props => {
     return ( 
@@ -28,6 +29,11 @@ const MainNavBar = props => {
                         <div className="home-tab">
                             <Link to="/" className="main-nav-bar-element">HOME</Link>
                         </div>
+                        <div className="vertical-bar"></div>
+                        <div className="socials-tab"> 
+                            <a target="_blank" rel="noopener noreferrer" href="https://github.com/DBsaiyan1321" className="main-nav-bar-element"><AiOutlineGithub className="socials-links" /></a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/dorian-izaiah-brown-1430b3193/" className="main-nav-bar-element"><AiFillLinkedin className="socials-links" /></a>
+                        </div> 
                         <div className="user-auth-links">
                             <Link to="/signup" className="main-nav-bar-element">JOIN</Link>
                             <br />
