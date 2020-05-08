@@ -9,6 +9,9 @@
 ## Link
 [Go to the live site :D](https://smearglesheart.herokuapp.com/#/)
 
+## How to Use Some Things  
+<img src="https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Screen+Shot+2020-05-08+at+11.29.24+AM.png" height="400">
+
 ## Technologies 
 * Ruby on Rails
 * React/Redux
