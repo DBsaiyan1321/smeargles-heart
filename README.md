@@ -19,6 +19,7 @@
 * CSS
 * JavaScript
 * AWS 
+* PostgreSQL
 
 ## Features I Struggled With
 ### Likes 
