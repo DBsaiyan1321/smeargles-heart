@@ -1,4 +1,4 @@
-# Smeargle's Heart 
+# ![alt text](https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargle-Head.png) Smeargle's Heart 
 
 ## Summary of the Website 
 * Social media centered around art
