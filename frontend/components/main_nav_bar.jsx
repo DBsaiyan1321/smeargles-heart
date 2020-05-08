@@ -5,7 +5,7 @@ const MainNavBar = props => {
     return ( 
         <div className="main-nav-bar">
             <div className="main-nav-bar-top-left home"> {/* Instead of this div, maybe make it a link and see if that works */}
-                <Link to="/" className="home"><img src={window.smeargleURL} alt="logo" className="main-nav-bar-logo" /></Link>
+                <Link to="/" className="home"><img src="https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargle-Head.png" alt="logo" className="main-nav-bar-logo" /></Link>
                 <Link to="/" className="home"><h1>SMEARGLE'S HEART</h1></Link>
             </div>
             <div className="vertical-bar"></div>
@@ -18,8 +18,8 @@ const MainNavBar = props => {
                     <div className="username-tab">
                         <h2 className="main-nav-bar-element username-nav">{props.currentUser.username}</h2>
                         <ul className="username-dropdown">
-                            <li className="dropdown-item dropdown-item-username">{props.currentUser.username}</li>
-                            <li className="dropdown-item" onClick={() => props.logout()}>LOGOUT</li>
+                            {/* <li className="dropdown-item dropdown-item-username">{props.currentUser.username}</li> Add this when you make the profile feature */}
+                            <li className="dropdown-item" onClick={() => props.logout()}>Log Out</li>
                         </ul>
                     </div>
                 </div>

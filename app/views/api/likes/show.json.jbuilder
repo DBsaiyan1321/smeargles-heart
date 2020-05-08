@@ -1,0 +1,1 @@
+json.extract! @like, :id, :user_id, :imagination_id

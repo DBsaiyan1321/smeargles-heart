@@ -1,10 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom"; 
-import * as SessionActions from "./actions/session_actions";
 import configureStore from "./store/store";
 import Root from "./components/root";
 
-import * as imaginationActions from "./actions/imagination_actions";
+import * as UserAPIUtil from "./util/user_api_util";
 
 document.addEventListener("DOMContentLoaded", () => { 
     let store;
@@ -26,17 +25,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root")
 
     // testing
-    window.login = SessionActions.login;
-    // window.signup = SessionActions.signup; 
-    // window.logout = SessionActions.logout;
     window.getState = store.getState;
     window.dispatch = store.dispatch;
 
-    window.fetchImaginations = imaginationActions.fetchImaginations
-    window.fetchImagination = imaginationActions.fetchImagination 
-    window.createImagination = imaginationActions.createImagination
-    window.updateImagination = imaginationActions.updateImagination
-    window.deleteImagination = imaginationActions.deleteImagination
+    window.fetchUsers = UserAPIUtil.fetchUsers;
+    window.fetchUser = UserAPIUtil.fetchUser;
     // end of testing
 
     ReactDOM.render(<Root store={store} />, root)

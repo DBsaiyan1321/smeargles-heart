@@ -21,6 +21,16 @@ class User < ApplicationRecord # SPIRE
         foreign_key: :artist_id, 
         class_name: :Imagination
 
+    has_many :imaginations_liked,   
+        primary_key: :id, 
+        foreign_key: :user_id, 
+        class_name: :Like
+
+    has_many :comments, 
+        primary_key: :id, 
+        foreign_key: :user_id, 
+        class_name: :Comment
+
     attr_reader :password
 
     def self.find_by_credentials(username, password) 

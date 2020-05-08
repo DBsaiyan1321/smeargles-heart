@@ -1,0 +1,20 @@
+.like-div { 
+    cursor: pointer;
+    display: flex;
+    color: #4d4dff;
+    align-items: center;
+}
+
+.like-button { 
+    display: flex;
+    font-size: 26px;
+    align-items: center;
+}
+
+.like-text { 
+    font-family: 'Baloo Tamma 2', Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+    font-size: 14px;
+    margin-left: 11px;
+    height: 20px; /* Hacky way that I don't like. I try fit-content, but it doesn't work how I want it to */
+}

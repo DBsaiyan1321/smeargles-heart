@@ -59,7 +59,7 @@ class SessionForm extends React.Component {
                     <div className="user-auth-text">
                         {/* <Link to="/"> */}
                             <div className="top-text">
-                                <img src={window.smeargleURL} alt="logo" className="logo" />
+                            <img src="https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargle-Head.png" alt="logo" className="logo" />
                                 <h3>SMEARGLE'S HEART</h3>
                             </div>
                         {/* </Link> */}
