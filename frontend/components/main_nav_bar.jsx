@@ -16,6 +16,11 @@ const MainNavBar = props => {
                     <div className="home-tab"> 
                         <Link to="/" className="main-nav-bar-element">HOME</Link>
                     </div>
+                    <div className="vertical-bar"></div>
+                    <div className="socials-tab">
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/DBsaiyan1321" className="main-nav-bar-element"><AiOutlineGithub className="socials-links" /></a>
+                        <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/dorian-izaiah-brown-1430b3193/" className="main-nav-bar-element"><AiFillLinkedin className="socials-links" /></a>
+                    </div>
                     <div className="username-tab">
                         <h2 className="main-nav-bar-element username-nav">{props.currentUser.username}</h2>
                         <ul className="username-dropdown">
