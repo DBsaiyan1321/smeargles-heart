@@ -80,14 +80,14 @@ class ImaginationForm extends React.Component {
                         <div className="file-container">
                             <div className="spotted-border-file">
                                 <div className="preview">{preview}</div>
-                                <input type="file" onChange={this.handleFile} className="file-button" />
+                                <input type="file" onChange={this.handleFile} className="file-button" accept=".png, .jpg, .jpeg" />
                             </div>
                         </div>
                             
                         {/* </div> */}
         
                         <div className="inputs-for-imaginations">
-                            <textarea onChange={this.updateField("title")} value={this.state.title} className="title-box" rows="1" placeholder="Give Your Imagination a Title" />
+                            <textarea onChange={this.updateField("title")} value={this.state.title} className="title-box" rows="1" placeholder="Title" /> {/* placeholder="Give Your Imagination a Title" */}
                             <div className="imagination-form-horizontal-bar"></div>
                             <textarea onChange={this.updateField("description")} value={this.state.description} className="description-box" placeholder="Describe Your Imagination in Words That Will Comprehended By All." />
                         </div>
