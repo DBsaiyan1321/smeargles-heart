@@ -14,7 +14,7 @@ const App = () => {
         <Switch>
             <Route exact path="/imaginations/:imaginationId/edit" component={EditImaginationContainer} />
             <Route exact path="/imaginations/:imaginationId" component={ShowImaginationContainer} />
-            <Route exact path="/:username" component={ProfileContainer} />
+            <Route exact path="/user/:username" component={ProfileContainer} />
             <AuthRoute path="/signup" component={SignupFormContainer} />
             <AuthRoute path="/login" component={LoginFormContainer} />
             <ProtectedRoute path="/new" component={CreateImaginationContainer} />

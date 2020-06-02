@@ -5,7 +5,6 @@ import { logout } from "../../actions/session_actions";
 import { deleteImagination } from "../../actions/imagination_actions";
 import { fetchLikes, createLike, deleteLike } from "../../actions/like_actions";
 
-
 const mapStateToProps = (state, ownProps) => {
     let imagination = state.entities.imaginations[ownProps.match.params.imaginationId]
     let currentUser = state.entities.users[state.session.id] 
@@ -58,6 +57,7 @@ const mapDispatchToProps = dispatch => ({
     fetchLikes: imaginationId => dispatch(fetchLikes(imaginationId)),
     createLike: like => dispatch(createLike(like)),
     deleteLike: like => dispatch(deleteLike(like))
+
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ImaginationShow);

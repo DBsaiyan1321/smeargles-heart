@@ -18,6 +18,7 @@ class Api::UsersController < ApplicationController
 
     def show
         @user = User.find_by(username: params[:id]) # The wildcard gets passed in under the id param even though I am sending up a username
+        # @imaginations = Imagination.where("artist_id = '#{@user.id}'")
         
         if @user 
             render "/api/users/show" # file path from the views folder 
