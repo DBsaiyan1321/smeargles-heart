@@ -1,14 +1,14 @@
 class Api::ImaginationsController < ApplicationController
 
-    def index # Good
+    def index 
         @imaginations = Imagination.all 
-
+        # debugger
         render "api/imaginations/index"
     end 
 
-    def show # I always get a 404 and my json doesn't render
+    def show 
         @imagination = Imagination.find(params[:id])
-        # debugger
+        
         if @imagination
             render "api/imaginations/show"
         else  
@@ -16,7 +16,7 @@ class Api::ImaginationsController < ApplicationController
         end 
     end
 
-    def create # Good
+    def create 
         @imagination = Imagination.new(imagination_params)
 
         if @imagination.save
@@ -26,8 +26,7 @@ class Api::ImaginationsController < ApplicationController
         end 
     end 
 
-    def update # # Same error as show when the post doesn't exist. 
-        # debugger
+    def update  
         @imagination = Imagination.find(params[:imagination][:id])
         
         if @imagination && @imagination.update(imagination_params)
@@ -37,7 +36,7 @@ class Api::ImaginationsController < ApplicationController
         end 
     end 
 
-    def destroy # Same error as show when the post doesn't exist. Its because the url doesn't exist I guess.
+    def destroy 
         @imagination = Imagination.find(params[:id])
 
         if @imagination && @imagination.delete

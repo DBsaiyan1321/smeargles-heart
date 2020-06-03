@@ -6,6 +6,7 @@ import { RiPencilLine } from "react-icons/ri";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import LikeButton from "../likes/like_button";
 import { AiFillStar } from "react-icons/ai";
+import Comments from "../comments/comments_container";
 
 class ImaginationShow extends React.Component { 
     constructor(props) {
@@ -74,10 +75,11 @@ class ImaginationShow extends React.Component {
                         </div>
                         <div className="author">
                             <span className="by">BY</span>
-                            <span className="show-username">{this.props.imagination.username}</span>
+                            <span className="show-username"><Link to={`/user/${this.props.imagination.username}`}>{this.props.imagination.username}</Link></span>
                         </div>
                         <p className="show-description">{this.props.imagination.description}</p>
 
+                        <Comments imagination={this.props.imagination} currentUser={this.props.currentUser} />
                     </div>
                 </div>
             </div>

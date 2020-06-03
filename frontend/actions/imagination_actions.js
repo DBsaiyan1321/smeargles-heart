@@ -20,8 +20,8 @@ const removeImagination = imaginationId => ({
     imaginationId
 });
 
-export const fetchImaginations = () => dispatch => {
-    return ImaginationAPIUtil.fetchImaginations()
+export const fetchImaginations = userId => dispatch => {
+    return ImaginationAPIUtil.fetchImaginations(userId)
         .then(imaginations => dispatch(receiveImaginations(imaginations)))
         // .fail(errors => dispatch(receiveErrors(errors)))
 };

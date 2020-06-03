@@ -32,10 +32,10 @@ class Imagination < ApplicationRecord
 
     has_one_attached :image
 
-    def ensure_image 
-        unless self.image.attached?
-            errors[:image] << "Must be attached"
-        end
-    end
+    # def ensure_image 
+    #     unless self.image.attached?
+    #         errors[:image] << "Must be attached"
+    #     end
+    # end
         
 end
