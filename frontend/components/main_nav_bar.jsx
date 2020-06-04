@@ -24,7 +24,8 @@ const MainNavBar = props => {
                     <div className="username-tab">
                         <h2 className="main-nav-bar-element username-nav">{props.currentUser.username}</h2>
                         <ul className="username-dropdown">
-                            <li className="dropdown-item dropdown-item-username"><Link to={`/user/${props.currentUser.username}`}>{props.currentUser.username}</Link></li> 
+                            {/* <li className="dropdown-item dropdown-item-username"><Link to={`/user/${props.currentUser.username}`}>{props.currentUser.username}</Link></li>  */}
+                            <li className="dropdown-item dropdown-item-username" onClick={() => window.location.href = `/#/user/${props.currentUser.username}`}>{props.currentUser.username}</li>  {/* Be cautious of this. Revert it back to the original if you need to */}
                             <li className="dropdown-item" onClick={() => props.logout()}>Log Out</li>
                         </ul>
                     </div>
