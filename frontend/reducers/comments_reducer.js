@@ -1,4 +1,5 @@
 import { RECEIVE_COMMENTS, RECEIVE_COMMENT, REMOVE_COMMENT } from "../actions/comment_actions";
+import { RECEIVE_IMAGINATIONS } from "../actions/imagination_actions";
 
 const CommentsReducer = (oldState = {}, action) => {
     Object.freeze(oldState)
@@ -11,6 +12,8 @@ const CommentsReducer = (oldState = {}, action) => {
             let newState = Object.assign({}, oldState)
             delete newState[action.commentId]
             return newState;
+        case RECEIVE_IMAGINATIONS: // When I'm displaying multiple imaginations on the page I want to clear the comments from state
+            return {};
         default:
             return oldState; 
     }

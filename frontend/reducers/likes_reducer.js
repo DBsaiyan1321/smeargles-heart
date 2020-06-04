@@ -1,4 +1,5 @@
 import { RECEIVE_LIKES, RECEIVE_LIKE, REMOVE_LIKE } from "../actions/like_actions";
+import { RECEIVE_IMAGINATIONS } from "../actions/imagination_actions";
 
 const LikesReducer = (oldState = {}, action) => { 
     Object.freeze(oldState)
@@ -12,6 +13,8 @@ const LikesReducer = (oldState = {}, action) => {
             let newState = Object.assign({}, oldState)
             delete newState[action.likeId]
             return newState
+        case RECEIVE_IMAGINATIONS: // When I'm displaying multiple imaginations on the page I want to clear the likes from state
+            return {};
         default:
             return oldState 
     }

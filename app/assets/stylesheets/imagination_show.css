@@ -10,13 +10,13 @@
     align-items: center;
     width: 100%;
     height: 70vh;
-    background-color: rgb(240, 240, 240);
+    background-color: rgba(243, 243, 243, 1);
     /* z-index: -1; */
 }
 
 .shown-image { 
     height: 60vh;
-    box-shadow: black;
+    box-shadow: 0px 7px 15px 4px #7b7b7bb0;
 }
 
 .show-arrows { 
@@ -115,8 +115,117 @@
     margin: 0px 5px;
     font-family: 'Hind', Arial, Helvetica, sans-serif;
     font-size: 16px;
+    text-decoration: underline;
 }
 
-.comments { 
+.show-username:hover { 
+    color: #4d4dff;
+}
+
+/******************************************************************************/
+
+/* Comments */
+
+.comment-form { 
+    width: 100%;
+}
+
+.comment-submit-form { 
+    padding: 10px 0px 10px 30px;
+    background-color: transparent;
+    border: none;
+    color: #4d4dff;
+    font-size: 12px;
+    font-family: 'Hind', Arial, Helvetica, sans-serif;
+    letter-spacing: 0.25px;
+    cursor: pointer;
+}
+
+.comment-cancel { 
+    padding: 10px 0px 10px 30px;
+    background-color: transparent;
+    border: none;
+    color: black;
+    font-size: 12px;
+    font-family: 'Hind', Arial, Helvetica, sans-serif;
+    letter-spacing: 0.25px;
+    cursor: pointer;
+}
+
+.comment-form-button-container { 
+    display: flex;
+    justify-content: flex-end;
+    /* border: 1px solid black; */
+    border-top: none;
+}
+
+.comments-container { 
     margin-left: 15px;
+}
+
+.comments-container h2 {
+    font-size: 14px;
+    font-family: 'Hind', Arial, Helvetica, sans-serif;
+    letter-spacing: 0.25px;
+    margin: 36px 0px 16px 0px;
+}
+
+.comment-input-field { 
+    box-shadow: inset 0px 0px 2px black;
+    background-color: rgb(251, 251, 251);
+    resize: none;
+    width: 98%; /* When I change this from a textarea to a span, you can make this 100% again. For some reason the textarea is wider than the div around it. */
+    border: none;
+    height: 100px;
+    padding: 10px;
+    font-family: 'Baloo Tamma 2', Arial, Helvetica, sans-serif;
+}
+
+.all-comments { 
+    list-style: none;
+}
+
+.comment-box { 
+    margin: 25px 0px;
+}
+
+.comment-main-content { 
+    background-color: #F2F2F2;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    transition-duration: 0.75s;
+}
+
+.comment-main-content:hover { 
+    background-color: #E8E8E8;
+}
+
+.all-comments-username { 
+    font-size: 18px;
+    font-family: 'Hind', Arial, Helvetica, sans-serif;
+    width: fit-content
+}
+
+.all-comments-username:hover { 
+    color: #4d4dff;
+}
+
+.all-comments-body { 
+    font-size: 16px;
+    font-family: 'Baloo Tamma 2', Arial, Helvetica, sans-serif;
+}
+
+.owned-comments-buttons {   
+    font-size: 13px;
+    font-family: 'Baloo Tamma 2', Arial, Helvetica, sans-serif;
+    margin: 7px 16px 0px 0px;
+    border: none;
+    background-color: transparent;
+    color: #5D5D6C;
+    padding: 0px;
+}
+
+.owned-comments-buttons:hover { 
+    color: #4d4dff;
 }
