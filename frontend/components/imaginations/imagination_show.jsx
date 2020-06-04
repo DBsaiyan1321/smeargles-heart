@@ -82,6 +82,14 @@ class ImaginationShow extends React.Component {
                         <Comments imagination={this.props.imagination} currentUser={this.props.currentUser} />
                     </div>
                 </div>
+                {(this.props.currentUser) ? <></> : (
+                    <div className="bottom-bar">
+                        <p>Join the most creative mind you will ever witness.</p>
+                        <Link to="/login" className="bottom-bar-element bb-l">LOG IN</Link>
+                        <br />
+                        <Link to="/signup" className="bottom-bar-element bb-s">JOIN</Link>
+                    </div>
+                )}
             </div>
         )
     }

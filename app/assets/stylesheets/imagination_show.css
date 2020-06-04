@@ -224,6 +224,7 @@
     background-color: transparent;
     color: #5D5D6C;
     padding: 0px;
+    cursor: pointer;
 }
 
 .owned-comments-buttons:hover { 

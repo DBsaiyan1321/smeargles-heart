@@ -13,7 +13,11 @@ const mapStateToProps = (state, ownProps) => {
     });
 
     let ownedImaginations;
-    if (state.entities.imaginations) ownedImaginations = Object.values(state.entities.imaginations).filter(imagination => imagination.artist_id === targetUser.id)
+    if (targetUser) { 
+        if (state.entities.imaginations && targetUser.createdImaginationIds.length) { 
+            ownedImaginations = Object.values(state.entities.imaginations).filter(imagination => imagination.artist_id === targetUser.id)
+        }
+    }
     return { 
         targetUser, 
         currentUser: state.entities.users[state.session.id],

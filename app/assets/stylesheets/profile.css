@@ -1,0 +1,41 @@
+.profile-page { 
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.profile-head-info {
+    width: 91%;
+    align-self: center;
+}
+
+.profile-head-pic-and-name { 
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.profile-page-avatar { 
+    width: 100px;
+    height: 100px;
+    background-color: cornflowerblue;
+}
+
+.profile-head-info h1 { 
+    font-size: 48px;
+    font-family: 'Hind', Arial, Helvetica, sans-serif;
+    height: fit-content;
+    align-self: center;
+    margin-left: 20px;
+}
+
+.profile-head-info p { 
+    font-size: 16px;
+    font-family: 'Baloo Tamma 2', Arial, Helvetica, sans-serif;
+    margin-bottom: 20px;
+}
+
+.profile-imaginations { 
+    display: flex; 
+    justify-content: center;
+}
+

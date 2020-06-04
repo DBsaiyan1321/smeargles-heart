@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base #CRLLL
+    skip_before_action :verify_authenticity_token # Take this out when you're done in postman
+
     helper_method :current_user, :logged_in? # Don't put helper_methods. You get undescriptive error message
 
     def current_user
