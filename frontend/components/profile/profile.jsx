@@ -15,6 +15,7 @@ export default class Profile extends React.Component {
         this.updateProfile = this.updateProfile.bind(this)
         this.updateField = this.updateField.bind(this)
         this.handleFile = this.handleFile.bind(this)
+        this.cancelUpdate = this.cancelUpdate.bind(this)
     }
 
     componentDidMount() {
@@ -22,8 +23,20 @@ export default class Profile extends React.Component {
     }
 
     renderButton() { 
+        let preview
+
+        // This was all taken from my imagination form component, so I just commented this out what I didn't need 
+        // if (this.props.formType === "Create") {
+        //     preview = (this.state.imageFile && this.props.formType === "Create") ? <img src={this.state.imageUrl} /> : null
+        // } else 
+        if (this.state.avatarUrl) {
+            preview = <img src={this.state.avatarUrl} className="profile-pic-preview" />
+        } else {
+            preview = (this.state.avatar) ? <img src={this.state.avatar} className="profile-pic-preview" /> : null
+        }
+
         if (this.props.currentUser === this.props.targetUser) {
-            return <ModalForm updateField={this.updateField} updateProfile={this.updateProfile} state={this.state} handleFile={this.handleFile} />
+            return <ModalForm updateField={this.updateField} updateProfile={this.updateProfile} state={this.state} handleFile={this.handleFile} preview={preview} cancelUpdate={this.cancelUpdate} />
         } else {
             return
         }
@@ -38,17 +51,22 @@ export default class Profile extends React.Component {
         const formData = new FormData();
         formData.append('user[id]', this.props.targetUser.id)
         formData.append('user[bio]', this.state.bio);
-        if (this.state.imageFile) {
-            formData.append('user[avatar]', this.state.imageFile);
+        if (this.state.avatarFile) {
+            formData.append('user[avatar]', this.state.avatarFile);
         }
         this.props.updateUser(formData)
+    }
+
+    cancelUpdate(e) { 
+        e.preventDefault(); 
+        this.setState({ avatarFile: null, avatarUrl: null })
     }
 
     handleFile(e) {
         const file = e.currentTarget.files[0]
         const fileReader = new FileReader()
         fileReader.onloadend = () => {
-            this.setState({ imageFile: file, imageUrl: fileReader.result })
+            this.setState({ avatarFile: file, avatarUrl: fileReader.result })
         }
         if (file) {
             fileReader.readAsDataURL(file)

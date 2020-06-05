@@ -12,11 +12,15 @@ const ModalForm = (props) => {
 
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
                 <form onSubmit={props.updateProfile}>
+                    <div>{props.preview}</div>
                     <input type="file" onChange={props.handleFile} className="file-button" accept=".png, .jpg, .jpeg" />
                     <textarea onChange={props.updateField("bio")} value={props.state.bio} />
                     <input type="submit" value="UPDATE" />
                 </form>
-                <button onClick={() => setModalIsOpen(false)}>CLOSE</button>
+                <button onClick={e => {
+                    setModalIsOpen(false)
+                    props.cancelUpdate(e)
+                }}>CLOSE</button>
                 {/* style={{
                     overlay: {
                         // position: 'fixed',

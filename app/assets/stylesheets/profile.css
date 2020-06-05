@@ -29,13 +29,6 @@
     margin-left: 20px;
 }
 
-.modal-div { 
-    height: fit-content;
-    align-self: center;
-    position: absolute;
-    right: 20px;
-}
-
 .edit-profile-button { 
     border-radius: 25px;
     border: none;
@@ -72,3 +65,15 @@
 /******************************************************************************/
 
 /* Modal CSS */
+
+.modal-div { 
+    height: fit-content;
+    align-self: center;
+    position: absolute;
+    right: 20px;
+}
+
+.profile-pic-preview { 
+    height: 300px;
+    width: 300px;
+}
