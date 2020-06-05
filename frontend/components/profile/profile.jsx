@@ -11,17 +11,14 @@ export default class Profile extends React.Component {
 
         this.state = props.targetUser;
 
-        // const [modalIsOpen, setModalIsOpen] = useState(false)
-
         this.renderButton = this.renderButton.bind(this)
-        // this.loadEdit = this.loadEdit.bind(this)
         this.updateProfile = this.updateProfile.bind(this)
         this.updateField = this.updateField.bind(this)
     }
 
     componentDidMount() {
         this.props.fetchUser(this.props.match.params.username)
-        this.props.fetchImaginations()
+        // this.props.fetchImaginations() // Uncomment this if you can't figure out the association thing
     }
 
     renderButton() { 
@@ -31,18 +28,6 @@ export default class Profile extends React.Component {
             return
         }
     }
-
-    // loadEdit(e) { 
-    //     e.preventDefault()
-    //     return (
-    //         <Modal isOpen={true}>
-    //             <form onSubmit={this.updateProfile}>
-    //                 <textarea onChange={this.updateField("bio")} value={this.state.bio} />
-    //                 <input type="submit" value="UPDATE" />
-    //             </form>
-    //         </Modal>
-    //     )
-    // }
 
     updateField(field) { 
         return e => this.setState({ [field]: e.target.value })
@@ -69,26 +54,12 @@ export default class Profile extends React.Component {
                             <h1>{this.props.targetUser.username}</h1>
                             {this.renderButton()}
                         </div>
-                        {/* <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Temporibus, vero amet voluptatibus commodi odit neque maiores 
-                        cupiditate. Optio temporibus est, deserunt quasi quidem placeat 
-                        provident culpa omnis autem fugit quam! Lorem ipsum dolor, sit 
-                        amet consectetur adipisicing elit. Nam, aperiam distinctio 
-                        incidunt iste rerum aliquam esse voluptate, at id quaerat delectus 
-                        eius neque natus deleniti. Architecto pariatur quis aut explicabo.</p> */}
                         <p>{this.props.targetUser.bio}</p>
-
-                        {/* <Modal isOpen={modalIsOpen}>
-                            <form onSubmit={this.updateProfile}>
-                                <textarea onChange={this.updateField("bio")} value={this.state.bio} />
-                                <input type="submit" value="UPDATE" />
-                            </form>
-                        </Modal> */}
                     </div>
 
                     <div className="profile-imaginations"> 
                         <ul className="imaginations-index"> 
-                            {this.props.ownedImaginations.map(imagination => {
+                            {this.props.ownedImaginations.map((imagination) => {
                                 return <ImaginationIndexItem imagination={imagination} key={imagination.id} artist={imagination.username} />
                             })}
                         </ul>
