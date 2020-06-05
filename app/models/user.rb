@@ -14,7 +14,7 @@ class User < ApplicationRecord # SPIRE
     validates :username, :email, :session_token, presence: true, uniqueness: true 
     validates :password_digest, presence: true 
     validates :password, length: { minimum: 6, allow_nil: true } 
-    before_validation :ensure_session_token 
+    before_validation :ensure_session_token#, :ensure_profile_picture!
 
     has_many :imaginations,
         primary_key: :id, 
@@ -34,6 +34,18 @@ class User < ApplicationRecord # SPIRE
     has_one_attached :avatar
 
     attr_reader :password
+
+
+
+    # def ensure_profile_picture! # Gives them a default profile picture
+    #     if !self.avatar.attached?
+    #         file = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/default-profile-pic.png")
+    #         self.avatar.attach(io: file, filename: 'default-profile-pic.png')
+    #         self.save!
+    #     end
+    # end 
+
+
 
     def self.find_by_credentials(username, password) 
         user = User.find_by(username: username)

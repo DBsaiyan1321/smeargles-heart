@@ -50,7 +50,9 @@ export default class Profile extends React.Component {
                 <div className="profile-page"> 
                     <div className="profile-head-info"> 
                         <div className="profile-head-pic-and-name"> 
-                            <div className="profile-page-avatar"></div>
+                            {(this.props.targetUser.avatar) ? 
+                            <img src={this.props.targetUser.avatar} alt="broke" className="profile-page-avatar" /> : 
+                            <div className="profile-page-avatar">Profile Picture</div>}
                             <h1>{this.props.targetUser.username}</h1>
                             {this.renderButton()}
                         </div>

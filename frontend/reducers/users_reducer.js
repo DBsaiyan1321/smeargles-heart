@@ -14,7 +14,8 @@ const UsersReducer = (oldState = {}, action) => {
                 bio: action.user.bio, 
                 username: action.user.username, 
                 createdImaginationIds: action.user.createdImaginationIds,
-                email: action.user.email
+                email: action.user.email,
+                avatar: action.user.avatar
             }
             return Object.assign({}, oldState, { [action.user.id]: theUser })
         default:

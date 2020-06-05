@@ -16,6 +16,8 @@ const mapStateToProps = (state, ownProps) => {
     if (targetUser) { 
         if (state.entities.imaginations && targetUser.createdImaginationIds.length) { 
             ownedImaginations = Object.values(state.entities.imaginations)
+        } else { 
+            ownedImaginations = []
         }
     }
     // debugger
