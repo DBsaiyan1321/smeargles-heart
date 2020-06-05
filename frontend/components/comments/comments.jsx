@@ -71,7 +71,7 @@ class Comments extends React.Component {
         } else { 
             return (
                 <form onSubmit={this.formSubmission}>
-                    <Link to="/signup"><textarea /></Link>
+                    <Link to="/signup"><textarea className="comment-input-field" placeholder="Add a new comment..." /></Link>
                 </form>
             )
         }

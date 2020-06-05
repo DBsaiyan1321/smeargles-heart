@@ -25,11 +25,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root")
 
     // testing
-    window.getState = store.getState;
-    window.dispatch = store.dispatch;
+    // window.getState = store.getState;
+    // window.dispatch = store.dispatch;
 
-    window.fetchUsers = UserAPIUtil.fetchUsers;
-    window.fetchUser = UserAPIUtil.fetchUser;
+    // window.fetchUsers = UserAPIUtil.fetchUsers;
+    // window.fetchUser = UserAPIUtil.fetchUser;
+    // window.updateUser = UserAPIUtil.updateUser;
     // end of testing
 
     ReactDOM.render(<Root store={store} />, root)

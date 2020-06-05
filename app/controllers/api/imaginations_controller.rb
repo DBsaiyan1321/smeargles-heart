@@ -2,7 +2,6 @@ class Api::ImaginationsController < ApplicationController
 
     def index 
         @imaginations = Imagination.all 
-        # debugger
         render "api/imaginations/index"
     end 
 

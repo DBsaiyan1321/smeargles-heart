@@ -6,12 +6,10 @@ import React from "react";
 
 class Edit extends React.Component { 
     componentDidMount() {
-        // debugger
         this.props.fetchImagination(this.props.match.params.imaginationId)
     }
 
     render() { 
-        // debugger
         return (this.props.imagination) ? <ImaginationForm {...this.props} /> : null
     }
 }

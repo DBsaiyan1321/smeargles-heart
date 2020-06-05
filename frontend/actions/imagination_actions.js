@@ -1,5 +1,5 @@
 import * as ImaginationAPIUtil from "../util/imagination_api_util";
-import { receiveErrors } from "./session_actions";
+// import { receiveErrors } from "./session_actions";
 
 export const RECEIVE_IMAGINATIONS = "RECEIVE_IMAGINATIONS"
 export const RECEIVE_IMAGINATION = "RECEIVE_IMAGINATION"
