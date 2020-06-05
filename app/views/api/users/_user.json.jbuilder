@@ -1,4 +1,4 @@
-json.extract! user, :id, :username, :email 
+json.extract! user, :id, :username, :email, :bio
 # if user.avatar != nil
 #     json.avatar url_for(user.avatar)
 # else 

@@ -4,9 +4,46 @@ import MainNavBar from "../main_nav_bar";
 import { Link } from "react-router-dom";
 
 export default class Profile extends React.Component { 
+    constructor(props) { 
+        super(props)
+
+        this.state = props.targetUser;
+
+        this.renderButton = this.renderButton.bind(this)
+        this.loadEdit = this.loadEdit.bind(this)
+        this.updateProfile = this.updateProfile.bind(this)
+    }
+
     componentDidMount() {
         this.props.fetchUser(this.props.match.params.username)
         this.props.fetchImaginations()
+    }
+
+    renderButton() { 
+        if (this.props.currentUser === this.props.targetUser) { 
+            return <button onClick={this.loadEdit}>EDIT</button>
+        } else { 
+            return 
+        }
+    }
+
+    loadEdit(e) { 
+        e.preventDefault()
+        return (
+            <form onSubmit={this.updateProfile}>
+                <textarea onChange={this.updateField("bio")} value={this.state.bio} />
+                <input type="submit" value="UPDATE" />
+            </form>
+        )
+    }
+
+    updateField(field) { 
+        return e => this.setState({ [field]: e.target.value })
+    }
+
+    updateProfile(e) { 
+        e.preventDefault()
+        this.props.updateUser(this.state)
     }
 
     render() { 
@@ -23,13 +60,16 @@ export default class Profile extends React.Component {
                             <div className="profile-page-avatar"></div>
                             <h1>{this.props.targetUser.username}</h1>
                         </div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        {/* <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                         Temporibus, vero amet voluptatibus commodi odit neque maiores 
                         cupiditate. Optio temporibus est, deserunt quasi quidem placeat 
                         provident culpa omnis autem fugit quam! Lorem ipsum dolor, sit 
                         amet consectetur adipisicing elit. Nam, aperiam distinctio 
                         incidunt iste rerum aliquam esse voluptate, at id quaerat delectus 
-                        eius neque natus deleniti. Architecto pariatur quis aut explicabo.</p>
+                        eius neque natus deleniti. Architecto pariatur quis aut explicabo.</p> */}
+                        <p>{this.props.targetUser.bio}</p>
+
+                        {this.renderButton()}
                     </div>
 
                     <div className="profile-imaginations"> 
