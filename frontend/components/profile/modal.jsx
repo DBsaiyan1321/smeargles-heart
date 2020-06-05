@@ -12,6 +12,7 @@ const ModalForm = (props) => {
 
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
                 <form onSubmit={props.updateProfile}>
+                    <input type="file" onChange={props.handleFile} className="file-button" accept=".png, .jpg, .jpeg" />
                     <textarea onChange={props.updateField("bio")} value={props.state.bio} />
                     <input type="submit" value="UPDATE" />
                 </form>

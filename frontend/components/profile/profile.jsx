@@ -14,16 +14,16 @@ export default class Profile extends React.Component {
         this.renderButton = this.renderButton.bind(this)
         this.updateProfile = this.updateProfile.bind(this)
         this.updateField = this.updateField.bind(this)
+        this.handleFile = this.handleFile.bind(this)
     }
 
     componentDidMount() {
         this.props.fetchUser(this.props.match.params.username)
-        // this.props.fetchImaginations() // Uncomment this if you can't figure out the association thing
     }
 
     renderButton() { 
         if (this.props.currentUser === this.props.targetUser) {
-            return <ModalForm updateField={this.updateField} updateProfile={this.updateProfile} state={this.state} />
+            return <ModalForm updateField={this.updateField} updateProfile={this.updateProfile} state={this.state} handleFile={this.handleFile} />
         } else {
             return
         }
@@ -34,9 +34,25 @@ export default class Profile extends React.Component {
     }
 
     updateProfile(e) { 
-        e.preventDefault()
-        let user = { user: this.state }
-        this.props.updateUser(user)
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('user[id]', this.props.targetUser.id)
+        formData.append('user[bio]', this.state.bio);
+        if (this.state.imageFile) {
+            formData.append('user[avatar]', this.state.imageFile);
+        }
+        this.props.updateUser(formData)
+    }
+
+    handleFile(e) {
+        const file = e.currentTarget.files[0]
+        const fileReader = new FileReader()
+        fileReader.onloadend = () => {
+            this.setState({ imageFile: file, imageUrl: fileReader.result })
+        }
+        if (file) {
+            fileReader.readAsDataURL(file)
+        }
     }
 
     render() { 
