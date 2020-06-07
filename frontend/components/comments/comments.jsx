@@ -140,8 +140,10 @@ class Comments extends React.Component {
                         
                         else { 
                             return <li key={comment.id} className="comment-box">
-                                <p>{comment.username}</p>
-                                {comment.body}
+                                <div className="comment-main-content">
+                                    <Link to={`/user/${comment.username}`} className="all-comments-username">{comment.username}</Link>
+                                    <span className="all-comments-body">{comment.body}</span>
+                                </div>
                             </li>
                         }
 
