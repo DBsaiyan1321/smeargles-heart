@@ -10,20 +10,64 @@ require 'open-uri'
 
 # Users
 demo_user = User.create!(username: 'Demo_User', email: "demouser@gmail.com", password: "demouser")
+user1 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart-Users/demo-user.png")
+demo_user.avatar.attach(io: user1, filename: 'demo-user.png')
+
 roark = User.create!(username: 'Roarker2', email: "roarker@gmail.com", password: "roarker")
+user2 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart-Users/roark.png")
+roark.avatar.attach(io: user2, filename: 'roark.png')
+
 gardenia = User.create!(username: 'gardenia_bean8', email: "gardenia@gmail.com", password: "gardenia")
+user3 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart-Users/gardenia.png")
+gardenia.avatar.attach(io: user3, filename: 'gardenia.png')
+
 maylene = User.create!(username: 'May-lean', email: "maylene@gmail.com", password: "maylene")
+user4 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart-Users/maylene.png")
+maylene.avatar.attach(io: user4, filename: 'maylene.png')
+
 crasher_wake = User.create!(username: 'krasher_wayk100', email: "crasher_wake@gmail.com", password: "crasher_wake")
+user5 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart-Users/crasher-wake.png")
+crasher_wake.avatar.attach(io: user5, filename: 'crasher_wake.png')
+
 fantina = User.create!(username: 'phanteena', email: "fantina@gmail.com", password: "fantina")
+user6 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart-Users/fantina.png")
+fantina.avatar.attach(io: user6, filename: 'fantina.png')
+
 byron = User.create!(username: 'rockhead45', email: "bye-rin@gmail.com", password: "bye-rin")
+user7 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart-Users/byron.png")
+byron.avatar.attach(io: user7, filename: 'byron.png')
+
 candice = User.create!(username: 'canned_ice-30f', email: "candice@gmail.com", password: "candice")
+user8 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart-Users/candice.png")
+candice.avatar.attach(io: user8, filename: 'candice.png')
+
 volkner = User.create!(username: 'ThaGoat', email: "volkner@gmail.com", password: "volkner")
+user9 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart-Users/volkner.png")
+volkner.avatar.attach(io: user9, filename: 'volkner.png')
+
 a_a_ron = User.create!(username: 'grassyas', email: "a-a-ron@yahoo.com", password: "a-a-ron")
+user10 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart-Users/aaron.png")
+a_a_ron.avatar.attach(io: user10, filename: 'a_a_ron.png')
+
 big_bertha = User.create!(username: 'earthquake', email: "big_bertha@yahoo.com", password: "big_bertha")
+user11 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart-Users/bertha.png")
+big_bertha.avatar.attach(io: user11, filename: 'big_bertha.png')
+
 flintee = User.create!(username: 'flynn-tee', email: "flintee@yahoo.com", password: "flintee")
+user12 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart-Users/flint.png")
+flintee.avatar.attach(io: user12, filename: 'flint.png')
+
 lucian = User.create!(username: 'manipulator', email: "lucian@yahoo.com", password: "lucian")
+user13 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart-Users/lucian.png")
+lucian.avatar.attach(io: user13, filename: 'lucian.png')
+
 cynthia = User.create!(username: 'CHAMPION', email: "cynthia@hotmail.com", password: "cynthia")
+user14 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart-Users/cynthia.png")
+cynthia.avatar.attach(io: user14, filename: 'cynthia.png')
+
 girly_friend = User.create!(username: 'girly_friend', email: "girly_friend@hotmail.com", password: "girly_friend")
+user15 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart-Users/girly-friend.png")
+girly_friend.avatar.attach(io: user15, filename: 'girly-friend.png')
 
 # Imaginations
 first_imagination = Imagination.create!(title: "First Imagination of Bulbasuar", description: "I fought long and hard to get this picture up, with the assistance of Mike.", artist_id: 1 )
