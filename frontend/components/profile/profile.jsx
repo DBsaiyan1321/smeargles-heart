@@ -29,7 +29,7 @@ export default class Profile extends React.Component {
         // if (this.props.formType === "Create") {
         //     preview = (this.state.imageFile && this.props.formType === "Create") ? <img src={this.state.imageUrl} /> : null
         // } else 
-        
+
         if (this.state) { // Look into why I need this if condition right here
             if (this.state.avatarUrl) {
                 preview = <img src={this.state.avatarUrl} className="profile-pic-preview" />

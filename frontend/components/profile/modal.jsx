@@ -10,27 +10,30 @@ const ModalForm = (props) => {
         <div className="modal-div"> 
             <button onClick={() => setModalIsOpen(true)} className="edit-profile-button">EDIT PROFILE</button>
 
-            <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
-                <form onSubmit={props.updateProfile}>
-                    <div>{props.preview}</div>
-                    <input type="file" onChange={props.handleFile} className="file-button" accept=".png, .jpg, .jpeg" />
-                    <textarea onChange={props.updateField("bio")} value={props.state.bio} />
-                    <input type="submit" value="UPDATE" />
-                </form>
-                <button onClick={e => {
+            <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} className="modal" overlayClassName="modal-overlay">
+                <div className="modal-x" onClick={e => {
+                    e.preventDefault()
                     setModalIsOpen(false)
                     props.cancelUpdate(e)
-                }}>CLOSE</button>
-                {/* style={{
-                    overlay: {
-                        // position: 'fixed',
-                        // top: 0,
-                        // left: 0,
-                        // right: 0,
-                        // bottom: 0,
-                        backgroundColor: 'rgba(6, 7, 13, 0.78)'
-                    }
-                }} */}
+                }}>X</div>
+                <h1 className="modal-title">Profile Info</h1>
+                <form onSubmit={props.updateProfile} className="modal-form"> 
+                    <div className="edit-section-of-profile">
+                        <div className="profile-pic-upload">
+                            <div>{props.preview}</div>
+                            <input type="file" onChange={props.handleFile} accept=".png, .jpg, .jpeg" />
+                        </div>
+                        <textarea onChange={props.updateField("bio")} value={props.state.bio} className="modal-bio" placeholder="Let Everyone Know Who You Are"/>
+                    </div>
+                    <div className="profile-form-buttons"> 
+                        <button onClick={e => {
+                            e.preventDefault()
+                            setModalIsOpen(false)
+                            props.cancelUpdate(e)
+                        }} className="modal-cancel">CANCEL</button>
+                        <input type="submit" value="UPDATE" className="modal-update" />
+                    </div>
+                </form>
             </Modal>
         </div>
     )

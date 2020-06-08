@@ -66,14 +66,127 @@
 
 /* Modal CSS */
 
-.modal-div { 
+.modal { 
+    width: 860px;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    z-index: 0;
+    position: relative;
+    background-color: white;
+    outline: none;
+}
+
+.modal-overlay { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(6, 7, 13, 0.78);
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-div { /* This CSS only applies to the button. The modal only has styling from the classes that I put on it */
     height: fit-content;
     align-self: center;
     position: absolute;
     right: 20px;
 }
 
+.modal-x { 
+    position: absolute;
+    font-size: 30px;
+    right: 20px;
+    top: 10px;
+    height: fit-content;
+    font-family: 'Hind', Arial, Helvetica, sans-serif;
+    cursor: pointer;
+}
+
+.modal-title { 
+    padding: 40px 40px 0px 40px;
+    font-size: 40px;
+    font-family: 'Hind', Arial, Helvetica, sans-serif;
+    letter-spacing: 0.35px;
+}
+
 .profile-pic-preview { 
     height: 300px;
     width: 300px;
 }
+
+.modal-form { 
+    width: 860px;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    z-index: 0;
+    position: relative;
+}
+
+.edit-section-of-profile { 
+    display: flex;
+    padding: 40px;
+}
+
+.profile-pic-upload { 
+    min-height: 300px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-bio { 
+    background-color: #f9fafb;
+    border: none;
+    resize: none;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+    margin: 0px 0px 0px 30px;
+    font-size: 16px;
+}
+
+.profile-form-buttons { 
+    width: 100%;
+    border-top: 1px solid #06070d;
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px 40px;
+}
+
+.modal-update { 
+    outline: none;
+    background: #4d4dff;
+    height: 40px;
+    width: 120px;
+    border: none;
+    font-size: 12px;
+    font-family: 'Hind', Arial, Helvetica, sans-serif;
+    letter-spacing: 0.25px;
+    cursor: pointer;
+}
+
+.modal-cancel { 
+    outline: none;
+    background: none;
+    height: 40px;
+    width: 120px;
+    border: none;
+    font-size: 12px;
+    font-family: 'Hind', Arial, Helvetica, sans-serif;
+    letter-spacing: 0.25px;
+    cursor: pointer;
+}
+
+.modal-cancel:hover { 
+    color: #4d4dff;
+}
+
