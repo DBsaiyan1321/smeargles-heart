@@ -7,7 +7,7 @@
     font-family: 'Hind', Arial, Helvetica, sans-serif;
     padding: 10px;
     box-shadow: 0px -5px 15px 0px rgba(0, 0, 0, 0.5);
-    z-index: 20;
+    z-index: 2;
 }
 
 /******************************************************************************/
@@ -60,6 +60,7 @@
     font-family: inherit;
     letter-spacing: 1px;
     display: flex;
+    align-items: center;
 }
 
 .main-nav-bar-element:hover { 
@@ -109,7 +110,6 @@
 
 .username-nav { 
     height: 100%;
-    padding: 18% 0px;
 }
 
 .username-dropdown { 

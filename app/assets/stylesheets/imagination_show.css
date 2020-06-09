@@ -188,6 +188,13 @@
 
 .comment-box { 
     margin: 25px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment-avatar { 
+    width: 50px;
+    height: 50px;
 }
 
 .comment-main-content { 
@@ -196,6 +203,7 @@
     display: flex;
     flex-direction: column;
     transition-duration: 0.75s;
+    width: 91%;
 }
 
 .comment-main-content:hover { 

@@ -10,20 +10,64 @@ require 'open-uri'
 
 # Users
 demo_user = User.create!(username: 'Demo_User', email: "demouser@gmail.com", password: "demouser")
+user1 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart-Users/demo-user.png")
+demo_user.avatar.attach(io: user1, filename: 'demo-user.png')
+
 roark = User.create!(username: 'Roarker2', email: "roarker@gmail.com", password: "roarker")
+user2 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart-Users/roark.png")
+roark.avatar.attach(io: user2, filename: 'roark.png')
+
 gardenia = User.create!(username: 'gardenia_bean8', email: "gardenia@gmail.com", password: "gardenia")
+user3 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart-Users/gardenia.png")
+gardenia.avatar.attach(io: user3, filename: 'gardenia.png')
+
 maylene = User.create!(username: 'May-lean', email: "maylene@gmail.com", password: "maylene")
-crasher_wake = User.create!(username: 'krasher_wakyer100', email: "crasher_wake@gmail.com", password: "crasher_wake")
+user4 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart-Users/maylene.png")
+maylene.avatar.attach(io: user4, filename: 'maylene.png')
+
+crasher_wake = User.create!(username: 'krasher_wayk100', email: "crasher_wake@gmail.com", password: "crasher_wake")
+user5 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart-Users/crasher-wake.png")
+crasher_wake.avatar.attach(io: user5, filename: 'crasher_wake.png')
+
 fantina = User.create!(username: 'phanteena', email: "fantina@gmail.com", password: "fantina")
+user6 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart-Users/fantina.png")
+fantina.avatar.attach(io: user6, filename: 'fantina.png')
+
 byron = User.create!(username: 'rockhead45', email: "bye-rin@gmail.com", password: "bye-rin")
+user7 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart-Users/byron.png")
+byron.avatar.attach(io: user7, filename: 'byron.png')
+
 candice = User.create!(username: 'canned_ice-30f', email: "candice@gmail.com", password: "candice")
+user8 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart-Users/candice.png")
+candice.avatar.attach(io: user8, filename: 'candice.png')
+
 volkner = User.create!(username: 'ThaGoat', email: "volkner@gmail.com", password: "volkner")
+user9 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart-Users/volkner.png")
+volkner.avatar.attach(io: user9, filename: 'volkner.png')
+
 a_a_ron = User.create!(username: 'grassyas', email: "a-a-ron@yahoo.com", password: "a-a-ron")
+user10 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart-Users/aaron.png")
+a_a_ron.avatar.attach(io: user10, filename: 'a_a_ron.png')
+
 big_bertha = User.create!(username: 'earthquake', email: "big_bertha@yahoo.com", password: "big_bertha")
+user11 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart-Users/bertha.png")
+big_bertha.avatar.attach(io: user11, filename: 'big_bertha.png')
+
 flintee = User.create!(username: 'flynn-tee', email: "flintee@yahoo.com", password: "flintee")
+user12 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart-Users/flint.png")
+flintee.avatar.attach(io: user12, filename: 'flint.png')
+
 lucian = User.create!(username: 'manipulator', email: "lucian@yahoo.com", password: "lucian")
+user13 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart-Users/lucian.png")
+lucian.avatar.attach(io: user13, filename: 'lucian.png')
+
 cynthia = User.create!(username: 'CHAMPION', email: "cynthia@hotmail.com", password: "cynthia")
+user14 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart-Users/cynthia.png")
+cynthia.avatar.attach(io: user14, filename: 'cynthia.png')
+
 girly_friend = User.create!(username: 'girly_friend', email: "girly_friend@hotmail.com", password: "girly_friend")
+user15 = open("https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargles-Heart-Users/girly-friend.png")
+girly_friend.avatar.attach(io: user15, filename: 'girly-friend.png')
 
 # Imaginations
 first_imagination = Imagination.create!(title: "First Imagination of Bulbasuar", description: "I fought long and hard to get this picture up, with the assistance of Mike.", artist_id: 1 )
@@ -472,129 +516,159 @@ like228 = Like.create!(user_id: 14, imagination_id: 53)
 
 
 # Comments
-# comment1
-# comment2
-# comment3
-# comment4
-# comment5
-# comment6
-# comment7
-# comment8
-# comment9
-# comment10
-# comment11
-# comment12
-# comment13
-# comment14
-# comment15
-# comment16
-# comment17
-# comment18
-# comment19
-# comment20
-# comment21
-# comment22
-# comment23
-# comment24
-# comment25
-# comment26
-# comment27
-# comment28
-# comment29
-# comment30
-# comment31
-# comment32
-# comment33
-# comment34
-# comment35
-# comment36
-# comment37
-# comment38
-# comment39
-# comment40
-# comment41
-# comment42
-# comment43
-# comment44
-# comment45
-# comment46
-# comment47
-# comment48
-# comment49
-# comment50
-# comment51
-# comment52
-# comment53
-# comment54
-# comment55
-# comment56
-# comment57
-# comment58
-# comment59
-# comment60
-# comment61
-# comment62
-# comment63
-# comment64
-# comment65
-# comment66
-# comment67
-# comment68
-# comment69
-# comment70
-# comment71
-# comment72
-# comment73
-# comment74
-# comment75
-# comment76
-# comment77
-# comment78
-# comment79
-# comment80
-# comment81
-# comment82
-# comment83
-# comment84
-# comment85
-# comment86
-# comment87
-# comment88
-# comment89
-# comment90
-# comment91
-# comment92
-# comment93
-# comment94
-# comment95
-# comment96
-# comment97
-# comment98
-# comment99
-# comment100
-# comment101
-# comment102
-# comment103
-# comment104
-# comment105
-# comment106
-# comment107
-# comment108
-# comment109
-# comment110
-# comment111
-# comment112
-# comment113
-# comment114
-# comment115
-# comment116
-# comment117
-# comment118
-# comment119
-# comment120
-# comment121
-# comment122
-# comment123
-# comment124
-# comment125
+comment1 = Comment.create!(user_id: 1, imagination_id: 1, body: "It looks so good.")
+comment2 = Comment.create!(user_id: 2, imagination_id: 2, body: "I wish I could make something like this!")
+comment3 = Comment.create!(user_id: 3, imagination_id: 3, body: "Keep up the good work :D")
+comment4 = Comment.create!(user_id: 4, imagination_id: 4, body: "Good job")
+comment5 = Comment.create!(user_id: 5, imagination_id: 5, body: "#beautiful")
+comment6 = Comment.create!(user_id: 6, imagination_id: 6, body: "I can't wait to see you post more!")
+comment7 = Comment.create!(user_id: 7, imagination_id: 7, body: "You're an amazing artist")
+comment8 = Comment.create!(user_id: 8, imagination_id: 8, body: "Looks like a mix between Scorpion, Ryu, and some other things.")
+comment9 = Comment.create!(user_id: 9, imagination_id: 9, body: "Who's that Pokemon?")
+comment10 = Comment.create!(user_id: 10, imagination_id: 10, body: "I'm blue da bu dee da bu dye")
+comment11 = Comment.create!(user_id: 11, imagination_id: 11, body: "Keep it up buddy. The art is getting better and better.")
+comment12 = Comment.create!(user_id: 12, imagination_id: 12, body: "Lookin like they bouta hit Rodeo")
+comment13 = Comment.create!(user_id: 13, imagination_id: 13, body: "It's so beautiful")
+comment14 = Comment.create!(user_id: 14, imagination_id: 14, body: "COFFEE!!!!")
+comment15 = Comment.create!(user_id: 1, imagination_id: 15, body: "Pikachu doesn't seem like the coffee type. This is still cute tho")
+comment16 = Comment.create!(user_id: 2, imagination_id: 16, body: "This would look dope on a t-shirt")
+comment17 = Comment.create!(user_id: 3, imagination_id: 17, body: "Battle between a god and a cat looking thing. Where Vegeta at tho?")
+comment18 = Comment.create!(user_id: 4, imagination_id: 18, body: "Deep in a forest, this place exists. It's called Fairy's Landing.")
+comment19 = Comment.create!(user_id: 5, imagination_id: 19, body: "Harlequin, the fairy king, must live here")
+comment20 = Comment.create!(user_id: 6, imagination_id: 20, body: "It looks flat, but 3d at the same time. How? hahaha.")
+comment21 = Comment.create!(user_id: 7, imagination_id: 21, body: "He would beat Superman in a fight no problem.")
+comment22 = Comment.create!(user_id: 8, imagination_id: 22, body: "So realistic! :D")
+comment23 = Comment.create!(user_id: 9, imagination_id: 23, body: "Mirkro's partner in crime?")
+comment24 = Comment.create!(user_id: 10, imagination_id: 24, body: "I love you too")
+comment25 = Comment.create!(user_id: 11, imagination_id: 25, body: "Kakashi! I want a mangekyo sharingan so bad.")
+comment26 = Comment.create!(user_id: 12, imagination_id: 26, body: "I wonder what it was like to be at that dinner table.")
+comment27 = Comment.create!(user_id: 13, imagination_id: 27, body: "What a great photo! :)")
+comment28 = Comment.create!(user_id: 14, imagination_id: 28, body: "Moltres's wings look so angelic")
+comment29 = Comment.create!(user_id: 1, imagination_id: 29, body: "Painted Lady like from Avatar The Last Airbender")
+comment30 = Comment.create!(user_id: 2, imagination_id: 30, body: "burd skool")
+comment31 = Comment.create!(user_id: 3, imagination_id: 31, body: "He looks like he is ready to write some fire lyrics")
+comment32 = Comment.create!(user_id: 4, imagination_id: 32, body: "Pikachu. Pikachu everywhere")
+comment33 = Comment.create!(user_id: 5, imagination_id: 33, body: "Get that wild pokemon")
+comment34 = Comment.create!(user_id: 6, imagination_id: 34, body: "I LOVE PIXEL ART!")
+comment35 = Comment.create!(user_id: 7, imagination_id: 35, body: "That Pokeball is out of this world. Get it?")
+comment36 = Comment.create!(user_id: 8, imagination_id: 36, body: "These Pokeballs never get old. I love seeing them.")
+comment37 = Comment.create!(user_id: 9, imagination_id: 37, body: "It would cool to just lay a blanket out there and look into the starry sky")
+comment38 = Comment.create!(user_id: 10, imagination_id: 38, body: "It looks like a cool place mat")
+comment39 = Comment.create!(user_id: 11, imagination_id: 39, body: "Elly the elephant")
+comment40 = Comment.create!(user_id: 12, imagination_id: 40, body: "That would be so cool if they had a purple super saiyan")
+comment41 = Comment.create!(user_id: 13, imagination_id: 41, body: "I want a pet unicorn")
+comment42 = Comment.create!(user_id: 14, imagination_id: 42, body: "I want a painting of this on my wall!")
+comment43 = Comment.create!(user_id: 1, imagination_id: 43, body: "Those are such cool names for these characters")
+comment44 = Comment.create!(user_id: 2, imagination_id: 44, body: "Nothing in this world is stronger than his pride")
+comment45 = Comment.create!(user_id: 3, imagination_id: 45, body: "This really is the future right here")
+comment46 = Comment.create!(user_id: 4, imagination_id: 46, body: "Working from home is cool, but sometimes we do too much lol")
+comment47 = Comment.create!(user_id: 5, imagination_id: 47, body: "More like Mega Sharpedo")
+comment48 = Comment.create!(user_id: 6, imagination_id: 48, body: "This reminds me of my childhood, playing outside in the court")
+comment49 = Comment.create!(user_id: 7, imagination_id: 49, body: "I honestly don't like the color green, but this looks cool")
+comment50 = Comment.create!(user_id: 8, imagination_id: 50, body: "I never even thought about Mario having a dad! XD")
+comment51 = Comment.create!(user_id: 9, imagination_id: 51, body: "Whenever I think of witches it just reminds me of Left 4 Dead")
+comment52 = Comment.create!(user_id: 10, imagination_id: 1, body: "Bulbasaur is so cute!")
+comment53 = Comment.create!(user_id: 11, imagination_id: 2, body: "Sylveon is my favorite Eeveelution :)")
+comment54 = Comment.create!(user_id: 12, imagination_id: 3, body: "Picachu's mom. My favorite of the three legendary birds.")
+comment55 = Comment.create!(user_id: 13, imagination_id: 4, body: "This is so cool")
+comment56 = Comment.create!(user_id: 14, imagination_id: 5, body: "The line work is very clean. I can't wait to get on this level of precision.")
+comment57 = Comment.create!(user_id: 1, imagination_id: 6, body: "Looks like some Sailor Moon type stuff")
+comment58 = Comment.create!(user_id: 2, imagination_id: 7, body: "Bee-utiful")
+comment59 = Comment.create!(user_id: 3, imagination_id: 8, body: "I like the color scheme")
+comment60 = Comment.create!(user_id: 4, imagination_id: 9, body: "It's Pikachu!!!")
+comment61 = Comment.create!(user_id: 5, imagination_id: 10, body: "I wish California water was that clear. Our water is ugly.")
+comment62 = Comment.create!(user_id: 6, imagination_id: 11, body: "Shiny Eevee is so cool!")
+comment63 = Comment.create!(user_id: 7, imagination_id: 12, body: "Mother and daughter bonding time")
+comment64 = Comment.create!(user_id: 8, imagination_id: 13, body: "Just looking at it makes me want to be quiet")
+comment65 = Comment.create!(user_id: 9, imagination_id: 14, body: "I heard that coders are like this lol")
+comment66 = Comment.create!(user_id: 10, imagination_id: 15, body: "Dunkin?")
+comment67 = Comment.create!(user_id: 11, imagination_id: 16, body: "I used to have a koi fish pond.")
+comment68 = Comment.create!(user_id: 12, imagination_id: 17, body: "Beerus would still mop the floor with him")
+comment69 = Comment.create!(user_id: 13, imagination_id: 18, body: "I like how everything is pretty much the same color just a different tint.")
+comment70 = Comment.create!(user_id: 14, imagination_id: 19, body: "Tinkerbell? Tinker Bell? Tinccer Bell? I don't know how to spell it")
+comment71 = Comment.create!(user_id: 1, imagination_id: 20, body: "I can see this on a flag at a campsite somewhere")
+comment72 = Comment.create!(user_id: 2, imagination_id: 21, body: "Lightning is the best power")
+comment73 = Comment.create!(user_id: 3, imagination_id: 22, body: "Things like this make me wish Pokemon actually existed")
+comment74 = Comment.create!(user_id: 4, imagination_id: 23, body: "Looks straight out of a children's books. You would be a good illustrator for books")
+comment75 = Comment.create!(user_id: 5, imagination_id: 24, body: "I want to give that thing a hug")
+comment76 = Comment.create!(user_id: 6, imagination_id: 25, body: "His purple lightning goes crazy!!!")
+comment77 = Comment.create!(user_id: 7, imagination_id: 26, body: "I love to see different illustrations of this iconic image")
+comment78 = Comment.create!(user_id: 8, imagination_id: 27, body: "The colors are so bright. Lights up my day")
+comment79 = Comment.create!(user_id: 9, imagination_id: 28, body: "Moltres is the coolest one out of the three legendary birds. The long wings with fire are so cool")
+comment80 = Comment.create!(user_id: 10, imagination_id: 29, body: "She looks a visualization of a character from a book")
+comment81 = Comment.create!(user_id: 11, imagination_id: 30, body: "I have 6 other siblings, so this made me think of us")
+comment82 = Comment.create!(user_id: 12, imagination_id: 31, body: "I always thought pen spinning was so cool!")
+comment83 = Comment.create!(user_id: 13, imagination_id: 32, body: "They like to peek-at-you")
+comment84 = Comment.create!(user_id: 14, imagination_id: 33, body: "Oh I wonder what pokemon that is hahaha")
+comment85 = Comment.create!(user_id: 1, imagination_id: 34, body: "Bulbasaur's the GOAT")
+comment86 = Comment.create!(user_id: 2, imagination_id: 35, body: "Where is Deoxys and Rayquaza at?")
+comment87 = Comment.create!(user_id: 3, imagination_id: 36, body: "AWESOME! Do a master ball next :D")
+comment88 = Comment.create!(user_id: 4, imagination_id: 37, body: "Reminds me of the Dreamworks thingy")
+comment89 = Comment.create!(user_id: 5, imagination_id: 38, body: "My shower curtain kind of looks like that lol. And my fav color is purple")
+comment90 = Comment.create!(user_id: 6, imagination_id: 39, body: "Their trunks are so cool! And baby elephants are the cutest things ever")
+comment91 = Comment.create!(user_id: 7, imagination_id: 40, body: "She looks like a high school girl ready to beat someone up hahaha")
+comment92 = Comment.create!(user_id: 8, imagination_id: 41, body: "This reminds me of that dodgeball movie where the girl's house was full of unicorn stuff")
+comment93 = Comment.create!(user_id: 9, imagination_id: 42, body: "Super creative! Love to see it")
+comment94 = Comment.create!(user_id: 10, imagination_id: 43, body: "I want to go to that concert. Looks like it would be crazy cool!")
+comment95 = Comment.create!(user_id: 11, imagination_id: 44, body: "I hope we see a transformation from him that is just as good as ultra instinct, but not ultra instinct")
+comment96 = Comment.create!(user_id: 12, imagination_id: 45, body: "'Hey siri, fix whatever is wrong with me'")
+comment97 = Comment.create!(user_id: 13, imagination_id: 46, body: "Being productive together is the best")
+comment98 = Comment.create!(user_id: 14, imagination_id: 47, body: "I always thought that water and dark was such a cool typing. And it fits Sharpedo perfectly")
+comment99 = Comment.create!(user_id: 1, imagination_id: 48, body: "The good old days when we would go to someone's door and have to ask the parents if there kid can play outside with us")
+comment100 = Comment.create!(user_id: 2, imagination_id: 49, body: "Reminds me of some anime")
+comment101 = Comment.create!(user_id: 3, imagination_id: 50, body: "This is Luigi's dad too right?")
+comment102 = Comment.create!(user_id: 4, imagination_id: 51, body: "Awww the witch is so happy to be with her best friend :D")
+comment103 = Comment.create!(user_id: 5, imagination_id: 1, body: "Draw Ivysaur and Venusaur next please.")
+comment104 = Comment.create!(user_id: 6, imagination_id: 2, body: "So cute!")
+comment105 = Comment.create!(user_id: 7, imagination_id: 3, body: "Electric type Pokemon are the best. I want a Luxray background next.")
+comment106 = Comment.create!(user_id: 8, imagination_id: 4, body: "Very simple, but very cool. Good work")
+comment107 = Comment.create!(user_id: 9, imagination_id: 5, body: "Ice queen")
+comment108 = Comment.create!(user_id: 10, imagination_id: 6, body: "Anime anime anime. I love anime.")
+comment109 = Comment.create!(user_id: 11, imagination_id: 7, body: "Kween B. I only got stung by a bee once. It stings")
+comment110 = Comment.create!(user_id: 12, imagination_id: 8, body: "He definitely looks ready for a fight")
+comment111 = Comment.create!(user_id: 13, imagination_id: 9, body: "Pika pika!")
+comment112 = Comment.create!(user_id: 14, imagination_id: 10, body: "Waterbenders are the best ones")
+comment113 = Comment.create!(user_id: 1, imagination_id: 11, body: "Awww how cute")
+comment114 = Comment.create!(user_id: 2, imagination_id: 12, body: "It looks like their favorite sport is shopping hahaha")
+comment115 = Comment.create!(user_id: 3, imagination_id: 13, body: "Colors! Colors everywhere")
+comment116 = Comment.create!(user_id: 4, imagination_id: 14, body: "Coffee is aight. Not really my cup of tea")
+comment117 = Comment.create!(user_id: 5, imagination_id: 15, body: "Better be Dutch Bros. Nice art!")
+comment118 = Comment.create!(user_id: 6, imagination_id: 16, body: "Koi fish are so cool. They make me want to meditate.")
+comment119 = Comment.create!(user_id: 7, imagination_id: 17, body: "HAKAI!!!")
+comment120 = Comment.create!(user_id: 8, imagination_id: 18, body: "So much detail")
+comment121 = Comment.create!(user_id: 9, imagination_id: 19, body: "I like fairies")
+comment122 = Comment.create!(user_id: 10, imagination_id: 20, body: "The colors are perfect")
+comment123 = Comment.create!(user_id: 11, imagination_id: 21, body: "I love the title of this imagination hahaha")
+comment124 = Comment.create!(user_id: 12, imagination_id: 22, body: "The Pokeball looks heavy. But it's floating lol")
+comment125 = Comment.create!(user_id: 13, imagination_id: 23, body: "Super Bunny")
+
+comment126 = Comment.create!(user_id: 1, imagination_id: 52, body: "I don't like coffee")
+comment127 = Comment.create!(user_id: 2, imagination_id: 52, body: "Caffiene is definitely a drug because I am addicted too hahaha")
+comment128 = Comment.create!(user_id: 3, imagination_id: 52, body: "DUNKIN' DONUTS!!!")
+comment129 = Comment.create!(user_id: 4, imagination_id: 52, body: "Their coffee is good, but not the donuts")
+comment130 = Comment.create!(user_id: 5, imagination_id: 52, body: "I don't care what anybody says, their donuts are way better than the coffee.")
+comment131 = Comment.create!(user_id: 6, imagination_id: 52, body: "Dunkin' Boba?")
+comment132 = Comment.create!(user_id: 7, imagination_id: 52, body: "Now I want some Dunkin' coffee :(")
+comment133 = Comment.create!(user_id: 8, imagination_id: 52, body: "Iced coffee, no ice")
+comment134 = Comment.create!(user_id: 9, imagination_id: 52, body: "I never tried this coffee. I know what's next on my todo list lol")
+comment135 = Comment.create!(user_id: 10, imagination_id: 52, body: "Starbucks!")
+comment136 = Comment.create!(user_id: 11, imagination_id: 52, body: "Donuts are being dunked")
+comment137 = Comment.create!(user_id: 12, imagination_id: 52, body: "I hate when it gets all watered down")
+comment138 = Comment.create!(user_id: 13, imagination_id: 52, body: "You have good tastes when it comes to coffee")
+comment139 = Comment.create!(user_id: 14, imagination_id: 52, body: "I banned myself from drinking coffee because I used to have an addiction lol")
+comment140 = Comment.create!(user_id: 1, imagination_id: 53, body: "Summer time fine")
+comment141 = Comment.create!(user_id: 2, imagination_id: 53, body: "Sunflower Funflowers")
+comment142 = Comment.create!(user_id: 3, imagination_id: 53, body: "They are like the suns of the plant world")
+comment143 = Comment.create!(user_id: 4, imagination_id: 53, body: "I want to take a cool picture in a sunflower field")
+comment144 = Comment.create!(user_id: 5, imagination_id: 53, body: "This makes me want to look up how sunflower seeds get packaged haha")
+comment145 = Comment.create!(user_id: 6, imagination_id: 53, body: "It would be cool to have a plant where the sunflowers actually did this")
+comment146 = Comment.create!(user_id: 7, imagination_id: 53, body: "I love plants, I love this drawing")
+comment147 = Comment.create!(user_id: 8, imagination_id: 53, body: "You're so talented!")
+comment148 = Comment.create!(user_id: 9, imagination_id: 53, body: "I want more art from you!")
+comment149 = Comment.create!(user_id: 10, imagination_id: 53, body: "So original")
+comment150 = Comment.create!(user_id: 11, imagination_id: 53, body: "I like how natural it is")
+comment151 = Comment.create!(user_id: 12, imagination_id: 53, body: "This gets me in the mood to go outside and enjoy the sun")
+comment152 = Comment.create!(user_id: 13, imagination_id: 53, body: "So plain, but so bright")
+comment153 = Comment.create!(user_id: 14, imagination_id: 53, body: "Your art has a lot of personality.")
+
 

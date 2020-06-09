@@ -8,7 +8,7 @@ import ModalForm from "./modal"
 export default class Profile extends React.Component { 
     constructor(props) { 
         super(props)
-
+        
         this.state = props.targetUser;
 
         this.renderButton = this.renderButton.bind(this)
@@ -29,10 +29,13 @@ export default class Profile extends React.Component {
         // if (this.props.formType === "Create") {
         //     preview = (this.state.imageFile && this.props.formType === "Create") ? <img src={this.state.imageUrl} /> : null
         // } else 
-        if (this.state.avatarUrl) {
-            preview = <img src={this.state.avatarUrl} className="profile-pic-preview" />
-        } else {
-            preview = (this.state.avatar) ? <img src={this.state.avatar} className="profile-pic-preview" /> : null
+
+        if (this.state) { // Look into why I need this if condition right here
+            if (this.state.avatarUrl) {
+                preview = <img src={this.state.avatarUrl} className="profile-pic-preview" />
+            } else {
+                preview = (this.state.avatar) ? <img src={this.state.avatar} className="profile-pic-preview" /> : null
+            }
         }
 
         if (this.props.currentUser === this.props.targetUser) {
@@ -86,7 +89,7 @@ export default class Profile extends React.Component {
                         <div className="profile-head-pic-and-name"> 
                             {(this.props.targetUser.avatar) ? 
                             <img src={this.props.targetUser.avatar} alt="broke" className="profile-page-avatar" /> : 
-                            <div className="profile-page-avatar">Profile Picture</div>}
+                            <div className="profile-page-no-avatar">Profile Picture</div>}
                             <h1>{this.props.targetUser.username}</h1>
                             {this.renderButton()}
                         </div>
