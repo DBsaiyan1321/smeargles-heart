@@ -197,13 +197,17 @@
     height: 50px;
 }
 
+.comment-container { 
+    width: 91%;
+}
+
 .comment-main-content { 
     background-color: #F2F2F2;
     padding: 15px;
     display: flex;
     flex-direction: column;
     transition-duration: 0.75s;
-    width: 91%;
+    width: 100%;
 }
 
 .comment-main-content:hover { 
@@ -223,6 +227,10 @@
 .all-comments-body { 
     font-size: 16px;
     font-family: 'Baloo Tamma 2', Arial, Helvetica, sans-serif;
+}
+
+.owned-comments-buttons-container { 
+
 }
 
 .owned-comments-buttons {   
