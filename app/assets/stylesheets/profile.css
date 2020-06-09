@@ -18,7 +18,17 @@
 .profile-page-avatar { 
     width: 100px;
     height: 100px;
-    background-color: lightskyblue;
+}
+
+.profile-page-no-avatar { 
+    width: 100px;
+    height: 100px;
+    background-color: #4d4dff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: arial;
+    font-size: 32px;
 }
 
 .profile-head-info h1 { 
