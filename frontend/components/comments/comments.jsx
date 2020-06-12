@@ -34,7 +34,7 @@ class Comments extends React.Component {
         if (this.props.currentUser) { 
             if (this.state.clicked && !type) {
                 return (
-                    <form onSubmit={this.formSubmission} className="comment-form">
+                    <form onSubmit={this.formSubmission} className="comment-form" id="comment-form">
                         <textarea className="comment-input-field" onChange={this.typingInTextarea("body")} value={this.state.comment.body} />
                         <div className="comment-form-button-container">
                             <button onClick={e => {
@@ -47,7 +47,7 @@ class Comments extends React.Component {
                 )
             } else if (!type) {
                 return (
-                    <form onSubmit={this.formSubmission} className="comment-form">
+                    <form onSubmit={this.formSubmission} className="comment-form" id="comment-form">
                         <textarea className="comment-input-field" onChange={this.typingInTextarea("body")} onFocus={e => {
                             e.preventDefault()
                             this.setState({ clicked: true })
@@ -56,7 +56,7 @@ class Comments extends React.Component {
                 )
             } else if (type) { 
                 return (
-                    <form onSubmit={this.updateComment} className="comment-form">
+                    <form onSubmit={this.updateComment} className="comment-form" id="comment-form">
                         <textarea className="comment-input-field" onChange={this.typingInTextarea("body")} value={this.state.comment.body} />
                         <div className="comment-form-button-container">
                             <button onClick={e => {
@@ -121,7 +121,7 @@ class Comments extends React.Component {
                         if (this.props.currentUser) { 
                             if (this.props.currentUser.username === comment.username && !this.state.formType) { 
                                 return <li key={comment.id} className="comment-box">
-                                    <img src={comment.avatar} className="comment-avatar" />
+                                    <Link to={`/user/${comment.username}`} className="comment-avatar-link"><img src={comment.avatar} className="comment-avatar" /></Link>
                                     <div className="comment-container">
                                         <div className="comment-main-content">
                                             <Link to={`/user/${comment.username}`} className="all-comments-username">{comment.username}</Link>
@@ -135,7 +135,7 @@ class Comments extends React.Component {
                                 </li> // Never forget to return in .map
                             } else { // Needed this extra else condition because it would only render my comments if I didn't have it here
                                 return <li key={comment.id} className="comment-box">
-                                    <img src={comment.avatar} className="comment-avatar" />
+                                    <Link to={`/user/${comment.username}`} className="comment-avatar-link"><img src={comment.avatar} className="comment-avatar" /></Link>
                                     <div className="comment-container">
                                         <div className="comment-main-content">
                                             <Link to={`/user/${comment.username}`} className="all-comments-username">{comment.username}</Link>
@@ -148,7 +148,7 @@ class Comments extends React.Component {
                         
                         else { 
                             return <li key={comment.id} className="comment-box">
-                                <img src={comment.avatar} className="comment-avatar" />
+                                <Link to={`/user/${comment.username}`} className="comment-avatar-link"><img src={comment.avatar} className="comment-avatar" /></Link>
                                 <div className="comment-main-content">
                                     <Link to={`/user/${comment.username}`} className="all-comments-username">{comment.username}</Link>
                                     <span className="all-comments-body">{comment.body}</span>

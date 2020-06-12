@@ -4,6 +4,8 @@ import MainNavBar from "../main_nav_bar";
 import { Link } from "react-router-dom";
 // import Modal from "react-modal";
 import ModalForm from "./modal"
+import { CubeSpinner, FireworkSpinner, WaveSpinner } from "react-spinners-kit";
+
 
 export default class Profile extends React.Component { 
     constructor(props) { 
@@ -77,7 +79,19 @@ export default class Profile extends React.Component {
     }
 
     render() { 
-        if (!this.props.targetUser) return null
+        if (!this.props.targetUser) return ( 
+            <div className="index-spinner-container">
+                {/* <CubeSpinner size={40} frontColor="black" backColor="#4D4DFF" loading={true} /> */}
+                {/* <FireworkSpinner size={40} color="#4D4DFF" loading={true} /> */}
+                <WaveSpinner size={40} color="#4D4DFF" loading={true} />
+            </div >
+        )
+
+        // if (this.state.fetching) return <div className="index-spinner-container">
+        //         {/* <CubeSpinner size={40} frontColor="black" backColor="#4D4DFF" loading={true} /> */ }
+        // {/* <FireworkSpinner size={40} color="#4D4DFF" loading={true} /> */ }
+        // <WaveSpinner size={40} color="#4D4DFF" loading={true} />
+        // </div > 
 
         return (
             <div> 
