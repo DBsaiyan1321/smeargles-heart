@@ -113,7 +113,8 @@
 }
 
 .main-nav-bar-avatar { 
-    height: 75%
+    height: 40px;
+    width: 40px;
 }
 
 .username-dropdown { 
