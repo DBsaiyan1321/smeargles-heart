@@ -41,7 +41,9 @@ class Comments extends React.Component {
                                 e.preventDefault()
                                 this.setState({ clicked: false })
                             }} className="comment-cancel">CANCEL</button>
-                            <input type="submit" value="COMMENT" className="comment-submit-form" />
+                            {(this.state.comment.body.trim().length > 0) ?
+                            <input type="submit" value="COMMENT" className="comment-submit-form" /> : 
+                            <input type="submit" value="COMMENT" className="comment-submit-form-faded" />}
                         </div>
                     </form>
                 )
@@ -63,7 +65,9 @@ class Comments extends React.Component {
                                 e.preventDefault()
                                 this.setState({ clicked: false, comment: this.props.comment, formType: null })
                             }} className="comment-cancel">CANCEL</button>
-                            <input type="submit" value="UPDATE" className="comment-submit-form" />
+                            {(this.state.comment.body.trim().length > 0) ?
+                                <input type="submit" value="UPDATE" className="comment-submit-form" /> :
+                                <input type="submit" value="UPDATE" className="comment-submit-form-faded" />}
                         </div>
                     </form>
                 )
@@ -121,7 +125,10 @@ class Comments extends React.Component {
                         if (this.props.currentUser) { 
                             if (this.props.currentUser.username === comment.username && !this.state.formType) { 
                                 return <li key={comment.id} className="comment-box">
-                                    <Link to={`/user/${comment.username}`} className="comment-avatar-link"><img src={comment.avatar} className="comment-avatar" /></Link>
+                                    { (comment.avatar) ? 
+                                    <Link to={`/user/${comment.username}`} className="comment-avatar-link"><img src={comment.avatar} className="comment-avatar" /></Link> : 
+                                    <Link to={`/user/${comment.username}`} className="comment-avatar-link"><div className="no-comment-avatar">:)</div></Link> 
+                                    }
                                     <div className="comment-container">
                                         <div className="comment-main-content">
                                             <Link to={`/user/${comment.username}`} className="all-comments-username">{comment.username}</Link>
@@ -135,7 +142,10 @@ class Comments extends React.Component {
                                 </li> // Never forget to return in .map
                             } else { // Needed this extra else condition because it would only render my comments if I didn't have it here
                                 return <li key={comment.id} className="comment-box">
-                                    <Link to={`/user/${comment.username}`} className="comment-avatar-link"><img src={comment.avatar} className="comment-avatar" /></Link>
+                                    {(comment.avatar) ?
+                                        <Link to={`/user/${comment.username}`} className="comment-avatar-link"><img src={comment.avatar} className="comment-avatar" /></Link> :
+                                        <Link to={`/user/${comment.username}`} className="comment-avatar-link"><div className="no-comment-avatar">:)</div></Link>
+                                    }                                    
                                     <div className="comment-container">
                                         <div className="comment-main-content">
                                             <Link to={`/user/${comment.username}`} className="all-comments-username">{comment.username}</Link>
@@ -148,7 +158,10 @@ class Comments extends React.Component {
                         
                         else { 
                             return <li key={comment.id} className="comment-box">
-                                <Link to={`/user/${comment.username}`} className="comment-avatar-link"><img src={comment.avatar} className="comment-avatar" /></Link>
+                                {(comment.avatar) ?
+                                    <Link to={`/user/${comment.username}`} className="comment-avatar-link"><img src={comment.avatar} className="comment-avatar" /></Link> :
+                                    <Link to={`/user/${comment.username}`} className="comment-avatar-link"><div className="no-comment-avatar">:)</div></Link>
+                                }
                                 <div className="comment-main-content">
                                     <Link to={`/user/${comment.username}`} className="all-comments-username">{comment.username}</Link>
                                     <span className="all-comments-body">{comment.body}</span>

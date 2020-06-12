@@ -141,6 +141,17 @@
     cursor: pointer;
 }
 
+.comment-submit-form-faded { 
+    padding: 10px 0px 10px 30px;
+    background-color: transparent;
+    border: none;
+    color: #4d4dff52;
+    font-size: 12px;
+    font-family: 'Hind', Arial, Helvetica, sans-serif;
+    letter-spacing: 0.25px;
+    pointer-events: none;
+}
+
 .comment-cancel { 
     padding: 10px 0px 10px 30px;
     background-color: transparent;
@@ -199,6 +210,16 @@
 .comment-avatar { 
     width: 50px;
     height: 50px;
+}
+
+.no-comment-avatar { 
+    width: 50px;
+    height: 50px;
+    background-color: #4d4dff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
 }
 
 .comment-container { 
