@@ -17,7 +17,10 @@ const ModalForm = (props) => {
                     props.cancelUpdate(e)
                 }}>X</div>
                 <h1 className="modal-title">Profile Info</h1>
-                <form onSubmit={props.updateProfile} className="modal-form"> 
+                <form onSubmit={(e) => { 
+                    props.updateProfile(e)
+                    setModalIsOpen(false)
+                }} className="modal-form"> 
                     <div className="edit-section-of-profile">
                         <div className="profile-pic-upload">
                             <div>{props.preview}</div>

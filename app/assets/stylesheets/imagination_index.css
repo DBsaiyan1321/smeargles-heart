@@ -39,6 +39,7 @@
 .imagination-index-item img {
     height: 100%; 
     width: auto;
+    border-radius: 5px;
 }
 
 .hover-overlay { 
@@ -56,6 +57,7 @@
     transition-duration: opacity 1s linear;
     /* background: transparent; */
     opacity: 0;
+    border-radius: 5px;
 }
 
 .imagination-index-item:hover .hover-overlay { 

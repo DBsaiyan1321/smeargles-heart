@@ -115,6 +115,7 @@
 .main-nav-bar-avatar { 
     height: 40px;
     width: 40px;
+    border-radius: 5px;
 }
 
 .username-dropdown { 

@@ -34,7 +34,7 @@ class Comments extends React.Component {
         if (this.props.currentUser) { 
             if (this.state.clicked && !type) {
                 return (
-                    <form onSubmit={this.formSubmission} className="comment-form" id="comment-form">
+                    <form onSubmit={this.formSubmission} className="comment-form">
                         <textarea className="comment-input-field" onChange={this.typingInTextarea("body")} value={this.state.comment.body} />
                         <div className="comment-form-button-container">
                             <button onClick={e => {
@@ -49,7 +49,7 @@ class Comments extends React.Component {
                 )
             } else if (!type) {
                 return (
-                    <form onSubmit={this.formSubmission} className="comment-form" id="comment-form">
+                    <form onSubmit={this.formSubmission} className="comment-form">
                         <textarea className="comment-input-field" onChange={this.typingInTextarea("body")} onFocus={e => {
                             e.preventDefault()
                             this.setState({ clicked: true })
@@ -58,7 +58,7 @@ class Comments extends React.Component {
                 )
             } else if (type) { 
                 return (
-                    <form onSubmit={this.updateComment} className="comment-form" id="comment-form">
+                    <form onSubmit={this.updateComment} className="comment-form">
                         <textarea className="comment-input-field" onChange={this.typingInTextarea("body")} value={this.state.comment.body} />
                         <div className="comment-form-button-container">
                             <button onClick={e => {
