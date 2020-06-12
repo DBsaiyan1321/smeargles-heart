@@ -1,4 +1,4 @@
-import { fetchUser, updateUser } from "../../actions/user_actions"; 
+import { fetchUser, updateUser, clearUsers } from "../../actions/user_actions"; 
 import { connect } from "react-redux";
 import Profile from "./profile";
 import { logout } from "../../actions/session_actions";
@@ -32,7 +32,8 @@ const mapDispatchToProps = dispatch => ({
     fetchUser: username => dispatch(fetchUser(username)), 
     logout: () => dispatch(logout()), 
     fetchImaginations: () => dispatch(fetchImaginations()), 
-    updateUser: user => dispatch(updateUser(user))
+    updateUser: user => dispatch(updateUser(user)), 
+    clearUsers: () => dispatch(clearUsers())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile)

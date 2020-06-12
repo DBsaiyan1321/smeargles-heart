@@ -12,9 +12,11 @@ class Comments extends React.Component {
             formType: null
         };
 
+        // debugger
+
         this.renderForm = this.renderForm.bind(this);
         this.typingInTextarea = this.typingInTextarea.bind(this);
-        this.formSubmission = this.formSubmission.bind(this);
+        this.createComment = this.createComment.bind(this);
         this.deleteComment = this.deleteComment.bind(this);
         this.renderEditComment = this.renderEditComment.bind(this);
         this.updateComment = this.updateComment.bind(this);
@@ -34,7 +36,7 @@ class Comments extends React.Component {
         if (this.props.currentUser) { 
             if (this.state.clicked && !type) {
                 return (
-                    <form onSubmit={this.formSubmission} className="comment-form">
+                    <form onSubmit={this.createComment} className="comment-form">
                         <textarea className="comment-input-field" onChange={this.typingInTextarea("body")} value={this.state.comment.body} />
                         <div className="comment-form-button-container">
                             <button onClick={e => {
@@ -49,7 +51,7 @@ class Comments extends React.Component {
                 )
             } else if (!type) {
                 return (
-                    <form onSubmit={this.formSubmission} className="comment-form">
+                    <form onSubmit={this.createComment} className="comment-form">
                         <textarea className="comment-input-field" onChange={this.typingInTextarea("body")} onFocus={e => {
                             e.preventDefault()
                             this.setState({ clicked: true })
@@ -74,7 +76,7 @@ class Comments extends React.Component {
             }
         } else { 
             return (
-                <form onSubmit={this.formSubmission}>
+                <form onSubmit={this.createComment}>
                     <Link to="/signup"><textarea className="comment-input-field" placeholder="Add a new comment..." /></Link>
                 </form>
             )
@@ -89,21 +91,21 @@ class Comments extends React.Component {
         }
     }
 
-    formSubmission(e) { 
+    createComment(e) { 
         e.preventDefault();
         this.props.createComment(this.state.comment)
+        this.setState({ clicked: false })
     }
 
     renderEditComment(e, selectedComment) {
         e.preventDefault();
         this.setState({ comment: selectedComment, formType: "edit" });
-        // console.log(this.state)
     }
 
     updateComment(e) {
         e.preventDefault();
-        // console.log(this.state.comment);
         this.props.updateComment(this.state.comment);
+        this.setState({ formType: null })
     }
 
     deleteComment(e, selectedComment) {

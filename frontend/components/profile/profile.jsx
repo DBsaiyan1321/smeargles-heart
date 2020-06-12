@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import ImaginationIndexItem from "../imaginations/imagination_index_item";
 import MainNavBar from "../main_nav_bar";
 import { Link } from "react-router-dom";
-// import Modal from "react-modal";
 import ModalForm from "./modal"
 import { CubeSpinner, FireworkSpinner, WaveSpinner } from "react-spinners-kit";
 
@@ -10,8 +9,11 @@ import { CubeSpinner, FireworkSpinner, WaveSpinner } from "react-spinners-kit";
 export default class Profile extends React.Component { 
     constructor(props) { 
         super(props)
-        
-        this.state = props.targetUser;
+
+        this.state = { 
+            runConstructor: false, 
+            targetUser: props.targetUser
+        };
 
         this.renderButton = this.renderButton.bind(this)
         this.updateProfile = this.updateProfile.bind(this)
@@ -24,40 +26,51 @@ export default class Profile extends React.Component {
         this.props.fetchUser(this.props.match.params.username)
     }
 
+    componentDidUpdate(prevProps) { // Fixed the problem for when I got back to another profile. But when I click mine from the nav bar it's still jacked up.
+        if (this.props.match.params.username !== prevProps.match.params.username) { 
+            this.props.fetchUser(this.props.match.params.username)
+        }
+    }
+
     renderButton() { 
         let preview
 
         // This was all taken from my imagination form component, so I just commented this out what I didn't need 
         // if (this.props.formType === "Create") {
-        //     preview = (this.state.imageFile && this.props.formType === "Create") ? <img src={this.state.imageUrl} /> : null
+        //     preview = (this.state.targetUser.imageFile && this.props.formType === "Create") ? <img src={this.state.targetUser.imageUrl} /> : null
         // } else 
 
-        if (this.state) { // Look into why I need this if condition right here
-            if (this.state.avatarUrl) {
-                preview = <img src={this.state.avatarUrl} className="profile-pic-preview" />
+        if (this.state.targetUser) { // Look into why I need this if condition right here
+            if (this.state.targetUser.avatarUrl) {
+                preview = <img src={this.state.targetUser.avatarUrl} className="profile-pic-preview" />
             } else {
-                preview = (this.state.avatar) ? <img src={this.state.avatar} className="profile-pic-preview" /> : null
+                preview = (this.state.targetUser.avatar) ? <img src={this.state.targetUser.avatar} className="profile-pic-preview" /> : null
             }
         }
 
         if (this.props.currentUser === this.props.targetUser) {
-            return <ModalForm updateField={this.updateField} updateProfile={this.updateProfile} state={this.state} handleFile={this.handleFile} preview={preview} cancelUpdate={this.cancelUpdate} />
+            return <ModalForm updateField={this.updateField} updateProfile={this.updateProfile} state={this.state.targetUser} handleFile={this.handleFile} preview={preview} cancelUpdate={this.cancelUpdate} />
+            // return
         } else {
             return
         }
     }
 
-    updateField(field) { 
-        return e => this.setState({ [field]: e.target.value })
+    updateField(field) { // Again, this is how you handle nested objects in state
+        return e => { 
+            let targetUser = this.state.targetUser 
+            targetUser[field] = e.target.value
+            this.setState({ targetUser })
+        }
     }
 
     updateProfile(e) { 
         e.preventDefault();
         const formData = new FormData();
         formData.append('user[id]', this.props.targetUser.id)
-        formData.append('user[bio]', this.state.bio);
-        if (this.state.avatarFile) {
-            formData.append('user[avatar]', this.state.avatarFile);
+        formData.append('user[bio]', this.state.targetUser.bio);
+        if (this.state.targetUser.avatarFile) {
+            formData.append('user[avatar]', this.state.targetUser.avatarFile);
         }
         this.props.updateUser(formData)
     }
@@ -81,17 +94,9 @@ export default class Profile extends React.Component {
     render() { 
         if (!this.props.targetUser) return ( 
             <div className="index-spinner-container">
-                {/* <CubeSpinner size={40} frontColor="black" backColor="#4D4DFF" loading={true} /> */}
-                {/* <FireworkSpinner size={40} color="#4D4DFF" loading={true} /> */}
                 <WaveSpinner size={40} color="#4D4DFF" loading={true} />
             </div >
         )
-
-        // if (this.state.fetching) return <div className="index-spinner-container">
-        //         {/* <CubeSpinner size={40} frontColor="black" backColor="#4D4DFF" loading={true} /> */ }
-        // {/* <FireworkSpinner size={40} color="#4D4DFF" loading={true} /> */ }
-        // <WaveSpinner size={40} color="#4D4DFF" loading={true} />
-        // </div > 
 
         return (
             <div> 

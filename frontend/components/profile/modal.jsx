@@ -5,7 +5,7 @@ const ModalForm = (props) => {
     Modal.setAppElement("#root") // When I set this  outside of the function it doesn't work. Maybe it's because I'm exporting this function in particular and not the whole page.
 
     const [modalIsOpen, setModalIsOpen] = useState(false) 
-
+    // debugger
     return ( 
         <div className="modal-div"> 
             <button onClick={() => setModalIsOpen(true)} className="edit-profile-button">EDIT PROFILE</button>
