@@ -32,6 +32,7 @@ export default class Profile extends React.Component {
         }
     }
 
+    // This was the solution to the bug that took me 5+ hours to figure out
     static getDerivedStateFromProps(props, state) { 
         if (state.targetUser !== props.targetUser) { 
             return { targetUser: props.targetUser }
@@ -112,7 +113,7 @@ export default class Profile extends React.Component {
             </div >
         )
 
-        console.log(this.state)
+        // console.log(this.state)
 
         return (
             <div> 
