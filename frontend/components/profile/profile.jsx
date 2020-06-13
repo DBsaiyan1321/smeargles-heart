@@ -5,15 +5,13 @@ import { Link } from "react-router-dom";
 import ModalForm from "./modal"
 import { CubeSpinner, FireworkSpinner, WaveSpinner } from "react-spinners-kit";
 
-
+// This component was giving me trouble with this one bug. Since this component relies a lot on it's 
+// state, I had to really understand the order of execution and how to work around the state.
 export default class Profile extends React.Component { 
     constructor(props) { 
         super(props)
 
-        this.state = { 
-            runConstructor: false, 
-            targetUser: props.targetUser
-        };
+        this.state = {  targetUser: props.targetUser };
 
         this.renderButton = this.renderButton.bind(this)
         this.updateProfile = this.updateProfile.bind(this)
@@ -24,11 +22,21 @@ export default class Profile extends React.Component {
 
     componentDidMount() {
         this.props.fetchUser(this.props.match.params.username)
+            // .fail(() => console.log("redirect to home page"))
     }
 
-    componentDidUpdate(prevProps) { // Fixed the problem for when I got back to another profile. But when I click mine from the nav bar it's still jacked up.
+    componentDidUpdate(prevProps) { // Fixed the problem for when I got back to another profile. But when I click mine in the nav bar from another profile it's still jacked up.
         if (this.props.match.params.username !== prevProps.match.params.username) { 
             this.props.fetchUser(this.props.match.params.username)
+                // .fail(() => console.log("redirect to home page"))
+        }
+    }
+
+    static getDerivedStateFromProps(props, state) { 
+        if (state.targetUser !== props.targetUser) { 
+            return { targetUser: props.targetUser }
+        } else { 
+            return null;
         }
     }
 
@@ -41,8 +49,8 @@ export default class Profile extends React.Component {
         // } else 
 
         if (this.state.targetUser) { // Look into why I need this if condition right here
-            if (this.state.targetUser.avatarUrl) {
-                preview = <img src={this.state.targetUser.avatarUrl} className="profile-pic-preview" />
+            if (this.state.avatarUrl) {
+                preview = <img src={this.state.avatarUrl} className="profile-pic-preview" />
             } else {
                 preview = (this.state.targetUser.avatar) ? <img src={this.state.targetUser.avatar} className="profile-pic-preview" /> : null
             }
@@ -69,8 +77,8 @@ export default class Profile extends React.Component {
         const formData = new FormData();
         formData.append('user[id]', this.props.targetUser.id)
         formData.append('user[bio]', this.state.targetUser.bio);
-        if (this.state.targetUser.avatarFile) {
-            formData.append('user[avatar]', this.state.targetUser.avatarFile);
+        if (this.state.avatarFile) {
+            formData.append('user[avatar]', this.state.avatarFile);
         }
         this.props.updateUser(formData)
     }
@@ -91,12 +99,20 @@ export default class Profile extends React.Component {
         }
     }
 
+    // From the React.Component docs: 
+    // The render() function should be pure, meaning that it does not modify component 
+    // state, it returns the same result each time it’s invoked, and it does not directly 
+    // interact with the browser. If you need to interact with the browser, perform 
+    // your work in componentDidMount() or the other lifecycle methods instead. Keeping 
+    // render() pure makes components easier to think about.
     render() { 
         if (!this.props.targetUser) return ( 
             <div className="index-spinner-container">
                 <WaveSpinner size={40} color="#4D4DFF" loading={true} />
             </div >
         )
+
+        console.log(this.state)
 
         return (
             <div> 
@@ -140,3 +156,15 @@ export default class Profile extends React.Component {
 }
 
 // export default Profile; // Could've put it down here as well
+
+// Also from the React.Component docs: 
+// Note
+// Avoid copying props into state! This is a common mistake:
+// constructor(props) {
+//     super(props);
+//     // Don't do this!
+//     this.state = { color: props.color };
+// }
+// The problem is that it’s both unnecessary(you can use this.props.color directly instead), and creates bugs(updates to the color prop won’t be reflected in the state).
+// Only use this pattern if you intentionally want to ignore prop updates.In that case, it makes sense to rename the prop to be called initialColor or defaultColor.You can then force a component to “reset” its internal state by changing its key when necessary.
+// Read our blog post on avoiding derived state(this is a link) to learn about what to do if you think you need some state to depend on the props.
