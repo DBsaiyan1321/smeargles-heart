@@ -94,7 +94,11 @@ class Comments extends React.Component {
     createComment(e) { 
         e.preventDefault();
         this.props.createComment(this.state.comment)
-        this.setState({ clicked: false })
+            .then(() => { // I added this to clear the textbox. Everything was working before, so take this out if it breaks anything. 
+                let comment = this.state.comment
+                comment["body"] = ""
+                this.setState({ clicked: false, comment })
+            })
     }
 
     renderEditComment(e, selectedComment) {
@@ -104,8 +108,12 @@ class Comments extends React.Component {
 
     updateComment(e) {
         e.preventDefault();
-        this.props.updateComment(this.state.comment);
-        this.setState({ formType: null })
+        this.props.updateComment(this.state.comment)
+            .then(() => { // I added this to clear the textbox. Everything was working before, so take this out if it breaks anything. 
+                let comment = this.state.comment
+                comment.body = ""
+                this.setState({ formType: null, comment, clicked: false })
+            })
     }
 
     deleteComment(e, selectedComment) {
