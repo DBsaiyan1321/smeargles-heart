@@ -1,4 +1,4 @@
-import { fetchUser, updateUser, clearUsers } from "../../actions/user_actions"; 
+import { fetchUser, updateUser } from "../../actions/user_actions"; 
 import { connect } from "react-redux";
 import Profile from "./profile";
 import { logout } from "../../actions/session_actions";
