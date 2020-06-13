@@ -85,7 +85,7 @@ class Comments extends React.Component {
 
     typingInTextarea(type) { // This is how you handle nested objects in state
         return e => {
-            let comment = this.state.comment
+            let comment = Object.assign({}, this.state.comment) // Using Object.assign here fixed the issue where when I would edit the state it would visually edit the original on screen. 
             comment[type] = e.target.value
             this.setState({ comment })
         }
