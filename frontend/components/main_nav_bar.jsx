@@ -22,7 +22,9 @@ const MainNavBar = props => {
                         <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/dorian-izaiah-brown-1430b3193/" className="main-nav-bar-element"><AiFillLinkedin className="socials-links" /></a>
                     </div>
                     <div className="username-tab">
-                        <h2 className="main-nav-bar-element username-nav">{props.currentUser.username}</h2>
+                        {(props.currentUser.avatar) ? 
+                        <h2 className="main-nav-bar-element username-nav"><img src={props.currentUser.avatar} className="main-nav-bar-avatar" /></h2> : 
+                        <h2 className="main-nav-bar-element username-nav">{props.currentUser.username}</h2> } 
                         <ul className="username-dropdown">
                             {/* <li className="dropdown-item dropdown-item-username"><Link to={`/user/${props.currentUser.username}`}>{props.currentUser.username}</Link></li>  */}
                             <li className="dropdown-item dropdown-item-username" onClick={() => window.location.href = `/#/user/${props.currentUser.username}`}>{props.currentUser.username}</li>  {/* Be cautious of this. Revert it back to the original if you need to */}

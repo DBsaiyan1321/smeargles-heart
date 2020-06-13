@@ -112,6 +112,12 @@
     height: 100%;
 }
 
+.main-nav-bar-avatar { 
+    height: 40px;
+    width: 40px;
+    border-radius: 5px;
+}
+
 .username-dropdown { 
     /* border: 1px solid black; */
     background-color: white;

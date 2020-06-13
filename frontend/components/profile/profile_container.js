@@ -32,7 +32,8 @@ const mapDispatchToProps = dispatch => ({
     fetchUser: username => dispatch(fetchUser(username)), 
     logout: () => dispatch(logout()), 
     fetchImaginations: () => dispatch(fetchImaginations()), 
-    updateUser: user => dispatch(updateUser(user))
+    updateUser: user => dispatch(updateUser(user)), 
+    clearUsers: () => dispatch(clearUsers())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile)

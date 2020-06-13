@@ -12,9 +12,11 @@ class Comments extends React.Component {
             formType: null
         };
 
+        // debugger
+
         this.renderForm = this.renderForm.bind(this);
         this.typingInTextarea = this.typingInTextarea.bind(this);
-        this.formSubmission = this.formSubmission.bind(this);
+        this.createComment = this.createComment.bind(this);
         this.deleteComment = this.deleteComment.bind(this);
         this.renderEditComment = this.renderEditComment.bind(this);
         this.updateComment = this.updateComment.bind(this);
@@ -34,20 +36,22 @@ class Comments extends React.Component {
         if (this.props.currentUser) { 
             if (this.state.clicked && !type) {
                 return (
-                    <form onSubmit={this.formSubmission} className="comment-form">
+                    <form onSubmit={this.createComment} className="comment-form">
                         <textarea className="comment-input-field" onChange={this.typingInTextarea("body")} value={this.state.comment.body} />
                         <div className="comment-form-button-container">
                             <button onClick={e => {
                                 e.preventDefault()
                                 this.setState({ clicked: false })
                             }} className="comment-cancel">CANCEL</button>
-                            <input type="submit" value="COMMENT" className="comment-submit-form" />
+                            {(this.state.comment.body.trim().length > 0) ?
+                            <input type="submit" value="COMMENT" className="comment-submit-form" /> : 
+                            <input type="submit" value="COMMENT" className="comment-submit-form-faded" />}
                         </div>
                     </form>
                 )
             } else if (!type) {
                 return (
-                    <form onSubmit={this.formSubmission} className="comment-form">
+                    <form onSubmit={this.createComment} className="comment-form">
                         <textarea className="comment-input-field" onChange={this.typingInTextarea("body")} onFocus={e => {
                             e.preventDefault()
                             this.setState({ clicked: true })
@@ -63,14 +67,16 @@ class Comments extends React.Component {
                                 e.preventDefault()
                                 this.setState({ clicked: false, comment: this.props.comment, formType: null })
                             }} className="comment-cancel">CANCEL</button>
-                            <input type="submit" value="UPDATE" className="comment-submit-form" />
+                            {(this.state.comment.body.trim().length > 0) ?
+                                <input type="submit" value="UPDATE" className="comment-submit-form" /> :
+                                <input type="submit" value="UPDATE" className="comment-submit-form-faded" />}
                         </div>
                     </form>
                 )
             }
         } else { 
             return (
-                <form onSubmit={this.formSubmission}>
+                <form onSubmit={this.createComment}>
                     <Link to="/signup"><textarea className="comment-input-field" placeholder="Add a new comment..." /></Link>
                 </form>
             )
@@ -85,21 +91,21 @@ class Comments extends React.Component {
         }
     }
 
-    formSubmission(e) { 
+    createComment(e) { 
         e.preventDefault();
         this.props.createComment(this.state.comment)
+        this.setState({ clicked: false })
     }
 
     renderEditComment(e, selectedComment) {
         e.preventDefault();
         this.setState({ comment: selectedComment, formType: "edit" });
-        // console.log(this.state)
     }
 
     updateComment(e) {
         e.preventDefault();
-        // console.log(this.state.comment);
         this.props.updateComment(this.state.comment);
+        this.setState({ formType: null })
     }
 
     deleteComment(e, selectedComment) {
@@ -121,7 +127,10 @@ class Comments extends React.Component {
                         if (this.props.currentUser) { 
                             if (this.props.currentUser.username === comment.username && !this.state.formType) { 
                                 return <li key={comment.id} className="comment-box">
-                                    <img src={comment.avatar} className="comment-avatar" />
+                                    { (comment.avatar) ? 
+                                    <Link to={`/user/${comment.username}`} className="comment-avatar-link"><img src={comment.avatar} className="comment-avatar" /></Link> : 
+                                    <Link to={`/user/${comment.username}`} className="comment-avatar-link"><div className="no-comment-avatar">:)</div></Link> 
+                                    }
                                     <div className="comment-container">
                                         <div className="comment-main-content">
                                             <Link to={`/user/${comment.username}`} className="all-comments-username">{comment.username}</Link>
@@ -135,7 +144,10 @@ class Comments extends React.Component {
                                 </li> // Never forget to return in .map
                             } else { // Needed this extra else condition because it would only render my comments if I didn't have it here
                                 return <li key={comment.id} className="comment-box">
-                                    <img src={comment.avatar} className="comment-avatar" />
+                                    {(comment.avatar) ?
+                                        <Link to={`/user/${comment.username}`} className="comment-avatar-link"><img src={comment.avatar} className="comment-avatar" /></Link> :
+                                        <Link to={`/user/${comment.username}`} className="comment-avatar-link"><div className="no-comment-avatar">:)</div></Link>
+                                    }                                    
                                     <div className="comment-container">
                                         <div className="comment-main-content">
                                             <Link to={`/user/${comment.username}`} className="all-comments-username">{comment.username}</Link>
@@ -148,7 +160,10 @@ class Comments extends React.Component {
                         
                         else { 
                             return <li key={comment.id} className="comment-box">
-                                <img src={comment.avatar} className="comment-avatar" />
+                                {(comment.avatar) ?
+                                    <Link to={`/user/${comment.username}`} className="comment-avatar-link"><img src={comment.avatar} className="comment-avatar" /></Link> :
+                                    <Link to={`/user/${comment.username}`} className="comment-avatar-link"><div className="no-comment-avatar">:)</div></Link>
+                                }
                                 <div className="comment-main-content">
                                     <Link to={`/user/${comment.username}`} className="all-comments-username">{comment.username}</Link>
                                     <span className="all-comments-body">{comment.body}</span>

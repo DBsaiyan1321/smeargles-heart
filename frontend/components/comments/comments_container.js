@@ -5,7 +5,7 @@ import { fetchComments, createComment, updateComment, deleteComment } from "../.
 const mapStateToProps = (state, ownProps) => {
     return {
         currentUser: ownProps.currentUser,
-        comments: (state.entities.comments) ? Object.values(state.entities.comments) : [], 
+        comments: (state.entities.comments) ? Object.values(state.entities.comments).reverse() : [], 
         commentCount: (state.entities.comments) ? Object.values(state.entities.comments).length : 0,
         comment: { body: "", user_id: state.session.id, imagination_id: ownProps.imagination.id } 
     }
