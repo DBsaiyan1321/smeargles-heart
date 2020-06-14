@@ -2,8 +2,9 @@
 
 ## Summary of the Website 
 * Social media centered around art
-* Explore and "like" other people's imaginations (posts)
-* Create, edit, and delete your own imaginations 
+* Explore and "like" or comment on other people's imaginations (posts)
+* Create, edit, and delete your own imaginations
+* Customize your profile 
 * Clone of the website "DeviantArt"
 
 ## Link
@@ -59,6 +60,4 @@ componentWillUnmount() {
 }
 ```
 ## Future Features
-* Comments
-* Profiles 
 * Making the home page layout look like DeviantArt's home page
