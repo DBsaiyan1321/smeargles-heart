@@ -77,7 +77,7 @@ class Comments extends React.Component {
         } else { 
             return (
                 <form onSubmit={this.createComment}>
-                    <Link to="/signup"><textarea className="comment-input-field" placeholder="Add a new comment..." /></Link>
+                    <Link to="/login"><textarea className="comment-input-field" placeholder="Log in to add a new comment..." /></Link>
                 </form>
             )
         }
@@ -172,9 +172,11 @@ class Comments extends React.Component {
                                     <Link to={`/user/${comment.username}`} className="comment-avatar-link"><img src={comment.avatar} className="comment-avatar" /></Link> :
                                     <Link to={`/user/${comment.username}`} className="comment-avatar-link"><div className="no-comment-avatar">:)</div></Link>
                                 }
-                                <div className="comment-main-content">
-                                    <Link to={`/user/${comment.username}`} className="all-comments-username">{comment.username}</Link>
-                                    <span className="all-comments-body">{comment.body}</span>
+                                <div className="comment-container"> 
+                                    <div className="comment-main-content">
+                                        <Link to={`/user/${comment.username}`} className="all-comments-username">{comment.username}</Link>
+                                        <span className="all-comments-body">{comment.body}</span>
+                                    </div>
                                 </div>
                             </li>
                         }
