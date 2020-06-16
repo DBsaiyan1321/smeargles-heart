@@ -22,7 +22,7 @@
 * AWS 
 * PostgreSQL
 
-## Features I Struggled With
+## Features
 ### Likes 
 Implementing the likes was difficult for me. There were some interesting "if" conditions, and this feature taught me a lot more about how React components work. Something that was challenging for me to figure out is how to make sure the star is filled in if I have already liked the imagination. I was running into a problem where whenever I first click on an imagination, the star wouldn't be filled in. But if I refresh than it would act how it's supposed to. This is because I was rendering it according to the state and at the time I didn't know that the constructor only ran once. The way I solved this was by putting debuggers all over the place, seeing how the cycle went, and Googling some things. I also got a lot of help from a TA. I ended up using componentDidUpdate to force the state to change according to the props, because originally the props would change but not the state.  
 <img src="https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Screen+Shot+2020-05-08+at+10.59.50+AM.png" height="40">
