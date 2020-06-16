@@ -59,16 +59,34 @@ class LikeButton extends React.Component {
 
     render() { 
         // debugger
+        // return (
+        //     (this.state.liked) 
+        //     ? <div className="like-div" onClick={e => this.likeOrUnlike(e)}> 
+        //             <div className="like-button"><AiFillStar /></div> 
+        //         <h1 className="like-text">LIKED</h1>
+        //       </div>
+        //     : <div className="like-div" onClick={e => this.likeOrUnlike(e)}>
+        //         <div className="like-button"><AiOutlineStar /></div> 
+        //         <h1 className="like-text">LIKE THIS IMAGINATION</h1>
+        //       </div>
+        // )
         return (
-            (this.state.liked) 
-            ? <div className="like-div" onClick={e => this.likeOrUnlike(e)}> 
-                    <div className="like-button"><AiFillStar /></div> 
-                <h1 className="like-text">LIKED</h1>
-              </div>
-            : <div className="like-div" onClick={e => this.likeOrUnlike(e)}>
-                <div className="like-button"><AiOutlineStar /></div> 
-                <h1 className="like-text">LIKE THIS IMAGINATION</h1>
-              </div>
+            (this.props.currentUser) ? (
+                (this.state.liked)
+                    ? <div className="like-div" onClick={e => this.likeOrUnlike(e)}>
+                        <div className="like-button"><AiFillStar /></div>
+                        <h1 className="like-text">LIKED</h1>
+                    </div>
+                    : <div className="like-div" onClick={e => this.likeOrUnlike(e)}>
+                        <div className="like-button"><AiOutlineStar /></div>
+                        <h1 className="like-text">LIKE THIS IMAGINATION</h1>
+                    </div>
+            ) : (
+                    <div className="like-div" onClick={e => this.likeOrUnlike(e)}>
+                        <div className="like-button"><AiOutlineStar /></div>
+                        <h1 className="like-text">LOG IN TO LIKE THIS IMAGINATION</h1>
+                    </div>
+                )
         )
     }
 };
