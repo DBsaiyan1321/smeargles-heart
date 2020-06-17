@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom";
 import { AiOutlineGithub, AiFillLinkedin } from "react-icons/ai";
+import { FaAngellist } from "react-icons/fa";
 
 const MainNavBar = props => {
     return ( 
@@ -20,6 +21,7 @@ const MainNavBar = props => {
                     <div className="socials-tab">
                         <a target="_blank" rel="noopener noreferrer" href="https://github.com/DBsaiyan1321" className="main-nav-bar-element"><AiOutlineGithub className="socials-links" /></a>
                         <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/dorian-izaiah-brown-1430b3193/" className="main-nav-bar-element"><AiFillLinkedin className="socials-links" /></a>
+                        <a target="_blank" rel="noopener noreferrer" href="https://angel.co/u/dorian-izaiah-brown" className="main-nav-bar-element"><FaAngellist className="socials-links" /></a>
                     </div>
                     <div className="username-tab">
                         {(props.currentUser.avatar) ? 
@@ -41,6 +43,7 @@ const MainNavBar = props => {
                         <div className="socials-tab"> 
                             <a target="_blank" rel="noopener noreferrer" href="https://github.com/DBsaiyan1321" className="main-nav-bar-element"><AiOutlineGithub className="socials-links" /></a>
                             <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/dorian-izaiah-brown-1430b3193/" className="main-nav-bar-element"><AiFillLinkedin className="socials-links" /></a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://angel.co/u/dorian-izaiah-brown" className="main-nav-bar-element"><FaAngellist className="socials-links" /></a>
                         </div> 
                         <div className="user-auth-links">
                             <Link to="/signup" className="main-nav-bar-element">JOIN</Link>

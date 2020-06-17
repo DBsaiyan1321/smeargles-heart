@@ -1,5 +1,6 @@
 import React from "react"; 
 import MainNavBar from "../main_nav_bar"
+import Footer from "../footer";
 
 class ImaginationForm extends React.Component { 
     constructor(props) {
@@ -93,6 +94,8 @@ class ImaginationForm extends React.Component {
                         
                     </div>
                 </form>
+
+                <Footer /> 
             </div>
         )
     }

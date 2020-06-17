@@ -4,6 +4,7 @@ import MainNavBar from "../main_nav_bar";
 import { Link } from "react-router-dom";
 import ModalForm from "./modal"
 import { CubeSpinner, FireworkSpinner, WaveSpinner } from "react-spinners-kit";
+import Footer from "../footer";
 
 // This component was giving me trouble with this one bug. Since this component relies a lot on it's 
 // state, I had to really understand the order of execution and how to work around the state.
@@ -141,15 +142,15 @@ export default class Profile extends React.Component {
                     </div>
                 </div>
 
-                {(this.props.currentUser) ? <></> : (
+                {/* {(this.props.currentUser) ? <></> : (
                     <div className="bottom-bar">
                         <p>Join the most creative mind you will ever witness.</p>
                         <Link to="/login" className="bottom-bar-element bb-l">LOG IN</Link>
                         <br />
                         <Link to="/signup" className="bottom-bar-element bb-s">JOIN</Link>
                     </div>
-                )}
-
+                )} */}
+                <Footer />
             </div>
         )
             

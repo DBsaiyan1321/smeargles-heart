@@ -103,6 +103,7 @@ class Comments extends React.Component {
 
     renderEditComment(e, selectedComment) {
         e.preventDefault();
+        window.scrollTo({ top: 700, behavior: "smooth"})
         this.setState({ comment: selectedComment, formType: "edit" });
     }
 

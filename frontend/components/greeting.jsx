@@ -2,6 +2,7 @@ import React from "react";
 import ImaginationIndexContainer from "./imaginations/imagination_index_container";
 import MainNavBar from "./main_nav_bar";
 import { Link } from "react-router-dom";
+import Footer from "./footer";
 
 const Greeting = props => {
     return (
@@ -17,6 +18,7 @@ const Greeting = props => {
                 </div>
                 )
             }
+            <Footer />
         </div>
     );
 };

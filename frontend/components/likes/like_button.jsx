@@ -54,6 +54,7 @@ class LikeButton extends React.Component {
             this.props.history.push("/login")
         }
         // debugger
+        // this.componentCleanup()
         this.setState({ liked: !this.state.liked })
     }
 
