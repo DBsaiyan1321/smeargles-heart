@@ -1,0 +1,51 @@
+.footer { 
+    position: relative;
+    bottom: 0px;
+    background-color: #4d4dff;
+    color: white; 
+    padding: 110px 0px 33px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-content { 
+    display: flex;
+    justify-content: space-around;
+    height: 125px;
+}
+
+.footer-logo { 
+    height: fit-content;
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo a { 
+    height: fit-content;
+}
+
+.footer-logo p { 
+    width: 88px;
+    font-size: 17px;
+    line-height: 13px;
+    font-family: 'Concert One', cursive;
+    font-weight: bold;
+    padding-bottom: 3px;
+}
+
+.footer-element { 
+    font-size: 24px;
+    transition: all .2s ease-in-out;
+    height: fit-content;
+    font-family: "Hind", Arial, Helvetica, sans-serif;
+}
+
+.footer-element:hover { 
+    transform: scale(1.3); 
+}
+
+
+.copyright { 
+    align-self: center;
+    font-family: 'Baloo Tamma 2', Arial, Helvetica, sans-serif;
+}

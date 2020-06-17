@@ -7,6 +7,7 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import LikeButton from "../likes/like_button";
 import { AiFillStar } from "react-icons/ai";
 import Comments from "../comments/comments_container";
+import Footer from "../footer";
 
 class ImaginationShow extends React.Component { 
     constructor(props) {
@@ -16,6 +17,7 @@ class ImaginationShow extends React.Component {
     }
 
     componentDidMount() { 
+        window.scrollTo({ top: 0 })
         this.props.fetchLikes(this.props.match.params.imaginationId) // Why does this order matter? 
             .then(() => this.props.fetchImagination(this.props.match.params.imaginationId))
     }
@@ -35,10 +37,6 @@ class ImaginationShow extends React.Component {
     } 
 
     /**************************************************************************/
-
-    componentWillUnmount() { 
-        // debugger
-    }
 
     render() { 
         if (!this.props.imagination) return null 
@@ -82,14 +80,15 @@ class ImaginationShow extends React.Component {
                         <Comments imagination={this.props.imagination} currentUser={this.props.currentUser} />
                     </div>
                 </div>
-                {(this.props.currentUser) ? <></> : (
+                {/* {(this.props.currentUser) ? <></> : (
                     <div className="bottom-bar">
                         <p>Join the most creative mind you will ever witness.</p>
                         <Link to="/login" className="bottom-bar-element bb-l">LOG IN</Link>
                         <br />
                         <Link to="/signup" className="bottom-bar-element bb-s">JOIN</Link>
                     </div>
-                )}
+                )} */}
+                <Footer />
             </div>
         )
     }

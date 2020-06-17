@@ -1,5 +1,6 @@
 import React from "react"; 
 import MainNavBar from "../main_nav_bar"
+import Footer from "../footer";
 
 class ImaginationForm extends React.Component { 
     constructor(props) {
@@ -10,6 +11,10 @@ class ImaginationForm extends React.Component {
         this.formSubmission = this.formSubmission.bind(this)
         this.handleFile = this.handleFile.bind(this)
         this.goImagination = this.goImagination.bind(this)
+    }
+
+    componentDidMount() { 
+        window.scrollTo(0, 0)
     }
 
     updateField(field) { 
@@ -93,6 +98,8 @@ class ImaginationForm extends React.Component {
                         
                     </div>
                 </form>
+
+                <Footer /> 
             </div>
         )
     }

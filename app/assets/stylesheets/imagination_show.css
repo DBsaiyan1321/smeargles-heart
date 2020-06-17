@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 100px;
 }
 
 .image-panel { 
@@ -191,6 +192,11 @@
     height: 100px;
     padding: 10px;
     font-family: 'Baloo Tamma 2', Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+.comment-input-field::placeholder { 
+    font-size: 16px;
 }
 
 .all-comments { 

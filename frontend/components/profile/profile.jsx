@@ -4,6 +4,7 @@ import MainNavBar from "../main_nav_bar";
 import { Link } from "react-router-dom";
 import ModalForm from "./modal"
 import { CubeSpinner, FireworkSpinner, WaveSpinner } from "react-spinners-kit";
+import Footer from "../footer";
 
 // This component was giving me trouble with this one bug. Since this component relies a lot on it's 
 // state, I had to really understand the order of execution and how to work around the state.
@@ -126,7 +127,7 @@ export default class Profile extends React.Component {
                             {(this.props.targetUser.avatar) ? 
                             <img src={this.props.targetUser.avatar} alt="broke" className="profile-page-avatar" /> : 
                             <div className="profile-page-no-avatar">Profile Picture</div>}
-                            <h1>{this.props.targetUser.username}</h1>
+                            <h1>{`${this.props.targetUser.username}'s Profile`}</h1>
                             {this.renderButton()}
                         </div>
                         <p>{this.props.targetUser.bio}</p>
@@ -141,15 +142,15 @@ export default class Profile extends React.Component {
                     </div>
                 </div>
 
-                {(this.props.currentUser) ? <></> : (
+                {/* {(this.props.currentUser) ? <></> : (
                     <div className="bottom-bar">
                         <p>Join the most creative mind you will ever witness.</p>
                         <Link to="/login" className="bottom-bar-element bb-l">LOG IN</Link>
                         <br />
                         <Link to="/signup" className="bottom-bar-element bb-s">JOIN</Link>
                     </div>
-                )}
-
+                )} */}
+                <Footer />
             </div>
         )
             

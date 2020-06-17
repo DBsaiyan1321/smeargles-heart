@@ -9,6 +9,7 @@ class ImaginationIndex extends React.Component {
         this.state = { fetched: false }
     }
     componentDidMount() { 
+        window.scrollTo({ top: 0 })
         this.props.fetchImaginations() // Causes a re-render
             .then(()=> this.setState({fetched: true}))
     }

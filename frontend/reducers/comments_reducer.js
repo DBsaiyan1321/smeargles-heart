@@ -5,7 +5,8 @@ const CommentsReducer = (oldState = {}, action) => {
     Object.freeze(oldState)
     switch (action.type) {
         case RECEIVE_COMMENTS:
-            return Object.assign({}, oldState, action.comments)
+            // return Object.assign({}, oldState, action.comments)
+            return action.comments // Fixes the problem of when you make an imagination from a show page and the comments show up on it
         case RECEIVE_COMMENT: 
             return Object.assign({}, oldState, { [action.comment.id]: action.comment } )
         case REMOVE_COMMENT: 
