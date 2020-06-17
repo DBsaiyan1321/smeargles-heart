@@ -13,6 +13,10 @@ class ImaginationForm extends React.Component {
         this.goImagination = this.goImagination.bind(this)
     }
 
+    componentDidMount() { 
+        window.scrollTo(0, 0)
+    }
+
     updateField(field) { 
         return e => { 
             this.setState( { [field]: e.target.value })
