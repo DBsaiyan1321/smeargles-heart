@@ -63,3 +63,5 @@ componentWillUnmount() {
 * Making the home page layout look like DeviantArt's home page
 
 ![](https://media.giphy.com/media/gg8UI7ZGiszpOreSft/giphy.gif)
+
+![](https://media.giphy.com/media/JrGSlccHZSasFwz6wj/giphy.gif)
