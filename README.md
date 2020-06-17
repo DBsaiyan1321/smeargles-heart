@@ -13,6 +13,13 @@
 ## How to Use Some Things  
 <img src="https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Screen+Shot+2020-05-08+at+11.29.24+AM.png" height="400">
 
+#### Check out user's profiles
+![](https://media.giphy.com/media/gg8UI7ZGiszpOreSft/giphy.gif)
+
+
+#### Log in and log out
+![](https://media.giphy.com/media/JrGSlccHZSasFwz6wj/giphy.gif)
+
 ## Technologies 
 * Ruby on Rails
 * React/Redux
@@ -62,6 +69,3 @@ componentWillUnmount() {
 ## Future Features
 * Making the home page layout look like DeviantArt's home page
 
-![](https://media.giphy.com/media/gg8UI7ZGiszpOreSft/giphy.gif)
-
-![](https://media.giphy.com/media/JrGSlccHZSasFwz6wj/giphy.gif)
