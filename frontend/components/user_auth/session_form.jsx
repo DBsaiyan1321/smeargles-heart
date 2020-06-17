@@ -48,7 +48,7 @@ class SessionForm extends React.Component {
             link="/login"
             linkText = "Log In"
         }
-        console.log(this.props.history) // goBack until this.props.history.pathname !== /login || /signup
+        // console.log(this.props.history) // goBack until this.props.history.pathname !== /login || /signup
         return (
             <div className="user-auth-background">
 
