@@ -4,7 +4,7 @@ import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 class LikeButton extends React.Component {
     constructor(props) { 
         super(props)
-        // debugger
+        
         this.state = { likeId: props.existingLikeId, liked: props.liked } // not this.props because I am in the constructor function
 
         this.likeOrUnlike = this.likeOrUnlike.bind(this)
@@ -19,11 +19,11 @@ class LikeButton extends React.Component {
             let like;
             if (!this.state.likeId) {
                 like = { imagination_id: this.props.imagination.id, user_id: this.props.currentUser.id }
-            } else (
+            } else {
                 like = { id: this.state.likeId, imagination_id: this.props.imagination.id, user_id: this.props.currentUser.id }
-            )
+            }
 
-            // debugger
+            
             if (Boolean(this.state.liked && this.props.currentUser && !this.state.likeId)) {
                 this.props.createLike(like)
             } else if (Boolean(!this.state.liked && this.props.currentUser && this.state.likeId)) {
@@ -53,13 +53,28 @@ class LikeButton extends React.Component {
         if (!this.props.currentUser) { 
             this.props.history.push("/login")
         }
-        // debugger
+        
         // this.componentCleanup()
-        this.setState({ liked: !this.state.liked })
+        // this.setState({ liked: !this.state.liked })
+
+        if (this.props.currentUser) {
+            let like;
+            if (!this.props.existingLikeId) {
+                like = { imagination_id: this.props.imagination.id, user_id: this.props.currentUser.id }
+            } else {
+                like = { id: this.props.existingLikeId, imagination_id: this.props.imagination.id, user_id: this.props.currentUser.id }
+            }
+
+            if (Boolean(!this.props.liked && this.props.currentUser && !this.props.existingLikeId)) {
+                this.props.createLike(like)
+            } else if (Boolean(this.props.liked && this.props.currentUser && this.props.existingLikeId)) {
+                this.props.deleteLike(like)
+            }
+        }
     }
 
     render() { 
-        // debugger
+        
         // return (
         //     (this.state.liked) 
         //     ? <div className="like-div" onClick={e => this.likeOrUnlike(e)}> 

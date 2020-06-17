@@ -38,10 +38,6 @@ class ImaginationShow extends React.Component {
 
     /**************************************************************************/
 
-    componentWillUnmount() { 
-        // debugger
-    }
-
     render() { 
         if (!this.props.imagination) return null 
         // The arrows don't work as expected. Maybe when I fetch the imagination, I will fetch the one before and after it as well. So I would fetch three imaginations at a time.

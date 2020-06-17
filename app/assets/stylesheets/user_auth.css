@@ -201,7 +201,8 @@ button:focus {
 }
 
 .demo {
-    background: linear-gradient(0.25turn, #fc7fe7, 10%, #ebf8e1, 55%,  rgb(147, 80, 255));
+    /* background: linear-gradient(0.25turn, #fc7fe7, 10%, #ebf8e1, 55%,  rgb(147, 80, 255)); */
     /* background: #4d4dff; */
+    background: linear-gradient(0.25turn, #fc7fe7, 10%, #d9a7ff, 61%,  rgb(147, 80, 255))
 }
 

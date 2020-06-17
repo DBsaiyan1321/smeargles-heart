@@ -20,7 +20,7 @@ const mapStateToProps = (state, ownProps) => {
             ownedImaginations = []
         }
     }
-    // debugger
+    
     return { 
         targetUser, 
         currentUser: state.entities.users[state.session.id],

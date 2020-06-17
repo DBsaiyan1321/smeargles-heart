@@ -14,14 +14,13 @@ const mapStateToProps = (state, ownProps) => {
     let likeCount;
     
     if (imagination) {
-        likeCount = imagination.likes.length
-        likeIds = imagination.likes;
+        likeCount = Object.keys(state.entities.likes).length 
+        likeIds = Object.keys(state.entities.likes);
         for (let i = 0; i < likeIds.length; i++) {
             let likeId = likeIds[i]
-            // debugger
 
             // currentUser and likes are empty on the first pass through, which is why I have to have those first two conditions. I need to figure out why this is.
-            if (currentUser && state.entities.likes[likeId] && (state.entities.likes[likeId].user_id === currentUser.id)) {
+            if (currentUser && state.entities.likes[parseInt(likeId)] && (state.entities.likes[parseInt(likeId)].user_id === currentUser.id)) {
                 bool = true
                 existingLikeId = likeId
                 break // Must have this, or else bool will be false every time (unless the last like was from the currentUser)
@@ -30,7 +29,6 @@ const mapStateToProps = (state, ownProps) => {
                 existingLikeId = null
             }
         }
-        // debugger
     } 
 
     return { 
@@ -39,7 +37,6 @@ const mapStateToProps = (state, ownProps) => {
         liked: bool, 
         existingLikeId,
         likeCount
-        // user: state.entities.users[imagination.artist_id]
     }
 }
 // const mapStateToProps = (state, ownProps) => {

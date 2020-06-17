@@ -12,8 +12,6 @@ class Comments extends React.Component {
             formType: null
         };
 
-        // debugger
-
         this.renderForm = this.renderForm.bind(this);
         this.typingInTextarea = this.typingInTextarea.bind(this);
         this.createComment = this.createComment.bind(this);
