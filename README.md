@@ -1,5 +1,14 @@
 # <img src="https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargle-Head.png" height="84"> Smeargle's Heart
 
+## Technologies 
+* Ruby on Rails
+* React/Redux
+* HTML 
+* CSS
+* JavaScript
+* AWS 
+* PostgreSQL
+
 ## Summary of the Website 
 * Social media centered around art
 * Explore and "like" or comment on other people's imaginations (posts)
@@ -19,15 +28,6 @@
 
 #### Log in and log out
 ![](https://media.giphy.com/media/JrGSlccHZSasFwz6wj/giphy.gif)
-
-## Technologies 
-* Ruby on Rails
-* React/Redux
-* HTML 
-* CSS
-* JavaScript
-* AWS 
-* PostgreSQL
 
 ## Features
 ### Likes 
