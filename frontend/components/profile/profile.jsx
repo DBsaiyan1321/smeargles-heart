@@ -12,7 +12,7 @@ export default class Profile extends React.Component {
     constructor(props) { 
         super(props)
 
-        this.state = {  targetUser: props.targetUser };
+        this.state = {  targetUser: props.targetUser }; // I shouldn't be copying props into state, so I need to figure out another way to do this 
 
         this.renderButton = this.renderButton.bind(this)
         this.updateProfile = this.updateProfile.bind(this)
@@ -23,13 +23,11 @@ export default class Profile extends React.Component {
 
     componentDidMount() {
         this.props.fetchUser(this.props.match.params.username)
-            // .fail(() => console.log("redirect to home page"))
     }
 
     componentDidUpdate(prevProps) { // Fixed the problem for when I got back to another profile. But when I click mine in the nav bar from another profile it's still jacked up.
         if (this.props.match.params.username !== prevProps.match.params.username) { 
             this.props.fetchUser(this.props.match.params.username)
-                // .fail(() => console.log("redirect to home page"))
         }
     }
 
@@ -44,11 +42,6 @@ export default class Profile extends React.Component {
 
     renderButton() { 
         let preview
-
-        // This was all taken from my imagination form component, so I just commented this out what I didn't need 
-        // if (this.props.formType === "Create") {
-        //     preview = (this.state.targetUser.imageFile && this.props.formType === "Create") ? <img src={this.state.targetUser.imageUrl} /> : null
-        // } else 
 
         if (this.state.targetUser) { // Look into why I need this if condition right here
             if (this.state.avatarUrl) {
@@ -74,11 +67,11 @@ export default class Profile extends React.Component {
         }
     }
 
-    updateProfile(e) { 
+    updateProfile(e, bio) { 
         e.preventDefault();
         const formData = new FormData();
         formData.append('user[id]', this.props.targetUser.id)
-        formData.append('user[bio]', this.state.targetUser.bio);
+        formData.append('user[bio]', bio);
         if (this.state.avatarFile) {
             formData.append('user[avatar]', this.state.avatarFile);
         }
@@ -113,8 +106,6 @@ export default class Profile extends React.Component {
                 <WaveSpinner size={40} color="#4D4DFF" loading={true} />
             </div >
         )
-
-        // console.log(this.state)
 
         return (
             <div> 
