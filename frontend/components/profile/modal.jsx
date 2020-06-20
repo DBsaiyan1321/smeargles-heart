@@ -6,8 +6,11 @@ const ModalForm = (props) => {
 
     const [modalIsOpen, setModalIsOpen] = useState(false) 
 
-    const [bio, setBio] = useState(props.state.bio);
-   
+    // This fixed my visually bug when you would edit your bio. I think it's 
+    // because this state is completely independent from the other one. I need to 
+    // explore React hooks more. Also, React modal doesn't work with class components, which is why I needed to use Hooks.
+    const [bio, setBio] = useState(props.state.bio);  
+    
     return ( 
         <div className="modal-div"> 
             <button onClick={() => setModalIsOpen(true)} className="edit-profile-button">EDIT PROFILE</button>
