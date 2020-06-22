@@ -17,6 +17,9 @@ class ImaginationShow extends React.Component {
     }
 
     componentDidMount() { 
+        // debugger
+        // window.previousUrl = document.referrer + "#" + this.props.match.url
+        window.previousUrl = this.props.match.url
         window.scrollTo({ top: 0 })
         this.props.fetchLikes(this.props.match.params.imaginationId) // Why does this order matter? 
             .then(() => this.props.fetchImagination(this.props.match.params.imaginationId))

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Footer from "./footer";
 
 const Greeting = props => {
+    window.previousUrl = props.match.url
     return (
         <div>
             <MainNavBar currentUser={props.currentUser} logout={props.logout}/>

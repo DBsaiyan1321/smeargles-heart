@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 
 const ImaginationIndexItem = props => {
     return (
+        // <div className="grid-item">
+        //     <img src={props.imagination.image} alt="broke" />
+        // </div>
         <li className="imagination-index-item">
 
             <Link to={`/imaginations/${props.imagination.id}`}>

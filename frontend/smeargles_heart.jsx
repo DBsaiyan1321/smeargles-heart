@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import configureStore from "./store/store";
 import Root from "./components/root";
 
-import * as UserAPIUtil from "./util/user_api_util";
+import * as SearchActions from "./actions/search_actions";
 
 document.addEventListener("DOMContentLoaded", () => { 
     let store;
@@ -26,11 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // testing
     // window.getState = store.getState;
-    // window.dispatch = store.dispatch;
-
-    // window.fetchUsers = UserAPIUtil.fetchUsers;
-    // window.fetchUser = UserAPIUtil.fetchUser;
-    // window.updateUser = UserAPIUtil.updateUser;
+    window.dispatch = store.dispatch;
+    window.search = SearchActions.search
     // end of testing
 
     ReactDOM.render(<Root store={store} />, root)
