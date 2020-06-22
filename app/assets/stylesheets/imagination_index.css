@@ -18,13 +18,22 @@
 }
 
 .imaginations-index { 
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
     width: 91%;
     min-width: 700px;
     height: fit-content;
     margin-top: 25px;
+    justify-content: center; */
+
+    display: flex;
+    width: 91%;
+    min-width: 700px;
+    height: fit-content;
+    margin-top: 25px;
     justify-content: center;
+    flex-flow: row wrap;
+    flex: auto;
 }
 
 .imagination-index-item { 
@@ -86,3 +95,16 @@
     font-size: 16px;
     margin-top: 10px;
 }
+
+
+
+/* .grid-item { 
+    height: 300px;
+    width: fit-content;
+}
+
+.grid-item img { 
+    height: 100%; 
+    width: auto;
+    border-radius: 5px;
+} */

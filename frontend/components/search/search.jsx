@@ -1,11 +1,15 @@
-import React, { useState } from "react" 
+import React, { useState, useEffect } from "react" 
 
 const Search = props => {
-    const [input, setInput] = useState("")
+    const [searchInput, setSearchInput] = useState("") 
+
+    // props.search(searchInput)
+
+    
 
     return (
         <div> 
-            <input value={input} onChange={setInput} />
+            <input value={searchInput} onChange={e => setSearchInput(e.target.value)} />
         </div>
     )
 }
