@@ -11,7 +11,8 @@ const Auth = ({ component: Component, path, exact, loggedIn }) => {
             path={path}
             exact={exact}
             render={props => {
-                return !loggedIn ? <Component {...props} /> : <Redirect to="/" /> // upacking the props into the Component
+                // return !loggedIn ? <Component {...props} /> : <Redirect to="/" /> // upacking the props into the Component
+                return !loggedIn ? <Component {...props} /> : <Redirect to={window.previousUrl} />
             }}
         />
 };

@@ -14,6 +14,7 @@ class ImaginationForm extends React.Component {
     }
 
     componentDidMount() { 
+        // window.previousUrl = this.props.match.url
         window.scrollTo(0, 0)
     }
 

@@ -22,6 +22,7 @@ export default class Profile extends React.Component {
     }
 
     componentDidMount() {
+        window.previousUrl = this.props.match.url
         this.props.fetchUser(this.props.match.params.username)
     }
 
