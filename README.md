@@ -75,5 +75,7 @@ export const createImagination = imagination => {
 }
 ```
 ## Future Features
-* Making the home page layout look like DeviantArt's home page
+* row mansory for home page
+* search
+* topics / genres
 
