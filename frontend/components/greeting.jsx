@@ -13,9 +13,11 @@ const Greeting = props => {
             { (props.currentUser) ? <></> : (
                 <div className="bottom-bar">
                     <p>Join the most creative mind you will ever witness.</p>
-                    <Link to="/login" className="bottom-bar-element bb-l">LOG IN</Link>
-                    <br />
-                    <Link to="/signup" className="bottom-bar-element bb-s">JOIN</Link>
+                    <div className="bottom-bar-btns"> 
+                        <Link to="/login" className="bottom-bar-element bb-l">LOG IN</Link>
+                        <br />
+                        <Link to="/signup" className="bottom-bar-element bb-s">JOIN</Link>
+                    </div>
                 </div>
                 )
             }
