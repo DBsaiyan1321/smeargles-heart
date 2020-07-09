@@ -8,6 +8,7 @@
     padding: 10px;
     box-shadow: 0px -5px 15px 0px rgba(0, 0, 0, 0.5);
     z-index: 2;
+    background-color: white;
 }
 
 /******************************************************************************/
@@ -229,3 +230,29 @@
     background:#4d4dff;
 }
 
+.bottom-bar-btns { 
+    display: flex;
+}
+
+@media only screen and (max-width: 450px) { 
+    .main-nav-bar { 
+        position: fixed;
+    }
+
+    .bottom-bar { 
+        display: flex;
+        flex-direction: column;
+        height: 15vh;
+        justify-content: space-evenly;
+    }
+
+    .bottom-bar p { 
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width: 600px) { 
+    .socials-tab { 
+        display: none;
+    }
+}

@@ -48,7 +48,7 @@ class SessionForm extends React.Component {
             link="/login"
             linkText = "Log In"
         }
-        // console.log(this.props.history) // goBack until this.props.history.pathname !== /login || /signup
+
         return (
             <div className="user-auth-background">
 
@@ -59,7 +59,7 @@ class SessionForm extends React.Component {
                     <div className="user-auth-text">
                         {/* <Link to="/"> */}
                             <div className="top-text">
-                            <img src="https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargle-Head.png" alt="logo" className="logo" />
+                                <img src="https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargle-Head.png" alt="logo" className="logo" />
                                 <h3>SMEARGLE'S HEART</h3>
                             </div>
                         {/* </Link> */}
@@ -70,6 +70,10 @@ class SessionForm extends React.Component {
 
 
                     <form onSubmit={e => this.handleSubmit(e)} className="user-auth-form">
+                        <div className="top-text auth-form-logo">
+                            <img src="https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargle-Head.png" alt="logo" className="logo" />
+                            <h3>SMEARGLE'S HEART</h3>
+                        </div>
 
                         <div className="user-auth-title-container">
                             <h1>{title}</h1>

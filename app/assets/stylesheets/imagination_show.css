@@ -16,7 +16,7 @@
 }
 
 .shown-image { 
-    height: 60vh;
+    /* height: 60vh; */
     box-shadow: 0px 7px 15px 4px #7b7b7bb0;
 }
 
@@ -278,4 +278,32 @@
 
 .owned-comments-buttons:hover { 
     color: #4d4dff;
+}
+
+@media only screen and (min-width: 451px) { 
+    .shown-image { 
+        height: 60vh;
+    }
+}
+
+@media only screen and (max-width: 450px) { 
+    .image-panel { 
+        margin-top: 54px;
+    }
+
+    .shown-image { 
+        width: 60%;
+    }
+
+    .bottom-half-of-show { 
+        width: 100%;
+    }
+
+    .comment-input-field { 
+        width: 90%;
+    }
+
+    .comment-box { 
+        width: 90%;
+    }
 }
