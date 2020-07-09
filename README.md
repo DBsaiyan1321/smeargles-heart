@@ -1,5 +1,7 @@
 # <img src="https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargle-Head.png" height="84"> Smeargle's Heart
 
+## Currently working on making it responsive - July 9th, 2020
+
 ## Technologies 
 * Ruby on Rails
 * React/Redux
