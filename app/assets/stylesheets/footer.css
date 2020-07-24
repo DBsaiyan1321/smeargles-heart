@@ -49,3 +49,15 @@
     align-self: center;
     font-family: 'Baloo Tamma 2', Arial, Helvetica, sans-serif;
 }
+
+@media only screen and (max-width: 450px) { 
+    .footer-content { 
+        flex-direction: column;
+        height: fit-content;
+        align-items: center;
+    }
+    .footer-element { 
+        margin: 20px 0px;
+        font-size: 32px;
+    }
+}
