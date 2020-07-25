@@ -37,8 +37,8 @@ class Api::ImaginationsController < ApplicationController
 
     def destroy 
         @imagination = Imagination.find(params[:id])
-
-        if @imagination && @imagination.delete
+        
+        if @imagination && @imagination.delete && (@imagination.artist_id === current_user().id)
             render json: {}
         else  
             render json: ["Imagination not found"], status: 404
