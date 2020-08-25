@@ -4,13 +4,14 @@ import Footer from "../footer";
 
 class ImaginationForm extends React.Component { 
     constructor(props) {
-        super(props)
-        this.state = this.props.imagination 
+        super(props);
+        this.state = this.props.imagination ;
 
-        this.updateField = this.updateField.bind(this)
-        this.formSubmission = this.formSubmission.bind(this)
-        this.handleFile = this.handleFile.bind(this)
-        this.goImagination = this.goImagination.bind(this)
+        this.updateField = this.updateField.bind(this);
+        this.formSubmission = this.formSubmission.bind(this);
+        this.handleFile = this.handleFile.bind(this);
+        this.goImagination = this.goImagination.bind(this);
+        this.validateForm = this.validateForm.bind(this);
     }
 
     componentDidMount() { 
@@ -24,23 +25,29 @@ class ImaginationForm extends React.Component {
         }
     }
 
+    validateForm() {
+        return (this.state.title && (this.state.image || this.state.imageFile)) 
+    }
+
     formSubmission(e) { 
         e.preventDefault();
         const formData = new FormData();
-        if (this.props.formType === "Edit") { 
-            formData.append('imagination[id]', this.props.imagination.id)
-        }
-        formData.append('imagination[title]', this.state.title);
-        formData.append('imagination[description]', this.state.description);
-        formData.append('imagination[artist_id]', this.state.artist_id); 
-        if (this.state.imageFile) {
-            formData.append('imagination[image]', this.state.imageFile);
-        } 
+        if (this.validateForm()) { 
+            if (this.props.formType === "Edit") { 
+                formData.append('imagination[id]', this.props.imagination.id)
+            }
+            formData.append('imagination[title]', this.state.title);
+            formData.append('imagination[description]', this.state.description);
+            formData.append('imagination[artist_id]', this.state.artist_id); 
+            if (this.state.imageFile) {
+                formData.append('imagination[image]', this.state.imageFile);
+            } 
     /**************************************************************************/    
-        this.props.action(formData)
-            .then(res => {
-                this.goImagination(res)
-            })
+            this.props.action(formData)
+                .then(res => {
+                    this.goImagination(res)
+                })
+        }
     }
 
     goImagination(res) { 
@@ -78,7 +85,7 @@ class ImaginationForm extends React.Component {
                 <form onSubmit={this.formSubmission} className="imagination-form">
 
                     <div className="imagination-form-main">
-                        {(this.state.title && (this.state.image || this.state.imageFile)) 
+                        { this.validateForm() 
                         ? <input type="submit" value={`${this.props.formType}`} className="submit-imagination-button" />
                         : <input type="submit" value={`${this.props.formType}`} className="submit-imagination-button faded-out" /> }
 
