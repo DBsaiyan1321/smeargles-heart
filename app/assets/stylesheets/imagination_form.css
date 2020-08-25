@@ -47,6 +47,12 @@
     pointer-events: none;
 }
 
+.form-spinner { 
+    position: absolute;
+    right: 50px;
+    top: 20px;
+}
+
 /******************************************************************************/
 
 .file-container { 
@@ -110,6 +116,7 @@
     resize: none;
     /* white-space: pre-wrap; */
     overflow: auto;
+    letter-spacing: 1.15px;
 }
 
 .imagination-form-horizontal-bar { 

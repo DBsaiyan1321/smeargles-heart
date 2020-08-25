@@ -297,6 +297,7 @@
 
     .bottom-half-of-show { 
         width: 100%;
+        padding: 0 5%;
     }
 
     .comment-input-field { 
