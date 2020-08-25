@@ -110,6 +110,7 @@
     resize: none;
     /* white-space: pre-wrap; */
     overflow: auto;
+    letter-spacing: 1.15px;
 }
 
 .imagination-form-horizontal-bar { 

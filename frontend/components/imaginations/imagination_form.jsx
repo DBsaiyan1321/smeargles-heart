@@ -100,7 +100,7 @@ class ImaginationForm extends React.Component {
                         {/* </div> */}
         
                         <div className="inputs-for-imaginations">
-                            <textarea onChange={this.updateField("title")} value={this.state.title} className="title-box" rows="1" placeholder="Title" /> {/* placeholder="Give Your Imagination a Title" */}
+                            <input onChange={this.updateField("title")} value={this.state.title} className="title-box" rows="1" placeholder="Title" /> {/* placeholder="Give Your Imagination a Title" */}
                             <div className="imagination-form-horizontal-bar"></div>
                             <textarea onChange={this.updateField("description")} value={this.state.description} className="description-box" placeholder="Describe Your Imagination in Words That Will Comprehended By All." />
                         </div>
