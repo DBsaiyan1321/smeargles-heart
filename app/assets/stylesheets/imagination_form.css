@@ -47,6 +47,12 @@
     pointer-events: none;
 }
 
+.form-spinner { 
+    position: absolute;
+    right: 50px;
+    top: 20px;
+}
+
 /******************************************************************************/
 
 .file-container { 
