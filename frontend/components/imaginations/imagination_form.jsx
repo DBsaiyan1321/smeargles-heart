@@ -1,6 +1,7 @@
 import React from "react"; 
 import MainNavBar from "../main_nav_bar"
 import Footer from "../footer";
+import { PongSpinner } from "react-spinners-kit";
 
 class ImaginationForm extends React.Component { 
     constructor(props) {
@@ -26,7 +27,7 @@ class ImaginationForm extends React.Component {
     }
 
     validateForm() {
-        return (this.state.title && (this.state.image || this.state.imageFile)) 
+        return (this.state.title.trim() && (this.state.image || this.state.imageFile)) 
     }
 
     formSubmission(e) { 
