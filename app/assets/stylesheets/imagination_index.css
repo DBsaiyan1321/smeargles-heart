@@ -64,19 +64,12 @@
     color: white;
     pointer-events: none;
     background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.753));
-    transition-duration: opacity 1s linear;
-    /* background: transparent; */
+    transition: opacity 150ms linear;
     opacity: 0;
     border-radius: 5px;
 }
 
 .imagination-index-item:hover .hover-overlay { 
-    /* display: flex; 
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 20px;
-    color: white; */
-    /* background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.753)); */
     opacity: 1;
 }
 
