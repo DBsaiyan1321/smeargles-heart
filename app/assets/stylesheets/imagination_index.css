@@ -18,14 +18,6 @@
 }
 
 .imaginations-index { 
-    /* display: flex;
-    flex-wrap: wrap;
-    width: 91%;
-    min-width: 700px;
-    height: fit-content;
-    margin-top: 25px;
-    justify-content: center; */
-
     display: flex;
     width: 91%;
     min-width: 700px;
@@ -33,15 +25,12 @@
     margin-top: 25px;
     justify-content: center;
     flex-flow: row wrap;
-    /* flex: auto; */
 }
 
-.imagination-index-item { 
-    /* background-color: rgb(173, 167, 255); */
+.imagination-index-item { /* */
     list-style: none;
     margin: 5px;
     height: 300px;
-    /* width: 300px; */
     width: fit-content;
     position: relative;
 }
@@ -64,19 +53,12 @@
     color: white;
     pointer-events: none;
     background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.753));
-    transition-duration: opacity 1s linear;
-    /* background: transparent; */
+    transition: opacity 150ms linear;
     opacity: 0;
     border-radius: 5px;
 }
 
 .imagination-index-item:hover .hover-overlay { 
-    /* display: flex; 
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 20px;
-    color: white; */
-    /* background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.753)); */
     opacity: 1;
 }
 
@@ -96,30 +78,35 @@
     margin-top: 10px;
 }
 
-/* .grid-item { 
-    height: 300px;
-    width: fit-content;
+/* I put media queries at the bottom because it overwrites what's above it */
+@media all and (max-width: 768px) { 
+    .container { 
+        /* background-color: rosybrown; */
+    }
+
+    .imagination-index-item { 
+        height: 240px;
+    }
 }
 
-.grid-item img { 
-    height: 100%; 
-    width: auto;
-    border-radius: 5px;
-} */
-
-/* I put media queries at the bottom because it overwrites what's above it */
-@media all and (max-width: 450px) { 
+@media all and (max-width: 480px) { 
     .imaginations-index { 
         margin-top: 70px;
         min-width: 0px;
     }
 
     .imagination-index-item { 
-        height: 40vh;
         width: 100%;
+        height: auto;
     }
 
     .imagination-index-item img { 
-        
+        width: 100%;
+        height: auto;
+    }
+
+    .hover-overlay { 
+        width: 100%;
+        height: 100%;
     }
 }

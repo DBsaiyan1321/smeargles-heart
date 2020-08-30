@@ -6,7 +6,7 @@ import Search from "./search/search_container";
 
 const MainNavBar = props => {
     return ( 
-        <div className="main-nav-bar">
+        <nav className="main-nav-bar">
             <div className="main-nav-bar-top-left home"> {/* Instead of this div, maybe make it a link and see if that works */}
                 <Link to="/" className="home"><img src="https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargle-Head.png" alt="logo" className="main-nav-bar-logo" /></Link>
                 <Link to="/" className="home"><h1>SMEARGLE'S HEART</h1></Link>
@@ -59,7 +59,7 @@ const MainNavBar = props => {
             <div className="top-right-nav-bar">
                 <Link to="/new" className="main-nav-bar-element main-nav-submit">SUBMIT</Link>
             </div>
-        </div>
+        </nav>
     )
 }
 

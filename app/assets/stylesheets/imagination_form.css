@@ -10,13 +10,17 @@
     padding: 50px 0px;
     
     padding-bottom: 100px;
+
+    min-height: 575px;
+
+    font-size: 16px;
 }
 
 /******************************************************************************/
 
 .imagination-form-main { 
     width: 80%;
-    min-width: 720px;
+    /* min-width: 720px; */
     background-color: white;
     padding: 80px 40px 40px 40px;
     border-radius: 20px;
@@ -30,6 +34,8 @@
 .submit-imagination-button { 
     font-family: 'Baloo Tamma 2', Arial, Helvetica, sans-serif;
     width: 15%;
+    min-width: fit-content;
+    padding: 0 1em;
     height: 40px;
     border: none;
     background-color: #4d4dff;
@@ -38,7 +44,7 @@
     right: 20px;
     top: 15px;
     color: white;
-    font-size: 25px;
+    font-size: 1.5em;
     cursor: pointer;
 }
 
@@ -112,7 +118,7 @@
     background-color: transparent;
     height: fit-content;
     width: 100%;
-    font-size: 32px;
+    font-size: 2em;
     resize: none;
     /* white-space: pre-wrap; */
     overflow: auto;
@@ -129,8 +135,40 @@
     background-color: transparent;
     min-height: 200px;
     resize: none;
-    font-size: 16px;
+    font-size: 1em;
     height: 100%;
 }   
 
 /* vertical-align */
+
+@media only screen and (max-width: 800px) { 
+    .imagination-form { 
+        min-height: 100vh;
+        height: fit-content;
+        padding: 104px 0px 50px 0;
+    }
+
+    .imagination-form-main { 
+        flex-direction: column;
+        height: fit-content;
+        width: 100%;
+        padding: 80px 1.75em 1.75em 1.75em;
+    }
+
+    .file-container { 
+        width: 100%;
+        min-height: 350px;
+        height: 50vh; /* If the child has 100% as a dimension, the parent MUST have that corresponding dimension declared in the CSS */
+        margin-bottom: 25px;
+    }
+
+    .inputs-for-imaginations { 
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .file-button { 
+        width: 87px;
+    }
+}
