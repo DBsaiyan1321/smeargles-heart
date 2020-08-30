@@ -275,6 +275,7 @@
     color: #5D5D6C;
     padding: 0px;
     cursor: pointer;
+    padding-left: 20px;
 }
 
 .owned-comments-buttons:hover { 

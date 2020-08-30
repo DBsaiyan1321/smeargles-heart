@@ -4,7 +4,7 @@ import { FaAngellist } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Footer = props => (
-    <div className="footer"> 
+    <footer className="footer"> 
         <div className="footer-content"> 
             <div className="footer-logo"> 
                 <Link to="/"><img src="https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargle-Head.png" alt="logo" className="main-nav-bar-logo" /></Link>
@@ -16,7 +16,7 @@ const Footer = props => (
             <a target="_blank" rel="noopener noreferrer" href="https://angel.co/u/dorian-izaiah-brown" className="footer-element"><FaAngellist /></a>            
         </div> 
         <p className="copyright">&copy; 2020 Smeargle's Heart</p>
-    </div>
+    </footer>
 );
     
 export default Footer;

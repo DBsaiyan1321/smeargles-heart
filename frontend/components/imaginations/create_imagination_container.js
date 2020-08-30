@@ -3,8 +3,6 @@ import ImaginationForm from "./imagination_form";
 import { logout } from "../../actions/session_actions";
 import { createImagination } from "../../actions/imagination_actions";
 
- 
-
 const mapStateToProps = state => {
     return {
         imagination: { title: "", description: "", artist_id: state.session.id, imageFile: null, imageUrl: null }, 
