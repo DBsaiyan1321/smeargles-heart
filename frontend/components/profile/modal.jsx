@@ -13,7 +13,9 @@ const ModalForm = (props) => {
     
     return ( 
         <div className="modal-div"> 
-            <button onClick={() => setModalIsOpen(true)} className="edit-profile-button">EDIT PROFILE</button>
+            <button onClick={() => setModalIsOpen(true)} className="edit-profile-button">
+                EDIT PROFILE
+            </button>
 
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} className="modal" overlayClassName="modal-overlay">
                 <div className="modal-x" onClick={e => { e.preventDefault(); setModalIsOpen(false); props.cancelUpdate(e)} }>X</div>

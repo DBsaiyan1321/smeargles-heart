@@ -1,9 +1,8 @@
-import React, { useState } from "react"; 
+import React from "react"; 
 import ImaginationIndexItem from "../imaginations/imagination_index_item";
 import MainNavBar from "../main_nav_bar";
-import { Link } from "react-router-dom";
 import ModalForm from "./modal"
-import { CubeSpinner, FireworkSpinner, WaveSpinner } from "react-spinners-kit";
+import { WaveSpinner } from "react-spinners-kit";
 import Footer from "../footer";
 
 // This component was giving me trouble with this one bug. Since this component relies a lot on it's 
@@ -26,13 +25,12 @@ export default class Profile extends React.Component {
         this.props.fetchUser(this.props.match.params.username)
     }
 
-    componentDidUpdate(prevProps) { // Fixed the problem for when I got back to another profile. But when I click mine in the nav bar from another profile it's still jacked up.
+    componentDidUpdate(prevProps) { 
         if (this.props.match.params.username !== prevProps.match.params.username) { 
             this.props.fetchUser(this.props.match.params.username)
         }
     }
 
-    // This was the solution to the bug that took me 5+ hours to figure out
     static getDerivedStateFromProps(props, state) { 
         if (state.targetUser !== props.targetUser) { 
             return { targetUser: props.targetUser }
@@ -44,23 +42,30 @@ export default class Profile extends React.Component {
     renderButton() { 
         let preview
 
-        if (this.state.targetUser) { // Look into why I need this if condition right here
+        if (this.state.targetUser) { 
             if (this.state.avatarUrl) {
                 preview = <img src={this.state.avatarUrl} className="profile-pic-preview" />
             } else {
-                preview = (this.state.targetUser.avatar) ? <img src={this.state.targetUser.avatar} className="profile-pic-preview" /> : null
+                preview = (this.state.targetUser.avatar) ? 
+                    <img src={this.state.targetUser.avatar} className="profile-pic-preview" /> : 
+                    null
             }
         }
 
         if (this.props.currentUser === this.props.targetUser) {
-            return <ModalForm updateField={this.updateField} updateProfile={this.updateProfile} state={this.state.targetUser} handleFile={this.handleFile} preview={preview} cancelUpdate={this.cancelUpdate} />
-            // return
+            return <ModalForm 
+                updateField={this.updateField} 
+                updateProfile={this.updateProfile} 
+                state={this.state.targetUser} 
+                handleFile={this.handleFile} 
+                preview={preview} 
+                cancelUpdate={this.cancelUpdate} />
         } else {
             return
         }
     }
 
-    updateField(field) { // Again, this is how you handle nested objects in state
+    updateField(field) {
         return e => { 
             let targetUser = this.state.targetUser 
             targetUser[field] = e.target.value
@@ -105,7 +110,7 @@ export default class Profile extends React.Component {
         if (!this.props.targetUser) return ( 
             <div className="index-spinner-container">
                 <WaveSpinner size={40} color="#4D4DFF" loading={true} />
-            </div >
+            </div>
         )
 
         return (
@@ -134,14 +139,6 @@ export default class Profile extends React.Component {
                     </div>
                 </div>
 
-                {/* {(this.props.currentUser) ? <></> : (
-                    <div className="bottom-bar">
-                        <p>Join the most creative mind you will ever witness.</p>
-                        <Link to="/login" className="bottom-bar-element bb-l">LOG IN</Link>
-                        <br />
-                        <Link to="/signup" className="bottom-bar-element bb-s">JOIN</Link>
-                    </div>
-                )} */}
                 <Footer />
             </div>
         )

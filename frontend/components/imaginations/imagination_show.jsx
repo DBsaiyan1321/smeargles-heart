@@ -3,7 +3,6 @@ import MainNavBar from "../main_nav_bar";
 import { Link } from "react-router-dom";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { RiPencilLine } from "react-icons/ri";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import LikeButton from "../likes/like_button";
 import { AiFillStar } from "react-icons/ai";
 import Comments from "../comments/comments_container";
@@ -18,7 +17,6 @@ class ImaginationShow extends React.Component {
 
     componentDidMount() { 
         // debugger
-        // window.previousUrl = document.referrer + "#" + this.props.match.url
         window.previousUrl = this.props.match.url
         window.scrollTo({ top: 0 })
         this.props.fetchLikes(this.props.match.params.imaginationId) // Why does this order matter? 
@@ -49,11 +47,8 @@ class ImaginationShow extends React.Component {
                 <MainNavBar currentUser={this.props.currentUser} logout={this.props.logout} />
 
                 <div className="show-container">
-
                     <div className="image-panel"> 
-                        {/* <Link to={`/imaginations/${this.props.imagination.id - 1}`} className="show-arrows" ><IoIosArrowBack /></Link>  */}
                         <img src={this.props.imagination.image} alt="broke" className="shown-image" /> 
-                        {/* <Link to={`/imaginations/${this.props.imagination.id + 1}`} className="show-arrows" ><IoIosArrowForward /></Link> */}
                     </div>
                     
                     <div className="bottom-half-of-show">
@@ -83,14 +78,6 @@ class ImaginationShow extends React.Component {
                         <Comments imagination={this.props.imagination} currentUser={this.props.currentUser} />
                     </div>
                 </div>
-                {/* {(this.props.currentUser) ? <></> : (
-                    <div className="bottom-bar">
-                        <p>Join the most creative mind you will ever witness.</p>
-                        <Link to="/login" className="bottom-bar-element bb-l">LOG IN</Link>
-                        <br />
-                        <Link to="/signup" className="bottom-bar-element bb-s">JOIN</Link>
-                    </div>
-                )} */}
                 <Footer />
             </div>
         )

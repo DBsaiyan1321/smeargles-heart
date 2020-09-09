@@ -16,6 +16,7 @@ class User < ApplicationRecord # SPIRE
     validates :password, length: { minimum: 6, allow_nil: true } 
     before_validation :ensure_session_token#, :ensure_profile_picture!
 
+    # Add the has_many through associations
     has_many :imaginations,
         primary_key: :id, 
         foreign_key: :artist_id, 
@@ -59,11 +60,11 @@ class User < ApplicationRecord # SPIRE
 
     def password=(password) 
         @password = password
-        self.password_digest = BCrypt::Password.create(password)
+        self.password_digest = BCrypt::Password.create(password) # now we have an encrypted password that is used in the BCrypt db 
     end 
 
     def is_password?(password) 
-        BCrypt::Password.new(self.password_digest).is_password?(password)
+        BCrypt::Password.new(self.password_digest).is_password?(password) # creates an object from the BCrypt::Password class and uses its is_password? function, not ours
     end 
 
     def reset_session_token!

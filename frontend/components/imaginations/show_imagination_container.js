@@ -6,17 +6,17 @@ import { deleteImagination } from "../../actions/imagination_actions";
 import { fetchLikes, createLike, deleteLike } from "../../actions/like_actions";
 
 const mapStateToProps = (state, ownProps) => {
-    let imagination = state.entities.imaginations[ownProps.match.params.imaginationId]
-    let currentUser = state.entities.users[state.session.id] 
+    let imagination = state.entities.imaginations[ownProps.match.params.imaginationId];
+    let currentUser = state.entities.users[state.session.id];
     let bool;
     let existingLikeId;
     let likeIds;
     let likeCount;
     
     if (imagination) {
-        likeCount = Object.keys(state.entities.likes).length 
+        likeCount = Object.keys(state.entities.likes).length;
         likeIds = Object.keys(state.entities.likes);
-        for (let i = 0; i < likeIds.length; i++) {
+        for (let i = 0; i < likeIds.length; i++) { // I should've just made a backend show route for likes and just used that. It probably would've gotten rid of all of this ugly code. 
             let likeId = likeIds[i]
 
             // currentUser and likes are empty on the first pass through, which is why I have to have those first two conditions. I need to figure out why this is.
@@ -39,13 +39,6 @@ const mapStateToProps = (state, ownProps) => {
         likeCount
     }
 }
-// const mapStateToProps = (state, ownProps) => {
-//     return {
-//             currentUser: state.entities.users[state.session.id], 
-//             imagination: state.entities.imaginations[ownProps.match.params.imaginationId]
-//             // imaginationLikes: Object.values(state.entities.likes)
-//         }
-// };
 
 const mapDispatchToProps = dispatch => ({
     fetchImagination: imaginationId => dispatch(fetchImagination(imaginationId)),
