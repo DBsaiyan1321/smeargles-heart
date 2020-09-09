@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import CommentItem from "./CommentItem";
 import CommentForm from "./CommentForm";
+import CommentAvatar from "./CommentAvatar";
 
 class Comments extends React.Component { 
     constructor(props) { 
@@ -139,10 +140,7 @@ class Comments extends React.Component {
                         if (this.props.currentUser) { 
                             if (this.props.currentUser.username === comment.username && this.state.formType === "create") { 
                                 return <li key={comment.id} className="comment-box">
-                                    { (comment.avatar) ? 
-                                    <Link to={`/user/${comment.username}`} className="comment-avatar-link"><img src={comment.avatar} className="comment-avatar" /></Link> : 
-                                    <Link to={`/user/${comment.username}`} className="comment-avatar-link"><div className="no-comment-avatar">:)</div></Link> 
-                                    }
+                                    <CommentAvatar avatar={comment.avatar} username={comment.username} />
                                     <CommentItem username={comment.username} body={comment.body}>
                                         <div className="owned-comments-buttons-container">
                                             <button onClick={e => this.renderEditComment(e, comment)} className="owned-comments-buttons">Edit</button>
@@ -152,19 +150,13 @@ class Comments extends React.Component {
                                 </li> // Never forget to return in .map
                             } else { // Needed this extra else condition because it would only render my comments if I didn't have it here
                                 return <li key={comment.id} className="comment-box">
-                                    {(comment.avatar) ?
-                                        <Link to={`/user/${comment.username}`} className="comment-avatar-link"><img src={comment.avatar} className="comment-avatar" /></Link> :
-                                        <Link to={`/user/${comment.username}`} className="comment-avatar-link"><div className="no-comment-avatar">:)</div></Link>
-                                    }                                    
+                                    <CommentAvatar avatar={comment.avatar} username={comment.username} />                                 
                                     <CommentItem username={comment.username} body={comment.body} />
                                 </li>
                             }
                         } else { 
                             return <li key={comment.id} className="comment-box">
-                                {(comment.avatar) ?
-                                    <Link to={`/user/${comment.username}`} className="comment-avatar-link"><img src={comment.avatar} className="comment-avatar" /></Link> :
-                                    <Link to={`/user/${comment.username}`} className="comment-avatar-link"><div className="no-comment-avatar">:)</div></Link>
-                                }
+                                <CommentAvatar avatar={comment.avatar} username={comment.username} />
                                 <CommentItem username={comment.username} body={comment.body} /> 
                             </li>
                         }
