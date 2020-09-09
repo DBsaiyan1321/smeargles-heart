@@ -17,8 +17,8 @@ export const createImagination = imagination => {
         method: "POST", 
         url: "/api/imaginations",
         data: imagination, // The component makes the object through form data, which is why I don't have to nest it in curly braces.
-        contentType: false,
-        processData: false
+        contentType: false, // Telling the ajax request leave our formData alone and don't fiddle with it
+        processData: false // Same as line above
     })
 }
 

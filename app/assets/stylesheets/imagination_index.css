@@ -80,10 +80,6 @@
 
 /* I put media queries at the bottom because it overwrites what's above it */
 @media all and (max-width: 768px) { 
-    .container { 
-        /* background-color: rosybrown; */
-    }
-
     .imagination-index-item { 
         height: 240px;
     }

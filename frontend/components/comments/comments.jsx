@@ -1,86 +1,39 @@
 import React from "react"; 
 import { Link } from "react-router-dom";
 import CommentItem from "./CommentItem";
+import CommentForm from "./CommentForm";
 
 class Comments extends React.Component { 
     constructor(props) { 
         super(props) 
 
         this.state = { 
-            rerender: false, // To manually trigger a rerender for componentDidUpdate
-            clicked: false, // Change to false later when you figure out how to 
+            // rerender: false, // To manually trigger a rerender for componentDidUpdate
+            clicked: false,
             comment: props.comment,
-            formType: null
+            formType: "create"
         };
 
-        this.renderForm = this.renderForm.bind(this);
         this.typingInTextarea = this.typingInTextarea.bind(this);
         this.createComment = this.createComment.bind(this);
-        this.deleteComment = this.deleteComment.bind(this);
-        this.renderEditComment = this.renderEditComment.bind(this);
         this.updateComment = this.updateComment.bind(this);
+        this.cancelCreateComment = this.cancelCreateComment.bind(this);
+        this.cancelEditComment = this.cancelEditComment.bind(this);
+        this.renderEditComment = this.renderEditComment.bind(this);
+        this.deleteComment = this.deleteComment.bind(this);
+        this.renderForm = this.renderForm.bind(this);
     }
 
     componentDidMount() { 
+        // debugger
         this.props.fetchComments(this.props.imagination.id)
     }
 
-    componentDidUpdate(prevProps) { 
-        if (prevProps.comments !== this.props.comments) { 
-            this.setState({ rerender: !this.state.rerender})
-        }
-    }
-
-    renderForm(type) { 
-        if (this.props.currentUser) { 
-            if (this.state.clicked && !type) {
-                return (
-                    <form onSubmit={this.createComment} className="comment-form">
-                        <textarea className="comment-input-field" onChange={this.typingInTextarea("body")} value={this.state.comment.body} />
-                        <div className="comment-form-button-container">
-                            <button onClick={e => {
-                                e.preventDefault()
-                                this.setState({ clicked: false })
-                            }} className="comment-cancel">CANCEL</button>
-                            {(this.state.comment.body.trim().length > 0) ?
-                            <input type="submit" value="COMMENT" className="comment-submit-form" /> : 
-                            <input type="submit" value="COMMENT" className="comment-submit-form-faded" />}
-                        </div>
-                    </form>
-                )
-            } else if (!type) {
-                return (
-                    <form onSubmit={this.createComment} className="comment-form">
-                        <textarea className="comment-input-field" onChange={this.typingInTextarea("body")} onFocus={e => {
-                            e.preventDefault()
-                            this.setState({ clicked: true })
-                        }} value={this.state.comment.body} placeholder="Add a new comment..." />
-                    </form>
-                )
-            } else if (type) { 
-                return (
-                    <form onSubmit={this.updateComment} className="comment-form">
-                        <textarea className="comment-input-field" onChange={this.typingInTextarea("body")} value={this.state.comment.body} />
-                        <div className="comment-form-button-container">
-                            <button onClick={e => {
-                                e.preventDefault()
-                                this.setState({ clicked: false, comment: this.props.comment, formType: null })
-                            }} className="comment-cancel">CANCEL</button>
-                            {(this.state.comment.body.trim().length > 0) ?
-                                <input type="submit" value="UPDATE" className="comment-submit-form" /> :
-                                <input type="submit" value="UPDATE" className="comment-submit-form-faded" />}
-                        </div>
-                    </form>
-                )
-            }
-        } else { 
-            return (
-                <form onSubmit={this.createComment}>
-                    <Link to="/login"><textarea className="comment-input-field" placeholder="Log in to add a new comment..." /></Link>
-                </form>
-            )
-        }
-    }
+    // componentDidUpdate(prevProps) { 
+    //     if (prevProps.comments !== this.props.comments) { 
+    //         this.setState({ rerender: !this.state.rerender})
+    //     }
+    // }
 
     typingInTextarea(type) { // This is how you handle nested objects in state
         return e => {
@@ -93,32 +46,83 @@ class Comments extends React.Component {
     createComment(e) { 
         e.preventDefault();
         this.props.createComment(this.state.comment)
-            .then(() => { // I added this to clear the textbox. Everything was working before, so take this out if it breaks anything. 
+            .then(() => { 
                 let comment = this.state.comment
                 comment["body"] = ""
                 this.setState({ clicked: false, comment })
             })
     }
 
-    renderEditComment(e, selectedComment) {
-        e.preventDefault();
-        window.scrollTo({ top: 700, behavior: "smooth"})
-        this.setState({ comment: selectedComment, formType: "edit" });
-    }
-
     updateComment(e) {
         e.preventDefault();
         this.props.updateComment(this.state.comment)
-            .then(() => { // I added this to clear the textbox. Everything was working before, so take this out if it breaks anything. 
+            .then(() => {
                 let comment = this.state.comment
                 comment.body = ""
-                this.setState({ formType: null, comment, clicked: false })
+                this.setState({ formType: "create", comment, clicked: false })
             })
+    }
+
+    cancelCreateComment(e) {
+        e.preventDefault()
+        this.setState({ clicked: false })
+    }
+
+    cancelEditComment(e) {
+        e.preventDefault();
+        this.setState({ clicked: false, comment: this.props.comment, formType: "create" });
+    }
+
+    renderEditComment(e, selectedComment) {
+        e.preventDefault();
+        window.scrollTo({ top: 700, behavior: "smooth" })
+        this.setState({ comment: selectedComment, formType: "edit" });
     }
 
     deleteComment(e, selectedComment) {
         e.preventDefault();
         this.props.deleteComment(selectedComment);
+    }
+
+    renderForm(type) {
+        if (this.props.currentUser) {
+            if (this.state.clicked && type === "create") {
+                return ( // For some reason you have to click the input field twice to start typing. This only started happening when I changed it to the CommentForm component
+                    <CommentForm
+                        action={this.createComment}
+                        cancel={this.cancelCreateComment}
+                        bodyLength={this.state.comment.body.trim().length}
+                        value="COMMENT">
+                        <textarea className="comment-input-field" onChange={this.typingInTextarea("body")} value={this.state.comment.body} />
+                    </CommentForm>
+                )
+            } else if (type === "create") {
+                return (
+                    <form onSubmit={this.createComment} className="comment-form">
+                        <textarea className="comment-input-field" onChange={this.typingInTextarea("body")} onFocus={e => {
+                            e.preventDefault()
+                            this.setState({ clicked: true })
+                        }} value={this.state.comment.body} placeholder="Add a new comment..." />
+                    </form>
+                )
+            } else if (type === "edit") {
+                return ( // The edit works perfect even after the CommentForm
+                    <CommentForm
+                        action={this.updateComment}
+                        cancel={this.cancelEditComment}
+                        bodyLength={this.state.comment.body.trim().length}
+                        value="UPDATE">
+                        <textarea className="comment-input-field" onChange={this.typingInTextarea("body")} value={this.state.comment.body} />
+                    </CommentForm>
+                )
+            }
+        } else {
+            return (
+                <form onSubmit={this.createComment}>
+                    <Link to="/login"><textarea className="comment-input-field" placeholder="Log in to add a new comment..." /></Link>
+                </form>
+            )
+        }
     }
 
     render() {
@@ -133,7 +137,7 @@ class Comments extends React.Component {
                     {this.props.comments.map((comment) => {
 
                         if (this.props.currentUser) { 
-                            if (this.props.currentUser.username === comment.username && !this.state.formType) { 
+                            if (this.props.currentUser.username === comment.username && this.state.formType === "create") { 
                                 return <li key={comment.id} className="comment-box">
                                     { (comment.avatar) ? 
                                     <Link to={`/user/${comment.username}`} className="comment-avatar-link"><img src={comment.avatar} className="comment-avatar" /></Link> : 
@@ -155,9 +159,7 @@ class Comments extends React.Component {
                                     <CommentItem username={comment.username} body={comment.body} />
                                 </li>
                             }
-                        } 
-                        
-                        else { 
+                        } else { 
                             return <li key={comment.id} className="comment-box">
                                 {(comment.avatar) ?
                                     <Link to={`/user/${comment.username}`} className="comment-avatar-link"><img src={comment.avatar} className="comment-avatar" /></Link> :

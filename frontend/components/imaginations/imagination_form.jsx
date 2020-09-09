@@ -38,7 +38,7 @@ class ImaginationForm extends React.Component {
     formSubmission(e) { 
         e.preventDefault();
         if (this.state.clicked) return;
-        const formData = new FormData();
+        const formData = new FormData(); // We have to do it this way since we are uploading files
         if (this.validateForm()) { 
             this.setState({ clicked: true });
             if (this.props.formType === "Edit") { 
