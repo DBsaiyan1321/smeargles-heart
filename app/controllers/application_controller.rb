@@ -24,3 +24,4 @@ class ApplicationController < ActionController::Base #CRLLL
         @current_user = nil
     end 
 end
+
