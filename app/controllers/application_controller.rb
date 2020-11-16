@@ -25,3 +25,9 @@ class ApplicationController < ActionController::Base #CRLLL
     end 
 end
 
+# helper_method - makes the given method available to the view
+# current_user - set the @current_user based off of the session token if the @current_user hasn't already been set
+# require_login - redirect the user to the login page
+# login! - log the user in by setting their session token
+# logged_in? - check whether or not there is a current user
+# logout! - reset the session token in the DB, set the user's session token to nil, and set the current user to nil
