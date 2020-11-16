@@ -11,20 +11,19 @@ class ImaginationIndex extends React.Component {
 
     componentDidMount() { 
         window.scrollTo({ top: 0 })
-        this.props.fetchImaginations() // Causes a re-render
+        this.props.fetchImaginations() 
             .then(()=> this.setState({fetched: true}))
     }
 
     render() {
-        // debugger
         if (!this.state.fetched) {
-            return ( // First render
+            return (
                 <div className="index-spinner-container"> 
                     <WaveSpinner size={40} color="#4D4DFF" loading={true} />
                 </div > 
             )
         } else { 
-            return ( // 2nd render
+            return ( 
                 <div className="container">
                     <ul className="imaginations-index">
                         {this.props.imaginations.map(imagination => {

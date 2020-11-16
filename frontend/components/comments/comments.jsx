@@ -9,7 +9,6 @@ class Comments extends React.Component {
         super(props) 
 
         this.state = { 
-            // rerender: false, // To manually trigger a rerender for componentDidUpdate
             clicked: false,
             comment: props.comment,
             formType: "create"
@@ -26,19 +25,12 @@ class Comments extends React.Component {
     }
 
     componentDidMount() { 
-        // debugger
         this.props.fetchComments(this.props.imagination.id)
     }
 
-    // componentDidUpdate(prevProps) { 
-    //     if (prevProps.comments !== this.props.comments) { 
-    //         this.setState({ rerender: !this.state.rerender})
-    //     }
-    // }
-
-    typingInTextarea(type) { // This is how you handle nested objects in state
+    typingInTextarea(type) { 
         return e => {
-            let comment = Object.assign({}, this.state.comment) // Using Object.assign here fixed the issue where when I would edit the state it would visually edit the original on screen. 
+            let comment = Object.assign({}, this.state.comment) 
             comment[type] = e.target.value
             this.setState({ comment })
         }
@@ -107,7 +99,7 @@ class Comments extends React.Component {
                     </form>
                 )
             } else if (type === "edit") {
-                return ( // The edit works perfect even after the CommentForm
+                return ( 
                     <CommentForm
                         action={this.updateComment}
                         cancel={this.cancelEditComment}
@@ -127,7 +119,6 @@ class Comments extends React.Component {
     }
 
     render() {
-        // console.log(this.state)
         return (
             <div className="comments-container">
 
@@ -147,8 +138,8 @@ class Comments extends React.Component {
                                             <button onClick={e => this.deleteComment(e, comment)} className="owned-comments-buttons">Delete</button>
                                         </div>
                                     </CommentItem>
-                                </li> // Never forget to return in .map
-                            } else { // Needed this extra else condition because it would only render my comments if I didn't have it here
+                                </li> 
+                            } else { 
                                 return <li key={comment.id} className="comment-box">
                                     <CommentAvatar avatar={comment.avatar} username={comment.username} />                                 
                                     <CommentItem username={comment.username} body={comment.body} />

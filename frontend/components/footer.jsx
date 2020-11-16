@@ -3,7 +3,7 @@ import { AiOutlineGithub, AiFillLinkedin } from "react-icons/ai";
 import { FaAngellist } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const Footer = props => (
+const Footer = () => (
     <footer className="footer"> 
         <div className="footer-content"> 
             <div className="footer-logo"> 
