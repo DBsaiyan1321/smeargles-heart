@@ -16,16 +16,13 @@ class ImaginationShow extends React.Component {
     }
 
     componentDidMount() { 
-        // debugger
         window.previousUrl = this.props.match.url
         window.scrollTo({ top: 0 })
         this.props.fetchLikes(this.props.match.params.imaginationId) // Why does this order matter? 
             .then(() => this.props.fetchImagination(this.props.match.params.imaginationId))
     }
 
-    /**************************************************************************/
-
-    componentDidUpdate(prevProps) { // Craziness!
+    componentDidUpdate(prevProps) { 
         if (this.props.match.params.imaginationId !== prevProps.match.params.imaginationId) { 
             this.props.fetchLikes(this.props.match.params.imaginationId)
                 .then(() => this.props.fetchImagination(this.props.match.params.imaginationId))
@@ -34,14 +31,12 @@ class ImaginationShow extends React.Component {
 
     deletePost() { 
         this.props.deleteImagination(this.props.imagination.id) 
-            .then(() => this.props.history.push("/")) // This is the way to redirect the user to another page. 
+            .then(() => this.props.history.push("/")) 
     } 
-
-    /**************************************************************************/
 
     render() { 
         if (!this.props.imagination) return null 
-        // The arrows don't work as expected. Maybe when I fetch the imagination, I will fetch the one before and after it as well. So I would fetch three imaginations at a time.
+        
         return ( 
             <div>
                 <MainNavBar currentUser={this.props.currentUser} logout={this.props.logout} />
