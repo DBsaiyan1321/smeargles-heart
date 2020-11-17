@@ -16,3 +16,7 @@ const configureStore = (preloadedState = {}) => {
 };
 
 export default configureStore;
+
+// The store is just the global state. It's the reason why we use Redux
+// line 7 - we only add that middelware when the environment is not production
+// createStore - create the store with the given parameters

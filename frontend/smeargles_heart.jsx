@@ -3,8 +3,6 @@ import ReactDOM from "react-dom";
 import configureStore from "./store/store";
 import Root from "./components/root";
 
-import * as SearchActions from "./actions/search_actions";
-
 document.addEventListener("DOMContentLoaded", () => { 
     let store;
     if (window.currentUser) { 
@@ -24,11 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const root = document.getElementById("root")
 
-    // testing
-    // window.getState = store.getState;
-    window.dispatch = store.dispatch;
-    window.search = SearchActions.search
-    // end of testing
-
     ReactDOM.render(<Root store={store} />, root)
 });
+
+// DOMContentLoaded - event fires when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.
+// configureStore - refer to the store.js file under the store folder
+// ReactDOM.render - render the Root component in place of the HTML element with the "root" id in the root.html.erb view from the Rails part of the application
