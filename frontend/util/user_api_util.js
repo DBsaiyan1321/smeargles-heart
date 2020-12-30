@@ -21,3 +21,6 @@ export const updateUser = user => {
         processData: false
     })
 }
+
+// $.ajax - jQuery ajax way to make an ajax call
+// We hand it a HTTP method, the Rails route we want to send a request to, the payload (data object) we want to send up, contentType and processData false means what it says

@@ -42,3 +42,10 @@ class Api::UsersController < ApplicationController
         params.require(:user).permit(:username, :password, :email, :bio, :avatar)
     end
 end
+
+# the instance variables here can be used in the view that we send the data to
+# json: @user.errors.full_messages - since we are treating this as an API, we send a json error response to our frontend with the error messages
+# status: 422 - Unprocessable Entity, sending an error status code up lets the frontend know that there was an error. If I don't specify, I think it gives a 200 status code 
+# user_params - gives us the params sent up by the user
+# private - method defined under private can only be used by other methods from the same class, methods inherited from the parent class, methods included from a module
+

@@ -50,13 +50,10 @@ class SessionForm extends React.Component {
         }
 
         return (
-            <div className="user-auth-background">
-
-                <div className="user-auth">
-                    <Link className="user-auth-exit" to="/"><h1>X</h1></Link>
-
-
-                    <div className="user-auth-text">
+            <div className="auth-page">
+                <div className="auth-display">
+                    <Link className="auth-display__exit" to="/"><h1>X</h1></Link>
+                    <div className="auth-display__text">
                         {/* <Link to="/"> */}
                             <div className="top-text">
                                 <img src="https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargle-Head.png" alt="logo" className="logo" />
@@ -69,42 +66,40 @@ class SessionForm extends React.Component {
                     
 
 
-                    <form onSubmit={e => this.handleSubmit(e)} className="user-auth-form">
-                        <div className="top-text auth-form-logo">
+                    <form onSubmit={e => this.handleSubmit(e)} className="auth-form">
+                        <div className="top-text auth-form__logo">
                             <img src="https://smearglesheart-seeds.s3-us-west-1.amazonaws.com/Smeargle-Head.png" alt="logo" className="logo" />
                             <h3>SMEARGLE'S HEART</h3>
                         </div>
 
-                        <div className="user-auth-title-container">
+                        <div className="auth-form__title">
                             <h1>{title}</h1>
-                            <Link to={link} className="user-auth-link">{linkText}</Link>
+                            <Link to={link} className="auth-link">{linkText}</Link>
                         </div>
 
-                        <div className="user-auth-input-container">
+                        <div className="auth-input-container">
                             <div className="box">
                                 <input className="input" type="text" value={this.state.username} onChange={this.updateField("username")} required />
                                 <label className="label"> Username</label>
                             </div>
-                            {/* <br /> */}
 
                             {(this.props.formType === "signup") ? (
                                 <div className="box">
-                                    {/* <br /> */}
+    
                                     <input className="input" type="text" value={this.state.email} onChange={this.updateField("email")} required />
                                     <label className="label"> Email</label>
-                                    {/* <br /> */}
+    
                                 </div>
                                 ) : <></>
                             }
 
-                            {/* <br /> */}
                             <div className="box">
                                 <input className="input" type="password" value={this.state.password} onChange={this.updateField("password")} required />
                                 <label className="label"> Password</label>
                             </div>
                         </div>
                         {(this.props.errors) ? (
-                        <div className="user-auth-errors-container"> 
+                        <div className="auth-errors-container"> 
                             {this.props.errors.map((error, i) => <p key={i}>{error}</p>)}
                             <br /> 
                         </div> 
@@ -113,9 +108,9 @@ class SessionForm extends React.Component {
 
 
                         <div className="buttons">
-                            <button className="user-auth-button submit">{title.toUpperCase()}</button> 
+                            <button className="auth-button submit">{title.toUpperCase()}</button> 
                             { (this.props.formType === "login") ? 
-                                <button className="user-auth-button demo" onClick={() => this.demo()}>DEMO USER</button> :
+                                <button className="auth-button demo" onClick={() => this.demo()}>DEMO USER</button> :
                                 <></>
                             }
                         </div>
