@@ -1,5 +1,5 @@
 import React from "react"; 
-import MainNavBar from "../main_nav_bar";
+import MainNavBar from "../navbar/main_nav_bar";
 import { Link } from "react-router-dom";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { RiPencilLine } from "react-icons/ri";

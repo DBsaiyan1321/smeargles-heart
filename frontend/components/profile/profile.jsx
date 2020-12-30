@@ -1,6 +1,6 @@
 import React from "react"; 
 import ImaginationIndexItem from "../imaginations/imagination_index_item";
-import MainNavBar from "../main_nav_bar";
+import MainNavBar from "../navbar/main_nav_bar";
 import ModalForm from "./modal"
 import { WaveSpinner } from "react-spinners-kit";
 import Footer from "../footer";

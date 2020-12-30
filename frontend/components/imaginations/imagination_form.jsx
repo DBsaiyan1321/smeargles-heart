@@ -1,5 +1,5 @@
 import React from "react"; 
-import MainNavBar from "../main_nav_bar"
+import MainNavBar from "../navbar/main_nav_bar"
 import Footer from "../footer";
 import { PongSpinner } from "react-spinners-kit";
 
