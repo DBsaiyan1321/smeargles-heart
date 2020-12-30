@@ -21,20 +21,16 @@ const ImaginationShow = props => {
             .then(() => props.history.push("/"))
     };
 
-    
     if (!props.imagination) return null
 
     return (
         <div>
             <MainNavBar currentUser={props.currentUser} logout={props.logout} />
-
             <div className="show-container">
                 <div className="image-panel">
                     <img src={props.imagination.image} alt="broke" className="shown-image" />
                 </div>
-
                 <div className="bottom-half-of-show">
-
                     {(props.currentUser && (props.currentUser.id === props.imagination.artist_id))
                         ? <div className="user-owned-post">
                             <LikeButton {...props} />
@@ -46,7 +42,6 @@ const ImaginationShow = props => {
                         : <div className="unowned-post">
                             <LikeButton {...props} />
                         </div>}
-
                     <div className="title-container">
                         <h1 className="show-title">{props.imagination.title}</h1>
                         <div className="like-count"><AiFillStar /><p>{props.likeCount}</p></div>
@@ -56,7 +51,6 @@ const ImaginationShow = props => {
                         <span className="show-username"><Link to={`/user/${props.imagination.username}`}>{props.imagination.username}</Link></span>
                     </div>
                     <p className="show-description">{props.imagination.description}</p>
-
                     <Comments imagination={props.imagination} currentUser={props.currentUser} />
                 </div>
             </div>

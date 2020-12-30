@@ -2,17 +2,15 @@ import { connect } from "react-redux";
 import ImaginationForm from "./imagination_form";
 import { logout } from "../../actions/session_actions";
 import { fetchImagination, updateImagination } from "../../actions/imagination_actions";
-import React from "react";
+import React, { useEffect } from "react";
 
-class Edit extends React.Component { 
-    componentDidMount() {
-        this.props.fetchImagination(this.props.match.params.imaginationId)
-    }
+const Edit = props => {
+    useEffect(() => {
+        props.fetchImagination(props.match.params.imaginationId)
+    }, []);
 
-    render() { 
-        return (this.props.imagination) ? <ImaginationForm {...this.props} /> : null
-    }
-}
+    return props.imagination ? <ImaginationForm {...props} /> : null
+};
 
 const mapStateToProps = (state, ownProps) => ({
     currentUser: state.entities.users[state.session.id],
