@@ -11,7 +11,7 @@ const ImaginationIndexItem = ({imagination}) => (
             <p className="index-item-username">{imagination.username}</p>
         </div>
     </li>
-)
+);
 
 
 export default ImaginationIndexItem;

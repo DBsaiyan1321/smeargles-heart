@@ -3,15 +3,15 @@ import ImaginationIndexItem from "./imagination_index_item";
 import { WaveSpinner } from "react-spinners-kit";
 
 const ImaginationIndex = ({ imaginations, fetchImaginations }) => {
-    const [fetched, setFetched] = useState(false);
+    const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
         window.scrollTo({ top: 0 })
         fetchImaginations()
-            .then(() => setFetched(true))
+            .then(() => setIsLoaded(true))
     }, []); 
         
-    if (!fetched) {
+    if (!isLoaded) {
         return (
             <div className="index-spinner-container">
                 <WaveSpinner size={40} color="#4D4DFF" loading={true} />

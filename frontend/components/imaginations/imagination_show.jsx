@@ -1,4 +1,4 @@
-import React from "react"; 
+import React, { useEffect } from "react";
 import MainNavBar from "../navbar/main_nav_bar";
 import { Link } from "react-router-dom";
 import { FaRegTrashAlt } from "react-icons/fa";
@@ -8,75 +8,62 @@ import { AiFillStar } from "react-icons/ai";
 import Comments from "../comments/comments_container";
 import Footer from "../footer";
 
-class ImaginationShow extends React.Component { 
-    constructor(props) {
-        super(props)
-        
-        this.deletePost = this.deletePost.bind(this);
-    }
-
-    componentDidMount() { 
-        window.previousUrl = this.props.match.url
+const ImaginationShow = props => {
+    useEffect(() => { 
+        window.previousUrl = props.match.url
         window.scrollTo({ top: 0 })
-        this.props.fetchLikes(this.props.match.params.imaginationId) // Why does this order matter? 
-            .then(() => this.props.fetchImagination(this.props.match.params.imaginationId))
-    }
+        props.fetchLikes(props.match.params.imaginationId) // Why does this order matter? 
+            .then(() => props.fetchImagination(props.match.params.imaginationId))
+    }, [props.match.params.imaginationId]);
 
-    componentDidUpdate(prevProps) { 
-        if (this.props.match.params.imaginationId !== prevProps.match.params.imaginationId) { 
-            this.props.fetchLikes(this.props.match.params.imaginationId)
-                .then(() => this.props.fetchImagination(this.props.match.params.imaginationId))
-        }
-    }
+    const deletePost = () => {
+        props.deleteImagination(props.imagination.id)
+            .then(() => props.history.push("/"))
+    };
 
-    deletePost() { 
-        this.props.deleteImagination(this.props.imagination.id) 
-            .then(() => this.props.history.push("/")) 
-    } 
+    
+    if (!props.imagination) return null
 
-    render() { 
-        if (!this.props.imagination) return null 
-        
-        return ( 
-            <div>
-                <MainNavBar currentUser={this.props.currentUser} logout={this.props.logout} />
+    return (
+        <div>
+            <MainNavBar currentUser={props.currentUser} logout={props.logout} />
 
-                <div className="show-container">
-                    <div className="image-panel"> 
-                        <img src={this.props.imagination.image} alt="broke" className="shown-image" /> 
-                    </div>
-                    
-                    <div className="bottom-half-of-show">
-
-                        {(this.props.currentUser && (this.props.currentUser.id === this.props.imagination.artist_id))
-                        ? <div className="user-owned-post">
-                            <LikeButton {...this.props} />
-                            <div>
-                                <button onClick={() => this.deletePost()} className="user-owned-post-buttons"><FaRegTrashAlt /></button>
-                                <Link to={this.props.match.url + "/edit"} className="user-owned-post-buttons"><RiPencilLine /></Link>
-                            </div>
-                          </div>
-                        : <div className="unowned-post">
-                            <LikeButton {...this.props} />
-                          </div>}
-
-                        <div className="title-container">
-                            <h1 className="show-title">{this.props.imagination.title}</h1>
-                            <div className="like-count"><AiFillStar /><p>{this.props.likeCount}</p></div>
-                        </div>
-                        <div className="author">
-                            <span className="by">BY</span>
-                            <span className="show-username"><Link to={`/user/${this.props.imagination.username}`}>{this.props.imagination.username}</Link></span>
-                        </div>
-                        <p className="show-description">{this.props.imagination.description}</p>
-
-                        <Comments imagination={this.props.imagination} currentUser={this.props.currentUser} />
-                    </div>
+            <div className="show-container">
+                <div className="image-panel">
+                    <img src={props.imagination.image} alt="broke" className="shown-image" />
                 </div>
-                <Footer />
+
+                <div className="bottom-half-of-show">
+
+                    {(props.currentUser && (props.currentUser.id === props.imagination.artist_id))
+                        ? <div className="user-owned-post">
+                            <LikeButton {...props} />
+                            <div>
+                                <button onClick={() => deletePost()} className="user-owned-post-buttons"><FaRegTrashAlt /></button>
+                                <Link to={props.match.url + "/edit"} className="user-owned-post-buttons"><RiPencilLine /></Link>
+                            </div>
+                        </div>
+                        : <div className="unowned-post">
+                            <LikeButton {...props} />
+                        </div>}
+
+                    <div className="title-container">
+                        <h1 className="show-title">{props.imagination.title}</h1>
+                        <div className="like-count"><AiFillStar /><p>{props.likeCount}</p></div>
+                    </div>
+                    <div className="author">
+                        <span className="by">BY</span>
+                        <span className="show-username"><Link to={`/user/${props.imagination.username}`}>{props.imagination.username}</Link></span>
+                    </div>
+                    <p className="show-description">{props.imagination.description}</p>
+
+                    <Comments imagination={props.imagination} currentUser={props.currentUser} />
+                </div>
             </div>
-        )
-    }
-}
+            <Footer />
+        </div>
+    )
+};
+
 
 export default ImaginationShow;
