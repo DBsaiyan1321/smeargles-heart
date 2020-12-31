@@ -28,4 +28,3 @@ export const deleteComment = comment => {
     })
 };
 
-// Works well!

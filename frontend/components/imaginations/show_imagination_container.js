@@ -38,7 +38,7 @@ const mapStateToProps = (state, ownProps) => {
         existingLikeId,
         likeCount
     }
-}
+};
 
 const mapDispatchToProps = dispatch => ({
     fetchImagination: imaginationId => dispatch(fetchImagination(imaginationId)),
@@ -48,6 +48,6 @@ const mapDispatchToProps = dispatch => ({
     createLike: like => dispatch(createLike(like)),
     deleteLike: like => dispatch(deleteLike(like))
 
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(ImaginationShow);

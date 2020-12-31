@@ -1,17 +1,17 @@
 import React from "react";
 import ImaginationIndexContainer from "./imaginations/imagination_index_container";
-import MainNavBar from "./main_nav_bar";
+import MainNavBar from "./navbar/main_nav_bar";
 import Footer from "./footer";
 import BottomBar from "./BottomBar";
 
 const Greeting = props => {
     window.previousUrl = props.match.url
-
+    const { currentUser, logout } = props; 
     return (
         <div>
-            <MainNavBar currentUser={props.currentUser} logout={props.logout}/>
+            <MainNavBar currentUser={currentUser} logout={logout}/>
             <ImaginationIndexContainer />
-            { props.currentUser ? <></> : <BottomBar /> }
+            { currentUser ? <></> : <BottomBar /> }
             <Footer />
         </div>
     );
