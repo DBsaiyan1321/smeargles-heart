@@ -18,9 +18,7 @@ const SessionForm = props => {
     };
 
     useEffect(() => { 
-        return () => { 
-            props.clearErrors()
-        }
+        return () => props.clearErrors();
     }, []); 
 
     let title;
