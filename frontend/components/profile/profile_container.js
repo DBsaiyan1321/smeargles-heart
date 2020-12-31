@@ -23,8 +23,8 @@ const mapStateToProps = (state, ownProps) => {
     
     return { 
         targetUser, 
-        currentUser: state.entities.users[state.session.id],
-        ownedImaginations
+        currentUser: state.entities.users[state.session.id], 
+        ownedImaginations 
     }
 }
 
